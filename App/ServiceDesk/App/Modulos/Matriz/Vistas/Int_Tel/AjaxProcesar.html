@@ -1,0 +1,51 @@
+	{% extends 'Base/HFCguion.html' %}
+	
+	{% block Contenido %}
+	
+  
+    {% if Datos.data == 'Sin_Niveles' %}
+			{% if Datos.prioridad == '1' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/1.html' %}</div>			
+{% include 'Int_Tel/Prioridad/1.html' %}
+
+			{% elseif Datos.prioridad == '2' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/2.html' %}</div>	
+{% include 'Int_Tel/Prioridad/2.html' %}
+			
+			{% endif %}
+         {% endif %}
+         {% if Datos.data == 'Desf._Ruido' %}
+			{% if Datos.prioridad == '1' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/3.html' %}</div>	
+{% include 'Int_Tel/Prioridad/3.html' %}
+
+			{% elseif Datos.prioridad == '2' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/4.html' %}</div>	
+{% include 'Int_Tel/Prioridad/4.html' %}
+		
+			{% endif %}
+         {% endif %}
+         {% if Datos.data == 'Desf._Potencia' %}
+			{% if Datos.prioridad == '1' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/5.html' %}</div>	
+{% include 'Int_Tel/Prioridad/5.html' %}
+
+			{% elseif Datos.prioridad == '2' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/6.html' %}</div>	
+{% include 'Int_Tel/Prioridad/6.html' %}
+			
+			{% endif %}
+         {% endif %}
+         {% if Datos.data == 'Desf._Niveles' %}
+			{% if Datos.prioridad == '1' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/5.html' %}</div>	
+{% include 'Int_Tel/Prioridad/5.html' %}
+
+			{% elseif Datos.prioridad == '2' %}
+<div id="description" style="display: none;">{% include 'Int_Tel/Prioridad/6.html' %}</div>	
+{% include 'Int_Tel/Prioridad/6.html' %}
+		{% endif %}
+            
+   {% endif %}   
+
+	{% endblock %}

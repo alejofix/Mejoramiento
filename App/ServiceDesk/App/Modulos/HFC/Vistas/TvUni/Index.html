@@ -1,0 +1,326 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+	{% include 'Menus/menu_hfc.html' %}		
+			
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Creación de Guión | Afectación TV Unidireccional</strong>
+						</div>
+						<div class="panel-options">
+							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+							<a href="{{ NeuralRutaApp|e }}/HFC/TvUni"><i class="entypo-arrows-ccw"></i></a>
+						</div>
+					</div>
+					
+					<div class="panel-body">
+						
+						<form class="form-horizontal form-groups-bordered" id="FormularioGuion" name="guion" action='javascript:;' method='post' role="form">
+							
+							{# 
+                       			/**
+                       			 *	Input de AVISO
+                       			 *
+                       			 *	Input asociado a columna AVISO en la tabla
+                       			 *	GUIONES_REGISTRO
+                       			 *	@param integer
+                       			 */
+							#}
+							<div class="form-group">
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Número Aviso</strong></label>
+    								<div class="col-sm-5">
+    									<input type="text" class="form-control" name="AVISO" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required/>
+    								</div>
+                                </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            {# 
+                       			/**
+                       			 *	Input de PRIORIDAD
+                       			 *
+                       			 *	Input asociado a columna PRIORIDAD en la tabla
+                       			 *	GUIONES_REGISTRO_HFC la cual es una relacion de
+                       			 *	de la tabla PRIORIDADES
+                       			 */
+							#}
+                            <div class="form-group">
+                           		
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Prioridad</strong></label>
+    								<div class="col-sm-5">
+                                        <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
+                                            <option value="">Seleccione una Opción</option>
+											<optgroup>
+											
+												{% if prioridades|length >= 1 %}
+													
+													{% for prioridad in prioridades %}
+														<option value="{{ prioridad.ID|e }}">{{ prioridad.NOMBRE|e }}</option>
+													{% endfor %}
+													
+												{% endif %}
+												
+											</optgroup>
+                                        </select>	
+    								</div>
+                                </div>
+                                
+                                                           
+                            </div>
+                            
+							<!-- line -->
+                            {# 
+                       			/**
+                       			 *	Input de HORA SOLUCIÓN  
+                       			 *
+                       			 *	Define la Hora manual terminación Aviso
+                       			 * 	
+                       			 */ 
+							#}
+                  			
+                            
+     						<div class="form-group">
+								
+								<div class="col-md-12">
+								
+									<label class="col-sm-3 control-label" ><strong>Hora Solución</strong></label>
+								
+										<div class="col-sm-5">
+											<div class="input-group minimal">
+												<input class="form-control" name="HORAFIN" id="horafin" type="text" />
+											</div>
+										</div>
+	
+								</div>
+								
+							</div>
+							
+							<!-- -->
+														{# 
+                       			/**
+                       			 *	Input de AVERIA   
+                       			 *
+                       			 *	Define ?????
+                       			 * 	
+                       			 */ 
+							#}
+							
+							<div class="form-group">
+							
+							 	<div class="col-md-12">
+	                            		<label class="col-sm-3 control-label"><strong>Avería</strong></label>
+	    								<div class="col-sm-5">
+	                                        
+											<select name="AVERIA" class="form-control" required/>
+												<option value="">Seleccione una Opción</option>
+													<optgroup>
+													{% for averia in listaAveria %}
+														{% if averia.SERVICIO == '3' %}
+														<option value="{{ averia.GUION }}">{{ averia.NOMBRE }}</option>
+														{% endif %}
+													{% endfor %}
+													</optgroup>
+											</select>
+												
+	    								</div>
+	                                </div>
+							
+							</div>
+							
+							<!-- -->
+                            {# 
+                       			/**
+                       			 *	Input de Razón Avería 
+                       			 *
+                       			 *	Asociado a tipo de Guion por Razón Avería
+                       			 *	DEFINE EL CAMPO GUION  
+                       			 */
+							#}
+                  			
+						    <div class="form-group">
+								
+								<div class="col-md-12">
+									<label class="col-sm-3 control-label"><strong>Razón Avería</strong></label>
+										<div class="col-sm-5">
+											<select class="form-control" name="RAZON" id="razon" required/>
+												<option value="">Seleccione una Opción</option>
+												<optgroup>
+											
+													{% for razon in razonAveria %}
+    													<option value="{{ razon.ID|e }}">{{ razon.NOMBRE|e}}</option>
+    												{% endfor %}
+											
+												</optgroup>
+											</select>
+										</div>
+								</div>
+							
+							</div>
+                            
+
+	                        {# 
+                       			/**
+                       			 *	Input de UBICACION
+                       			 *
+                       			 *	Input asociado a columna UBICACION en la tabla
+                       			 *	GUIONES_REGISTRO la cual es una relacion de
+                       			 *	de la tabla GUIONES_REGISTRO_UBICACION
+                       			 */
+							#}
+                            <div class="form-group">
+                            
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Lugar afectación</strong></label>
+        								<div class="col-sm-5">
+                                            <select class="form-control" name="UBICACION" id="ubicacion" required/>
+                                                <option value="">Seleccione una Opción</option> 
+                                                  <optgroup>
+                                                  
+                                                  	{% if ubicaciones|length >= 1 %}
+                                                  		
+                                                  		{% for ubicacion in ubicaciones %}
+                                                  			<option value="{{ ubicacion.ID|e }}">{{ ubicacion.NOMBRE|e }}</option>
+                                                  		{% endfor %}
+                                                  		
+                                                  	{% endif %}
+                                                    
+                                                  </optgroup>
+                                                 
+                                            </select>
+                                        </div> 
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="form-group">
+
+                                <div class="col-md-12" id="cargaAjaxUbicacion">
+                        	 
+                                </div>
+                                
+                            </div>
+
+                            <!-- line -->
+                            
+                           
+                            <div class="form-group">
+                            
+                            	<div class="col-md-12">
+                                    <label class="col-sm-3 control-label"><strong>Intermitencia</strong></label>
+                            		<div class="col-sm-3 control-label">
+    									<div class="checkbox">
+    										<label>
+                                                <input name="INTERMITENCIA" value="SI" type="checkbox">
+    										</label>
+    									</div>
+								    </div>
+				                </div>
+                
+                        	</div>
+							
+                            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                                <div class="form-group">
+								    <div class="col-sm-offset-3 col-sm-5">
+											
+											<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Triple Play - HFC" data-original-title="Generador de Guión">
+								                Crear Guión 
+								                <i class="entypo-check"></i>
+							                 </button>
+							                 
+                                            		<input type="hidden" name="AFECTACION" value="TV_Uni">
+	                                            	<input type="hidden" name="TIPO" value="1"/>
+				          
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+                								Borrar Formulario 
+                								<i class="entypo-trash"></i>
+                							</button>
+									</div>
+					           </div>
+                            {% endif %}
+
+
+						</form>
+						
+					</div>
+				
+				</div>
+	
+
+
+<div class="row" id="Respuesta" style="margin-top: 35px;"></div>
+
+<!-- fin -->
+    {% endblock %}
+	
+        {% block Script %}
+        
+        
+        
+	<!-- Imported scripts on this page -->
+
+	<script src="{{NeuralRutaWebPublico}}/assets/js/bootstrap-datepicker.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/bootstrap-timepicker.min.js"></script>
+        
+            <style type="text/css">
+            	.error {
+            		font-family: verdana;
+            		font-size: 10px;
+            		font-weight: bold;
+            		color: red;
+            	}
+            	
+            	.zyos label {
+            		color: red;
+            		display: block;
+            		width: 100%;
+            	}
+            </style>
+            
+            <script type="text/javascript">
+    			$(document).ready(function() {
+    				$("#borrar").click(function() {
+    					 $("#FormularioGuion")[0].reset();
+    				});
+    			 });
+		      </script>
+            
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+            	
+            	<script type="text/javascript" src="{{ NeuralRutaApp|e }}/HFC/TvUni/ajaxJs/ajax.js"></script>
+				<script type="text/javascript" src="{{ NeuralRutaApp|e }}/HFC/TvUni/Horas/Horas.js"></script>
+				{# 
+           			/**
+           			 *	{{ validacion|raw }}
+           			 *
+           			 *	variable que contiene el script de jquery
+           			 *	que genera la validacion del formulario
+           			 */
+				#}
+				{{ validacion|raw }}
+				
+				{# 
+           			/**
+           			 *	{{ selectDependiente|raw }}
+           			 *
+           			 *	variable que contiene el script de jquery
+           			 *	que genera el select dependiente del campo
+           			 *	UBICACION
+           			 */
+				#}
+				{{ selectDependiente|raw }}
+				
+				
+            	
+            {% endif %}
+        
+        
+        {% endblock %}

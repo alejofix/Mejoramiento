@@ -1,0 +1,530 @@
+<!-- AUI Documentation -->
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>.:: NeuralPHP Framework [ Documentación ] ::.</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			
+			<!-- Favicons -->
+			
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" href="assets/images/icons/apple-touch-icon-57-precomposed.png">
+			<link rel="shortcut icon" href="assets/images/icons/favicon.png">
+			
+			<!--[if lt IE 9]>
+			<script src="assets/js/minified/core/html5shiv.min.js"></script>
+			<script src="assets/js/minified/core/respond.min.js"></script>
+			<![endif]-->
+			
+			<!-- Fides Admin CSS Core -->
+			
+			<link rel="stylesheet" type="text/css" href="assets/css/minified/aui-production.min.css">
+			
+			<!-- Theme UI -->
+			
+			<link id="layout-theme" rel="stylesheet" type="text/css" href="assets/themes/minified/fides/color-schemes/dark-blue.min.css">
+			
+			<!-- Fides Admin Responsive -->
+			
+			<link rel="stylesheet" type="text/css" href="assets/themes/minified/fides/common.min.css">
+			<!-- <link rel="stylesheet" type="text/css" href="assets/themes/fides/common.css"> -->
+			
+			<link id="theme-animations" rel="stylesheet" type="text/css" href="assets/themes/minified/fides/animations.min.css">
+			
+			<link rel="stylesheet" type="text/css" href="assets/themes/minified/fides/responsive.min.css">
+			
+			<!-- Fides Admin JS -->
+			
+			<script type="text/javascript" src="assets/js/minified/aui-production.min.js"></script>
+			
+			<script type="text/javascript" src="assets/js/minified/core/raphael.min.js"></script>
+			<script type="text/javascript" src="assets/js/minified/widgets/charts-justgage.min.js"></script>
+		</head>
+		
+		<body>
+			<div class="rm-from-production">
+				<script type="text/javascript" src="assets/syntax-highlighter/scripts/shCore.js"></script>
+				<script type="text/javascript" src="assets/syntax-highlighter/scripts/shBrushPhp.js"></script>
+				<link type="text/css" rel="stylesheet" href="assets/syntax-highlighter/styles/shCoreDefault.css">
+				<script type="text/javascript">SyntaxHighlighter.all();</script>
+			</div>
+			
+			<div id="loading" class="ui-front loader ui-widget-overlay bg-white opacity-100">
+				<img src="assets/images/loader-dark.gif" alt="">
+			</div>
+			
+			<div id="page-wrapper">
+				<div id="page-header" class="clearfix">
+					<div id="header-logo">Documentación 3.0</div>
+					<div class="top-icon-bar">
+					<!-- -->    
+					</div>
+				</div><!-- #page-header -->
+			
+				<div id="page-sidebar" class="scrollable-content">
+					<div id="sidebar-menu">
+						<ul>
+							<li><a href="index.html" title="Dashboard"><i class="glyph-icon icon-dashboard"></i>Inicio</a></li>
+							<li>
+								<a href="javascript:;" title="Bases de Datos"><i class="glyph-icon icon-table"></i>Base Datos</a>
+								<ul>
+									<li><a href="NeuralConexionDB.html" title="NeuralConexionDB"><i class="glyph-icon icon-chevron-right"></i>Conexion Base Datos</a></li>
+									<li><a href="NeuralBDConsultas.html" title="NeuralBDConsultas"><i class="glyph-icon icon-chevron-right"></i>Consultas</a></li>
+									<li><a href="NeuralBDGab.html" title="NeuralBDGab"><i class="glyph-icon icon-chevron-right"></i><sub>Guardar - Actualizar - Eliminar</sub></a></li>
+								</ul>
+							</li>
+							<li><a href="NeuralCorreoSwiftMailer.html" title="NeuralCorreoSwiftMailer"><i class="glyph-icon icon-envelope-o"></i>Correo</a></li>
+							<li><a href="NeuralCriptografia.html" title="NeuralCriptografia"><i class="glyph-icon icon-gears"></i>Criptografia</a></li>
+							<li>
+								<a href="javascript:;" title="JQuery"><i class="glyph-icon icon-code"></i>JQuery</a>
+								<ul>
+									<li><a href="NeuralJQueryAjaxConstructor.html" title="NeuralJQueryAjaxConstructor"><i class="glyph-icon icon-chevron-right"></i>Constructor Ajax</a></li>
+									<li><a href="NeuralJQueryConstructor.html" title="NeuralJQueryConstructor"><i class="glyph-icon icon-chevron-right"></i>Constructor JQuery</a></li>
+									<li><a href="NeuralJQueryScript.html" title="NeuralJQueryScript"><i class="glyph-icon icon-chevron-right"></i>Scripts Construidos</a></li>
+									<li><a href="NeuralJQValidacion.html" title="NeuralJQValidacion"><i class="glyph-icon icon-chevron-right"></i>Validación Formularios</a></li>
+								</ul>
+							</li>
+							<li><a href="NeuralPlantillasTwig.html" title="NeuralPlantillasTwig"><i class="glyph-icon icon-outdent"></i>Plantillas</a></li>
+							<li><a href="NeuralSesiones.html" title="NeuralSesiones"><i class="glyph-icon icon-terminal"></i>Sesiones</a></li>
+						</ul>
+						<div class="divider mrg5T mobile-hidden"></div>
+					</div>
+				</div><!-- #page-sidebar -->
+			
+			
+				<div id="menu-right" class="scrollable-content hidden">
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Cloud status
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open pad20T pad20B">
+				
+				<div class="row">
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="55"><span>55</span>%</div>
+				</div>
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="46"><span>46</span>%</div>
+				</div>
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="92"><span>92</span>%</div>
+				</div>
+				</div>
+				<div class="divider"></div>
+				<div class="text-center">
+				<a href="javascript:;" class="btn center-div ui-state-default small text-transform-upr updateEasyPieChart">
+				<span class="button-content font-normal">
+				<i class="glyph-icon icon-refresh float-left"></i>
+				Refresh all pie charts
+				</span>
+				</a>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Realtime Rate
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open clearfix">
+				
+				<div id="g10" class="small-gauge float-left"></div>
+				<div id="g11" class="small-gauge float-right"></div>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Tasks for today
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<ul class="progress-box progress-box-alt">
+				<li>
+				<div class="progress-title">
+				New features development
+				<b>87%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="87">
+				<div class="progressbar-value bg-azure">
+				<div class="progressbar-overlay"></div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>66%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="66">
+				<div class="progressbar-value bg-red">
+				<div class="progressbar-overlay"></div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>58%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="58">
+				<div class="progressbar-value bg-blue-alt"></div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>74%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="74">
+				<div class="progressbar-value bg-purple"></div>
+				</div>
+				</li>
+				</ul>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Pending notifications
+				<span class="badge bg-orange tooltip-button" title="Orange badge">4</span>
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<ul class="notifications-box remove-border">
+				<li>
+				<span class="btn bg-red radius-all-100 icon-notification glyph-icon icon-glass"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				<li>
+				<span class="btn bg-blue-alt radius-all-100 icon-notification glyph-icon icon-leaf"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				<li>
+				<span class="btn bg-yellow radius-all-100 icon-notification glyph-icon icon-trophy"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				</ul>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Sales for today
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				<div class="info-box mrg10B bg-white remove-border radius-all-4 tooltip-button" title="4px border radius">
+				<div class="chart-icon">
+				<div class="sprk-1-dash">5,6,7,5,9,8,6,3,2,1,2,4,2,2,4,6,7</div>
+				</div>
+				<b>Current growth</b>
+				<span class="stats font-blue">
+				<i class="glyph-icon icon-chevron-down font-red"></i>
+				765
+				<span class="font-orange">-8.1</span>
+				</span>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Rate
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<div class="tabs">
+				<ul>
+				<li>
+				<a href="#core-helpers-tabs-1" title="Tab 1">
+				<i class="glyph-icon icon-archive font-blue font-size-23"></i>
+				</a>
+				</li>
+				<li>
+				<a href="#core-helpers-tabs-2" title="Tab 2">
+				<i class="glyph-icon icon-beaker font-black font-size-23"></i>
+				</a>
+				</li>
+				<li>
+				<a href="#core-helpers-tabs-3" title="Tab 3">
+				<i class="glyph-icon icon-cogs font-green font-size-23"></i>
+				</a>
+				</li>
+				</ul>
+				<div id="core-helpers-tabs-1">
+				Rate
+				</div>
+				<div id="core-helpers-tabs-2">
+				Rate
+				</div>
+				<div id="core-helpers-tabs-3">
+				Rate
+				</div>
+				</div>
+				
+				</div>
+				</div>
+			
+				<div id="page-content-wrapper">
+					<!-- Contenido -->
+						<div id="page-title">
+							<h3>
+								NeuralJQueryConstructor
+								<small>
+									Clase de Ayuda para la Creación de Script JQuery.
+								</small>
+							</h3>
+						</div>
+						
+						<div id="page-content">
+							<p>
+								NeuralPHP Framework provee una clase para generar scripts de JQuery de forma simple.
+							</p>
+							<br />
+							<hr />
+							
+							<br />
+							
+							<h3>Inicializar('Etiquetas Script', 'Libreria JQuery')</h3>
+							<br />
+							<p>
+								Genera las etiquetas <strong>Script</strong> y agrega la libreria de <strong>JQuery</strong>.
+								<br />
+								Este metodo no es necesario en dado caso que se generen scripts sobre algunas funciones de otros scripts. Solo aceptan valores booleanos.
+							</p>
+							<pre class="brush: php;">NeuralJQueryConstructor::Inicializar(true, true);</pre>
+							
+							<br /><br />
+							
+							<h3>DocumentoListo()</h3>
+							<br />
+							<p>
+								Genera el codigo $(document).ready().
+							</p>
+							<pre class="brush: php;">NeuralJQueryConstructor::DocumentoListo();</pre>
+							
+							<br /><br />
+							
+							<h3>AccionAparecer('Selector', 'Duración', 'Función')</h3>
+							<br />
+							<p>
+								Genera la transición de Aparecer, función JQuery: fadeIn().
+								<br />
+								<ul>
+									<li><strong>Selector</strong>: Selector de la etiqueta html ya sea del #Id ó de la .Clase</li>
+									<li><strong>Duración</strong>: Duración en segundos de la transición</li>
+									<li><strong>Función</strong>: valor true para seguir agregando funciones de lo contrario valor false</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">
+								/**
+								 * Manejar solo el Selector
+								 * El tiempo se manejara por defecto 400ms
+								 */
+								NeuralJQueryConstructor::AccionAparecer('#IdDiv');
+								
+								/**
+								 * Manejar el Selector y tiempo
+								 */
+								NeuralJQueryConstructor::AccionAparecer('#IdDiv', 3);
+								
+								/**
+								 * Manejar solo el Selector, tiempo y una función adicional
+								 */
+								NeuralJQueryConstructor::AccionAparecer('#IdDiv', 3, true)->MostrarAlerta('"Se Muestra el DIV"');</pre>
+							
+							<br /><br />
+							
+							<h3>AccionCargar('Selector', 'URL', 'Función', 'Parametros')</h3>
+							<br />
+							<p>
+								Genera la carga de una URL a través de una petición Ajax, función JQuery: load().
+								<br />
+								<ul>
+									<li><strong>Selector</strong>: Selector de la etiqueta html ya sea del #Id ó de la .Clase</li>
+									<li><strong>URL</strong>: url donde se enviara la petición correspondiente.</li>
+									<li><strong>Función</strong>: valor true para seguir agregando funciones de lo contrario valor false.</li>
+									<li><strong>Parametros</strong>: matriz de datos POST que se enviaran junto con la petición.</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">
+								/**
+								 * Petición de solo carga
+								 */
+								NeuralJQueryConstructor::AccionCargar('#IdDiv', 'http://dominio.com/');
+								
+								/**
+								 * Petición con envio de datos POST
+								 */
+								NeuralJQueryConstructor::AccionCargar('#IdDiv', 'http://dominio.com/', false, array('Nombre' => 'Valor'));
+								
+								/**
+								 * Petición con envio de datos POST y función de confirmación de Finalización de Petición
+								 */
+								NeuralJQueryConstructor::AccionCargar('#IdDiv', 'http://dominio.com/', true, array('Nombre' => 'Valor'))->MostrarAlerta('"Se Cargo la Petición"');
+							</pre>
+							
+							<br /><br />
+							
+							<h3>AccionClick('Selector')</h3>
+							<br />
+							<p>
+								Genera la accion al generar click en el elemento seleccionado, función JQuery click().
+								<br />
+								<ul>
+									<li><strong>Selector</strong>: Selector de la etiqueta html ya sea del #Id ó de la .Clase</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">NeuralJQueryConstructor::AccionClick('#IdDiv');</pre>
+							
+							<br /><br />
+							
+							<h3>AccionDesaparecer('Selector', 'Duración', 'Función')</h3>
+							<br />
+							<p>
+								Genera la transición de Desaparecer, función JQuery: fadeOut().
+								<br />
+								<ul>
+									<li><strong>Selector</strong>: Selector de la etiqueta html ya sea del #Id ó de la .Clase</li>
+									<li><strong>Duración</strong>: Duración en segundos de la transición</li>
+									<li><strong>Función</strong>: valor true para seguir agregando funciones de lo contrario valor false</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">
+								/**
+								 * Manejar solo el Selector
+								 * El tiempo se manejara por defecto 400ms
+								 */
+								NeuralJQueryConstructor::AccionDesaparecer('#IdDiv');
+								
+								/**
+								 * Manejar el Selector y tiempo
+								 */
+								NeuralJQueryConstructor::AccionDesaparecer('#IdDiv', 3);
+								
+								/**
+								 * Manejar solo el Selector, tiempo y una función adicional
+								 */
+								NeuralJQueryConstructor::AccionDesaparecer('#IdDiv', 3, true)->MostrarAlerta('"Desaparecio el DIV"');</pre>
+							
+							<br /><br />
+							
+							<h3>AccionIntervaloTiempo('Duración')</h3>
+							<br />
+							<p>
+								Genera la carga de una función especifica continua en un intervalo según la duración ingresada, función JQuery: setInterval.
+								<br />
+								<ul>
+									<li><strong>Duración</strong>: Duración en segundos del intervalo</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">NeuralJQueryConstructor::AccionIntervaloTiempo(10);</pre>
+							
+							<br /><br />
+							
+							<h3>Css('Selector', 'Matriz de Propiedades')</h3>
+							<br />
+							<p>
+								Genera el cambio de estilos de la etiqueta seleccionada, función JQuery: css().
+								<br />
+								<ul>
+									<li><strong>Selector</strong>: Selector de la etiqueta html ya sea del #Id ó de la .Clase</li>
+									<li><strong>Matriz de Propiedades</strong>: Matriz asociativo con las propiedades css que se manejaran en el selector</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">NeuralJQueryConstructor::Css('#IdDiv', array('font-family' => 'verdana', 'color' => '#2E64FE'));</pre>
+							
+							<br /><br />
+							
+							<h3>InsertarHTML('Selector', 'HTML')</h3>
+							<br />
+							<p>
+								Inserta las etiquetas HTML en la etiqueta del selector, función JQuery: html().
+								<br />
+								<ul>
+									<li><strong>Selector</strong>: Selector de la etiqueta html ya sea del #Id ó de la .Clase</li>
+									<li><strong>HTML</strong>: etiquetas y estructuras HTML, tambien puede insertarse texto o algún contenido diferente al HTML.</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">NeuralJQueryConstructor::InsertarHTML('#IdDiv', '<h1>NeuralPHP Framework</h1>');</pre>
+							
+							<br /><br />
+							
+							<h3>MostrarAlerta('Texto a Mostrar')</h3>
+							<br />
+							<p>
+								Genera una alerta de JavaScript, función JQuery: alert().
+								<br />
+								<ul>
+									<li><strong>Texto a Mostrar</strong>: Texto o procedimiento de JavaScript</li>
+								</ul>
+							</p>
+							<pre class="brush: php;">
+								/**
+								 * Alerta Simple
+								 */
+								NeuralJQueryConstructor::MostrarAlerta('"Esta es Una Alerta Simple"');
+								
+								/**
+								 * Alerta Compuesta
+								 */
+								NeuralJQueryConstructor::MostrarAlerta('"Texto JavaScript " + Variable_JavaScript');</pre>
+							
+							<br /><br />
+							<hr />
+							
+							<h2>Ejemplos de Uso</h2>
+							<h3>Cargar Petición Ajax Haciendo Click en Hipervinculo</h3>
+							<p>PHP</p>
+							<pre class="brush: php;">
+								return NeuralJQueryConstructor::Inicializar(true)
+																->DocumentoListo()
+																->AccionClick('#IdLink')
+																->AccionCargar('#IdDiv', 'http://dominio.com/');
+							</pre>
+							<p>SALIDA</p>
+							<pre class="brush: php;">
+								<script type="text/javascript">
+									$(document).ready(function() {
+										$("#IdLink").click(function() {
+											$("#IdDiv").load("http://dominio.com/");
+										});
+									});
+								</script>
+							</pre>
+							
+							<br /><br />
+							<h3>Cargar Petición En un Intervalo de Tiempo</h3>
+							<p>PHP</p>
+							<pre class="brush: php;">
+								return NeuralJQueryConstructor::Inicializar(true)
+																->DocumentoListo()
+																->AccionCargar('#IdDiv', 'http://dominio.com/', true)
+																->AccionIntervaloTiempo(10)
+																->AccionCargar('#IdDiv', 'http://dominio.com/');
+							</pre>
+							<p>SALIDA</p>
+							<pre class="brush: php;">
+								<script type="text/javascript">
+									$(document).ready(function() {
+										$("#IdDiv").load("http://dominio.com/", function() {
+											setInterval(function() {
+												$("#IdDiv").load("http://dominio.com/");
+											}, 10);
+										});
+									});
+								</script>
+							</pre>
+						</div>
+						
+					<!-- Fin Contenido -->
+				</div><!-- #page-main -->
+			</div><!-- #page-wrapper -->
+		</body>
+	</html>

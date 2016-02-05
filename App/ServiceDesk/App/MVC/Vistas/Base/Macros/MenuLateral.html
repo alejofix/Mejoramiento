@@ -1,0 +1,196 @@
+	{% macro elemento(permiso, modulo, URL, icono, nombre, direccion) %}
+ 		{% if permiso == true%}
+ 			<li class="{{ URL.1 == modulo ? 'active' }}">
+					<a href="{{ NeuralRutaApp|e }}/{{ direccion|e }}">
+						<i class="{{ icono|e }}"></i>
+		              	<span class="title">{{ nombre|e }}</span>
+					</a>
+		    </li>
+ 		{% endif %}
+	{% endmacro %}
+	
+	{% macro sub_elemento2(permiso, modulo, controlador, URL, icono, nombre, direccion) %}
+ 		{% if permiso == true %}
+ 			<li class="{{ URL.1 == modulo and URL.2 == controlador ? 'active' }}">
+					<a href="{{ NeuralRutaApp|e }}/{{ direccion|e }}">
+						<i class="{{ icono|e }}"></i>
+		              	<span class="title">{{ nombre|e }}</span>
+					</a>
+		    </li>
+ 		{% endif %}
+	{% endmacro %}
+	
+	{% macro sub_elemento3(permiso, modulo, controlador, metodo, URL, icono, nombre, direccion) %}
+ 		{% if permiso == true %}
+ 			<li class="{{ URL.1 == modulo and URL.2 == controlador and URL.3 == metodo ? 'active' }}">
+					<a href="{{ NeuralRutaApp|e }}/{{ direccion|e }}">
+						<i class="{{ icono|e }}"></i>
+		              	<span class="title">{{ nombre|e }}</span>
+					</a>
+		    </li>
+ 		{% endif %}
+	{% endmacro %}
+	
+	{% macro chat_lateral(permiso, chat, icono, nombre) %}
+ 		{% if permiso.LECTURA == true %}
+			{% if chat|length >= 1 %}
+				<li>
+					<a href="javascript:;" data-toggle="chat" data-collapse-sidebar="1">
+						<i class="{{ icono|e }}"></i> {{ nombre|e }}
+						<span class="badge badge-success chat-notifications-badge is-hidden" id="cantidadChat2">0</span>
+					</a>
+				</li>
+	       	{% endif %}
+        {% endif %}
+	{% endmacro %}
+	
+	{% macro hfc(permiso, URL, modulo, icono) %}
+		{% import _self as menu %}
+		{% if permiso.LECTURA == true %}
+			<li class="{{ URL.1 == modulo ? 'opened active root-level has-sub' }}">
+				<a href="javascript:;">
+					<i class="{{ icono|e }}"></i>	
+        			<span class="title">Guiones HFC</span>
+				</a>
+				<ul>
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'TriplePlay', URL, '', 'Triple Play', modulo ~ '/TriplePlay') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'TvBi', URL, '', 'Tv BiDireccional', modulo ~ '/TvBi') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'TvUni', URL, '', 'Tv UniDireccional', modulo ~ '/TvUni') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'Int_Tel', URL, '', 'Internet y Telefonía', modulo ~ '/Int_Tel') }}
+				</ul>
+			</li>
+		{% endif %}
+	{% endmacro %}
+	
+	{% macro matriz(permiso, URL, modulo, icono) %}
+		{% import _self as menu %}
+		{% if permiso.LECTURA == true %}
+			<li class="{{ URL.1 == modulo ? 'opened active root-level has-sub' }}">
+				<a href="javascript:;">
+					<i class="{{ icono|e }}"></i>	
+        			<span class="title">Guiones Cta. Matriz</span>
+				</a>
+				<ul>
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'Play3', URL, '', 'Triple Play', modulo ~ '/Play3') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'TvBi', URL, '', 'Televisión', modulo ~ '/TvBi') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'Int_Tel', URL, '', 'Internet y Telefonía', modulo ~ '/Int_Tel') }}
+				</ul>
+			</li>
+		{% endif %}
+	{% endmacro %}
+	
+	{% macro plataforma(permiso, URL, modulo, icono) %}
+		{% import _self as menu %}
+		{% if permiso.LECTURA == true %}
+			<li class="{{ URL.1 == modulo ? 'opened active root-level has-sub' }}">
+				<a href="javascript:;">
+					<i class="{{ icono|e }}"></i>	
+        			<span class="title">Guiones Plataforma</span>
+				</a>
+				<ul>
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'Generales', URL, '', 'Generales', modulo ~ '/Generales') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'CableModem', URL, '', 'Internet', modulo ~ '/CableModem') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'Decodificadores', URL, '', 'Televisión', modulo ~ '/Decodificadores') }}
+					{{ menu.sub_elemento2(permiso.LECTURA, modulo, 'Telefonia', URL, '', 'Telefonía', modulo ~ '/Telefonia') }}
+				</ul>
+			</li>
+		{% endif %}
+	{% endmacro %}
+	
+	{% macro comunicacion(permiso, URL, modulo, icono) %}
+		{% import _self as menu %}
+		{% if permiso.LECTURA == true %}
+			<li class="{{ URL.1 == modulo ? 'opened active root-level has-sub' }}">
+				<a href="javascript:;">
+					<i class="{{ icono|e }}"></i>	
+        			<span class="title">Módulo de Comunicación</span>
+				</a>
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Alto_Impacto' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-attention"></i>	
+		        			<span class="title">Alto Impacto</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Alto_Impacto', 'Index', URL, 'entypo-upload', 'Ingresar Alto Impacto', modulo ~ '/Alto_Impacto/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Alto_Impacto', 'Listado', URL, 'entypo-download', 'Listado', modulo ~ '/Alto_Impacto/Listado') }}
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Informativos' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-info"></i>	
+		        			<span class="title">Informativos</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Informativos', 'Index', URL, 'entypo-upload', 'Ingresar Informativo ', modulo ~ '/Informativos/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Informativos', 'Index', URL, 'entypo-download', 'Listado', modulo ~ '/Informativos/Index') }}
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Notas' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-newspaper"></i>	
+		        			<span class="title">Notas</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Notas', 'Index', URL, 'entypo-upload', 'Ingresar Nota ', modulo ~ '/Notas/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Notas', 'Index', URL, 'entypo-download', 'Listado', modulo ~ '/Notas/Index') }}
+						</ul>
+					</li>
+				</ul>
+			</li>
+		{% endif %}
+	{% endmacro %}
+	
+	
+	{% macro mejoramiento(permiso, URL, modulo, icono) %}
+		{% import _self as menu %}
+		{% if permiso.LECTURA == true %}
+			<li class="{{ URL.1 == modulo ? 'opened active root-level has-sub' }}">
+				<a href="javascript:;">
+					<i class="{{ icono|e }}"></i>	
+        			<span class="title">APP Mejoramiento</span>
+				</a>
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Mejoras_CCAA' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-database"></i>	
+		        			<span class="title">Mejoras CCAA</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Mejoras_CCAA', 'Index', URL, 'entypo-folder', 'Ingreso', modulo ~ '/Mejoras_CCAA/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Mejoras_CCAA', 'Listado', URL, 'entypo-archive', 'Reportes', modulo ~ '/Mejoras_CCAA/Reportes') }}
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Proyectos' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-lamp"></i>	
+		        			<span class="title">Proyectos</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Proyectos', 'Index', URL, 'entypo-folder', 'Ingreso', modulo ~ '/Proyectos/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Proyectos', 'Listado', URL, 'entypo-archive', 'Reportes', modulo ~ '/Proyectos/Reportes') }}
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Causa_Raiz' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-chart-bar"></i>	
+		        			<span class="title">Causa Raíz</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Causa_Raiz', 'Index', URL, 'entypo-folder', 'Ingreso', modulo ~ '/Causa_Raiz/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Causa_Raiz', 'Listado', URL, 'entypo-archive', 'Reportes', modulo ~ '/Causa_Raiz/Reportes') }}
+						</ul>
+					</li>
+				</ul>
+			</li>
+		{% endif %}
+	{% endmacro %}
+	

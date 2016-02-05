@@ -1,0 +1,72 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+		
+		<div class="row">
+			<div class="col-lg-12">
+         
+                <h3 class="page-header">Notas </h3>
+<!--  -->
+                		<div class="notes-env">
+                		
+                			<div class="notes-header">
+                				<div class="right">
+                					<a class="btn btn-primary btn-icon icon-left" id="add-note">
+                						<i class="entypo-pencil"></i>
+                						Nueva Nota
+                					</a>
+                				</div>
+                			</div>
+                			
+                			
+                			<div class="notes-list">
+                			
+                				<ul class="list-of-notes">
+                				
+                					<!-- predefined notes -->
+                					<li class="current"> <!-- class "current" will set as current note on Write Pad -->
+                						<a href="#">
+                				            <strong>Título</strong>
+                							<span>Contenido...
+                                            
+                                            
+                                            
+                                            
+                                            </span>
+                                  		</a>
+                						
+                						<button class="note-close">&times;</button>
+                						
+                						<div class="content">
+                                            Base de Datos en Construcción
+                                        </div>
+                					</li>
+                					
+                
+                					
+                					<!-- this will be automatically hidden when there are notes in the list -->
+                					<li class="no-notes">
+                						Sin Notas
+                					</li>
+                				</ul>
+                				
+                				
+                				<div class="write-pad">
+                					<textarea class="form-control autogrow"></textarea>
+                				</div>
+                				
+                			</div>
+                		</div>
+<!--  -->
+            </div>
+		    <div align="right">
+             <b>&#169;</b>
+            </div>  
+        </div>
+        
+        
+        	<!-- Imported scripts on this page -->
+	       <script src="{{ NeuralRutaWebPublico|e }}/assets/js/neon-notes.js"></script>
+	  	
+	{% endblock %}
+    

@@ -1,0 +1,58 @@
+    				<ul class="list-inline links-list pull-right">
+                        
+                        {% if Sesion.Permisos.Inicio.LECTURA == true %}
+                        
+                         <li class="dropdown language-selector">
+		
+                		     
+                		    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
+                		        Módulo de Comunicación <i class="entypo-megaphone"></i>
+                		    </a>
+                		
+                		    <ul class="dropdown-menu pull-right">
+                		        <li>
+                		            <a href="{{NeuralRutaApp}}/Comunicacion/Reporte">
+                		                <i class="entypo-bell"></i><span> Reportar</span>
+                		            </a>
+                		        </li>
+                                <li>
+                		            <a href="{{NeuralRutaApp}}/Comunicacion/Dispositivos/Television" target="_blank"">
+                		                <i class="entypo-monitor"></i><span> Vista Televisor</span>
+                		            </a>
+                		        </li>
+                                <li>
+                		            <a href="#">
+                		                <i class="entypo-mobile"></i><span> Vista Tablet</span>
+                		            </a>
+                		        </li>
+                		    </ul>
+                		
+                		  </li>
+                        
+                        {% endif %}
+                        
+                        <li class="sep"></li>
+                        
+    					{% if Sesion.Permisos.Inicio.LECTURA == true %}
+    					
+    						{% if Sesion.Chat|length >= 1 %}
+					        	<li>
+		    						<a href="#" data-toggle="chat" data-collapse-sidebar="1">
+		    							<i class="entypo-chat"></i>
+		    							Chat
+		    							<span class="badge badge-success chat-notifications-badge is-hidden" id="cantidadChat1">0</span>
+		    						</a>
+		    					</li>
+					       	{% endif %}
+		    					
+    		            {% endif %}
+
+    					<li class="sep"></li>
+
+    					<li>
+    						<a href="{{NeuralRutaApp}}/LogOut">
+    							Cerrar Sesión {{Sesion.Informacion.USUARIO_RR}}<i class="entypo-logout right"></i>
+    						</a>
+    					</li>
+
+    				</ul>

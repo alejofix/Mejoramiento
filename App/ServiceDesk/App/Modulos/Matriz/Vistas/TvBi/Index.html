@@ -1,0 +1,166 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+	{% include 'Menus/menu_matriz.html' %}		
+			
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Creación de Guión Matriz | Afectación Televisión</strong>
+						</div>
+						<div class="panel-options">
+							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+							<a href="{{ NeuralRutaApp|e }}/Matriz/TvBi"><i class="entypo-arrows-ccw"></i></a>
+						</div>
+					</div>
+					
+					<div class="panel-body">
+						
+						<form class="form-horizontal form-groups-bordered" id="FormularioTvBi" name="guiontv" action='#' method='post' role="form">
+			
+                            <div class="form-group">
+                           
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Número Aviso:</strong></label>
+    								<div class="col-sm-5">
+    									<input type="text" class="form-control" autofocus="autofocus" name="AVISO" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" required/>
+    								</div>
+                                </div>
+                            
+                            </div>    
+		                    <!-- line -->
+		                    
+		                    
+		                    <div class="form-group">
+                           
+                               	<div class="col-md-12">
+                            		{% import "Listas/Listas_Afectacion.html" as formulario %}
+						                {{ formulario.afectacionTVBi('AVERIA', 'averia') }}
+                                </div>
+                            
+                            </div>    
+				           
+                            <!-- line -->
+		                    
+		                    
+		                    <!-- -->
+		                    
+		                    <div class="form-group">
+
+                               <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Falla</strong></label>
+        								<div class="col-sm-5">
+                                            <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
+                                                <option value="">Seleccione una Opción</option> 
+                                                  <optgroup>
+                                                    <option value="1">General</option>
+									   		        <option value="2">Puntual</option>
+                                                  </optgroup>
+                                            </select>
+                                        </div>
+					            </div>
+                                
+                            </div>            
+                            <!-- line -->
+		                    
+		                    <div class="form-group">
+                            	
+								<div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Matriz</strong></label>
+    								<div class="col-sm-3">
+    									<input type="text" class="form-control" name="MATRIZ" id="matriz" type="text" placeholder="# Cta. Matriz" maxlength="6" onkeyUp="return ValNumero(this);" required>
+    								</div>
+    								<div class="col-sm-2">
+										<div class="checkbox">
+											<label>
+												<input name="INTERMITENCIA" value="SI" type="checkbox">Intermitente
+											</label>
+										</div>
+									</div>
+    			                </div>
+    			                
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                            	
+								<div class="col-md-12">
+             						<label class="col-sm-3 control-label"><strong>Detalle</strong></label>
+    								<div class="col-sm-2">
+    						              
+                                          {% include 'Listas/Listas_Detalle_Matriz.html' %}
+                                          
+                              		</div>
+                                    <div class="col-sm-3">
+    		                             <input name="REFERENCIA" id="referencia"  type="text" class="form-control" placeholder="Ref." maxlength="15">
+                              		</div>
+    			                </div>
+    			                
+                            </div>
+                            <!-- line -->
+                            
+                            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                                <div class="form-group">
+								    <div class="col-sm-offset-3 col-sm-5">
+											<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Televisión - MATRIZ" data-original-title="Generador de Guión">
+								                Crear Guión 
+								                <i class="entypo-check"></i>
+							                 </button>
+                                            	<input type="hidden" name="AFECTACION" value="Televisión">
+                                            	<input type="hidden" name="TIPO" value="2"/>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+                								Borrar Formulario 
+                								<i class="entypo-trash"></i>
+                							</button>
+									</div>
+					           </div>
+                            {% endif %}
+
+
+						</form>
+						
+					</div>
+				
+				</div>
+	
+
+
+<div class="row" id="Respuesta" style="margin-top: 35px;"></div>
+
+<!-- fin -->
+    {% endblock %}
+	
+        {% block Script %}
+        
+            <style type="text/css">
+            	.error {
+            		font-family: verdana;
+            		font-size: 10px;
+            		font-weight: bold;
+            		color: red;
+            	}
+            </style>
+            
+            <script type="text/javascript">
+    			$(document).ready(function() {
+    				$("#borrar").click(function() {
+    					 $("#FormularioTvBi")[0].reset();
+    				});
+    			 });
+		      </script>
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+            	
+ 		        <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/ajax.js"></script>
+			
+            	
+            	{{ Validacion|raw }}
+            	
+            {% endif %}
+        
+        
+        {% endblock %}

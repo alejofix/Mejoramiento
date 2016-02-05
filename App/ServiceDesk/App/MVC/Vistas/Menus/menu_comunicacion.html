@@ -1,0 +1,13 @@
+            <style type="text/css">
+				.seleccionado {
+					font-weight: bold;
+				}
+			</style>
+            <div class="col-lg-12">
+                    <ul class="nav nav-pills">
+                      <li role="presentation" class="{{ activo == 'Alto_Impacto' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto">Alto Impacto</a></li>
+                      <li role="presentation" class="{{ activo == 'Informativos' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Informativos">Informativos</a></li>
+                      <li role="presentation" class="{{ activo == 'Notas' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Notas">Notas</a></li>
+                    </ul>
+			</div>
+            <br />

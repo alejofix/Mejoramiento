@@ -1,0 +1,14 @@
+            <style type="text/css">
+				.seleccionado {
+					font-weight: bold;
+              	}
+			</style>
+            <div class="col-lg-12">
+                    <ul class="nav nav-pills">
+                      <li role="presentation" class="{{ activo == 'TriplePlay' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/HFC/TriplePlay">Triple Play</a></li>
+                      <li role="presentation" class="{{ activo == 'TvBi' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/HFC/TvBi">TV Bidireccional</a></li>
+                      <li role="presentation" class="{{ activo == 'TvUni' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/HFC/TvUni">TV Unidireccional</a></li>
+                      <li role="presentation" class="{{ activo == 'Int_Tel' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/HFC/Int_Tel">Internet y Telefonia</a></li>
+                    </ul>
+			</div>
+            <br />

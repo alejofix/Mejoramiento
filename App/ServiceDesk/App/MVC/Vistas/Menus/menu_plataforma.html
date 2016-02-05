@@ -1,0 +1,15 @@
+			<style type="text/css">
+				.seleccionado {
+					font-weight: bold;
+				}
+			</style>
+			<div class="col-lg-12">
+	                <ul class="nav nav-pills">
+                      <li role="presentation" class="{{ activo == 'Generales' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Plataforma/Generales">Generales</a></li>
+                      <li role="presentation" class="{{ activo == 'CableModem' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Plataforma/CableModem">Cable Módem</a></li>
+                      <li role="presentation" class="{{ activo == 'Decodificadores' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Plataforma/Decodificadores">Decodificadores</a></li>
+                      <li role="presentation" class="{{ activo == 'Telefonia' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Plataforma/Telefonia">Telefonía</a></li>  
+                    </ul>
+			</div>
+            <br />
+            

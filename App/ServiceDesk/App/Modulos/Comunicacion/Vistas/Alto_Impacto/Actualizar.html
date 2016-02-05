@@ -1,0 +1,217 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+		{% include 'Menus/menu_comunicacion.html' %}
+		
+		<style type="text/css">
+				.active {
+					font-weight: bold;
+              	}
+		</style>				
+
+
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Comunicación  | Alto Impacto </button> </strong>
+			           	</div>
+
+					</div>
+							<!-- sub-menú alto impacto  -->
+							<ul class="nav nav-tabs">
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto">Ingresar Aviso</a></li>
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
+							  <li role="presentation" class="active"><a href="javascript:;">Editar Aviso</a></li>
+							</ul>
+							
+							<!-- menú alto impacto  -->
+						
+					<div class="panel-body" id="mostrarPeticion">
+						
+						<form class="form-horizontal form-groups-bordered" id="FormularioAltoImpacto" name="Formulario_Alto_Impacto" action='#' method='post' role="form">
+			          
+                      		<div class="form-group">
+                           
+                                <div class="col-md-6">
+                            		<label class="col-sm-3 control-label"><strong>Aviso a Editar:</strong></label>
+    								<div class="col-sm-5">
+    									<span class="badge badge-info badge-roundless" style="font-size: 2em;">{{ datos.AVISO|e }}</span>
+    								</div>
+                                </div>
+                        
+						        <div class="col-md-6">
+                            		<label class="col-sm-3 control-label"><strong>Tipo</strong></label>
+    								<div class="col-sm-5">
+                                            <select class="form-control" name="PRIORIDAD_INPUT" id="prioridad" required/>
+                                            	<optgroup label="Opción Ingresada">
+													<option value="{{ datos.PRIORIDAD|e }}" selected="">Prioridad {{ datos.PRIORIDAD|e }}</option>
+												</optgroup> 
+												<optgroup label="Seleccione una Opción">
+													{% for num in 1..5 %}
+														<option value="{{ num|e }}">Prioridad {{ num|e }}</option>
+													{% endfor %}
+												</optgroup>
+                                            </select>
+                                    </div> 
+                                </div>
+
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                           
+                                <div class="col-md-6">
+                            		<label class="col-sm-3 control-label"><strong>Síntoma</strong></label>
+    			                     <div class="col-sm-5">
+										<input type="text" maxlength="15" name="FALLA_INPUT"  value="{{ datos.FALLA|e }}" class="form-control typeahead" data-local="Falla Telefonía,Lentitud @,Lentitud Página,Sin Página,Sin Internet,Sin Facebook,Sin Señal,Sin señal 3Play,Sin Canales,Sin Youtube,Fallo @ IntNal" placeholder="Autocompletar o 15 caracteres max." required />
+									</div>
+                                </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                           
+                                <div class="col-md-6">
+                            		<label class="col-sm-3 control-label"><strong>Afectación</strong></label>
+    			                     <div class="col-sm-7">
+										<input type="text" maxlength="27" name="REGIONAL_INPUT" value="{{ datos.REGIONAL|e }}" class="form-control typeahead" data-local="Afecta Todas las Regionales,Bogotá Bidireccional,Bogotá Unidireccional,Ciudad,CMTS,Nodo,Nodos,Regional Antioquia,Regional Centro,Regional Eje Cafetero,Regional Norte,Regional Occidente,Regional Oriente,SoftSwitch" placeholder="Autocompletar o 27 caracteres max." required />
+									</div>
+                                </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                           
+                                <div class="col-md-6">
+                            		<label class="col-sm-3 control-label"><strong>Detalle</strong></label>
+    			                     <div class="col-sm-9">
+										<select class="form-control" name="DETALLE_INPUT" id="detalle" required/>
+                                                <optgroup label="Opción Ingresada">
+													<option value="{{ datos.DETALLE|e }}" selected="">{{ nombreDetalle(datos.DETALLE)|e }}</option>
+												</optgroup>  
+												<optgroup label="Seleccione una Opción">
+													{% for data in DetalleLista %}
+														<option value="{{ data.ID|e }}">{{ data.NOMBRE|e }}</option>
+													{% endfor %}
+												</optgroup>                                              
+                                        </select>
+									</div>
+							    </div>
+                            
+                            </div>
+                            <!-- line -->
+  
+                            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                                <div class="form-group">
+								    <div class="col-sm-offset-3 col-sm-5">
+											<button type="submit" class="btn btn-green btn-icon icon-left" title="Alto Impacto" name="boton" value="boton">
+								                Actualizar 
+								                <i class="entypo-check"></i>
+							                 </button>
+							                 <input type="hidden" name="PROCESO" value="{{ datos.ID|codificar }}" />
+                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="reset" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+                								Borrar Formulario 
+                								<i class="entypo-trash"></i>
+                							</button>
+									</div>
+					           </div>
+                            {% endif %}
+
+						</form>
+						
+					</div>
+				
+				</div>
+
+
+<!-- fin -->
+
+	
+	{% endblock %}
+    
+
+
+        {% block Script %}
+        
+            <style type="text/css">
+            	.error {
+            		font-family: verdana;
+            		font-size: 10px;
+            		font-weight: bold;
+            		color: red;
+            	}
+            </style>
+            
+            <script type="text/javascript">
+    			$(document).ready(function() {
+    				$("#borrar").click(function() {
+    					 $("#FormularioAltoImpacto")[0].reset();
+    				});
+    			 });
+		      </script>
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                    
+                   <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/numerico.js"></script> 
+	               <script src="{{ NeuralRutaWebPublico|e }}/assets/js/typeahead.min.js"></script>
+	               <script src="{{ NeuralRutaWebPublico|e }}/assets/sweetalert/dist/sweetalert.min.js"></script>
+				   <link rel="stylesheet" type="text/css" href="{{ NeuralRutaWebPublico|e }}/assets/sweetalert/dist/sweetalert.css">
+	               
+	               <script type="text/javascript">
+				   	 function procesoAjax() {
+				   	 	jQuery.ajax({
+				   	 		url : "{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/procesoAjaxActualizar",
+				   	 		cache : false,
+				   	 		data : $("#FormularioAltoImpacto").serialize(),
+				   	 		dataType : "json",
+				   	 		type : "POST",
+				   	 		beforeSend : function() {
+				   	 			//jQuery("#FormularioAltoImpacto").css({ "display" : "none"});
+				   	 			//jQuery("#mostrarPeticion").html('<div class="center"><img src="{{ NeuralRutaWebPublico|e }}/assets/images/loader-2.gif" /></div>');
+				   	 		},
+				   	 		error : function(val_error) {
+				   	 			swal("Error de Usuario", val_error.responseText, "error");
+				   	 		},
+				   	 		success : function(respuesta) {
+				   	 			if(respuesta.STATUS >= 1) {
+				   	 				//jQuery("#FormularioAltoImpacto").css({ "display" : "block"});
+				   	 				jQuery("#FormularioAltoImpacto")[0].reset();
+				   	 				swal({
+		   	 							title: "Aviso Actualizado!", 
+										text : "El Aviso se ha actualizado correctamente.", 
+										type: "success",
+										showCancelButton: false,
+										confirmButtonColor: "#21a9e1",
+										confirmButtonText: "Aceptar",
+										
+									}, function() {
+										location.href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado";
+									});
+				   	 				
+				   	 			}
+				   	 			else {
+				   	 				swal("Cancelado", "El Aviso No es posible actualizarlo", "error");
+				   	 			}
+				   	 		}
+				   	 		
+				   	 	});
+				   	 }
+				   </script>
+            	   
+           	        {{ Validacion|raw }}
+            	
+            {% endif %}
+        
+        
+        {% endblock %}
+
+
+    
+   

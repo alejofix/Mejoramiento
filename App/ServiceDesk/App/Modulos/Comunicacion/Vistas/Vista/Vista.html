@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include 'Base/Comunicacion/Head.html' %} 
+</head>
+<body class="page-body">
+
+<div class="page-container horizontal-menu">
+
+	
+<header class="navbar navbar-fixed-top">
+		
+	{% include 'Base/Comunicacion/Header.html' %}	
+		
+</header>
+
+	<div>
+
+		
+		<div class="row">
+			<!--ROW Superior INFORMATIVOS Inicio -->
+			{% include 'Base/Comunicacion/Temporal/Row_Superior.html' %}
+			<!--ROW Superior INFORMATIVOS Inicio -->
+		</div>
+		
+		<br />
+		
+		<!--ROW Inferior Inicio -->
+		<div class="row">
+			
+			<div class="col-sm-9">
+				<!--Alto Impacto  Inicio -->
+				{% block Contenido %}{% endblock %}  
+				<!--Alto Impacto  Fin -->
+			</div>
+		
+			<div class="col-sm-3">
+				<!--ROW Lateral NOTAS Inicio -->
+				{% include 'Base/Comunicacion/Temporal/Lateral.html' %}
+				<!--ROW Lateral NOTAS fIN -->
+			</div>
+			
+		</div>
+		<!--ROW Inferior Inicio -->
+
+
+<br />
+
+	</div>
+	
+	   {% include 'Base/Comunicacion/Script.html' %}
+    {% block JS %}
+    {% endblock %}
+
+</body>
+</html>

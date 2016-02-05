@@ -1,0 +1,10 @@
+{
+	"DBAL Doctrine 2":
+	{ "Habilitado":	false, "Ruta": ["Doctrine", "Common", "ClassLoader.php"] },
+	"NotORM":
+	{ "Habilitado":	false, "Ruta": ["NotORM", "NotORM.php"] },
+	"Twig":
+	{ "Habilitado":	false, "Ruta": ["Twig", "Autoloader.php"] },
+	"SwiftMailer":
+	{ "Habilitado":	false, "Ruta": ["SwiftMailer", "lib", "swift_required.php"] }
+}

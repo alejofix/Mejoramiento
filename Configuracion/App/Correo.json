@@ -1,0 +1,9 @@
+{
+	"Predeterminado" : {
+		"Servidor" : "smtp.gmail.com",
+		"Puerto" : "465",
+		"Codificacion" : "ssl", 
+		"Usuario" : "correo@gmail.com",
+		"Password" : "password"
+	}
+}

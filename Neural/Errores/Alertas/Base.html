@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>.:: Neural PHP Framework ::.</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="{{NeuralRutaWebPublico}}/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="{{NeuralRutaWebPublico}}/css/media.queries.css" />
+	<link rel="stylesheet" type="text/css" href="{{NeuralRutaWebPublico}}/css/tipsy.css" />
+	<link rel="stylesheet" type="text/css" href="{{NeuralRutaWebPublico}}/js/fancybox/jquery.fancybox-1.3.4.css" />
+	<link rel="stylesheet" type="text/css" href="{{NeuralRutaWebPublico}}/css/fonts.css">
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/html5shiv.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/fancybox/jquery.easing-1.3.pack.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/jquery.touchSwipe.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/jquery.mobilemenu.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/jquery.infieldlabel.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/jquery.echoslider.js"></script>
+	<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/fluidapp.js"></script>
+	<link rel="shortcut icon" href="{{NeuralRutaWebPublico}}/img/favicon.png" />
+</head>
+<body>
+	<div id="page_wrapper">
+	<header>
+		<div class="container">
+			<aside>
+				<ul class="social">
+					<li class="facebook"><a href="https://www.facebook.com/NeuralFramework" target="_blank">Facebook</a></li>
+					<li class="twitter"><a href="https://twitter.com/NeuralFramework" target="_blank">Twitter</a></li>
+					<li class="google"><a href="https://plus.google.com/+NeuralFramework/" target="_blank">Google</a></li>
+				</ul>
+			</aside>
+			<nav>
+				<ul>
+					<li><a href="#home">Servidor</a></li>
+				</ul>
+				<span class="arrow"></span>
+			</nav>
+		</div>
+	</header>
+	<section class="container">
+		<div id="app_info">
+			<h1><strong>Neural PHP Framework</strong></h1>
+			<span class="tagline">{{Titulo|raw}}</span>
+			<p>
+				{% if Aplicacion == true %}<strong>Aplicación</strong>: {{Aplicacion}}<br />{% endif %}
+				{% if Modulo == true %}<strong>Modulo</strong>: {{Modulo}}<br />{% endif %}
+				{% if Controlador == true %}<strong>Controlador</strong>: {{Controlador}}<br />{% endif %}
+				{% if Metodo == true %}<strong>Metodo</strong>: {{Metodo}}{% endif %}
+			</p>
+			<p>{{Informacion|raw}}</p>
+			
+			<div class="price centered">
+				<p>Error de Entorno de Desarrollo !!!!!</p>
+			</div>
+		</div>
+		<div id="pages">
+			<div class="top_shadow"></div>
+			<div id="home" class="page">
+				<h1>Servidor</h1>
+				<div class="feature_list content_box">
+					<div class="one_half">
+						<h2 class="icon chart">HTTP</h2>
+						<p>
+							<strong>Host</strong>: {{Server.HTTP_HOST}}<br />
+							<strong>Connection</strong>: {{Server.HTTP_CONNECTION}}<br />
+							<strong>Accept</strong>: {{Server.HTTP_ACCEPT}}<br />
+							<strong>User Agent</strong>: {{Server.HTTP_USER_AGENT}}<br />
+							<strong>Referer</strong>: {{Server.HTTP_REFERER}}<br />
+							<strong>Accept Encoding</strong>: {{Server.HTTP_ACCEPT_ENCODING}}<br />
+							<strong>Accept Language</strong>: {{Server.HTTP_ACCEPT_LANGUAGE}}
+						</p>
+					</div>
+
+					<div class="one_half column_last">
+						<h2 class="icon cart">Server</h2>
+						<p>
+							<strong>Software</strong>: {{Server.SERVER_SOFTWARE}}<br />
+							<strong>Name</strong>: {{Server.SERVER_NAME}}<br />
+							<strong>Address</strong>: {{Server.SERVER_ADDR}}<br />
+							<strong>Port</strong>: {{Server.SERVER_PORT}}<br />
+							<strong>Admin</strong>: {{Server.SERVER_ADMIN}}<br />
+							<strong>Protocol</strong>: {{Server.SERVER_PROTOCOL}}<br />
+							<strong>Gateway Interface</strong>: {{Server.GATEWAY_INTERFACE}}
+						</p>
+					</div>
+
+					<div class="one_half">
+						<h2 class="icon pencil">Request</h2>
+						<p>
+							<strong>Scheme</strong>: {{Server.REQUEST_SCHEME}}<br />
+							<strong>Method</strong>: {{Server.REQUEST_METHOD}}<br />
+							<strong>URI</strong>: {{Server.REQUEST_URI}}<br />
+							<strong>Query String</strong>: {{Server.QUERY_STRING}}<br />
+							<strong>Script Name</strong>: {{Server.SCRIPT_NAME}}<br />
+							<strong>Time Float</strong>: {{Server.REQUEST_TIME_FLOAT}}<br />
+							<strong>Time</strong>: {{Server.REQUEST_TIME}}
+						</p>
+					</div>
+
+					<div class="one_half column_last">
+						<h2 class="icon graph">PHP</h2>
+						<p>
+							<strong>Version</strong>: {{PHP.VERSION}}<br />
+							<strong>Uso de Memoria</strong>: {{PHP.MEMORY}}<br />
+							<strong>Sistema Operativo</strong>: {{PHP.OS}}<br />
+							<strong>Tipo de Maquina</strong>: {{PHP.MACHINE}}<br />
+							<strong>Nombre del Servidor</strong>: {{PHP.NAME_SERVER}}<br />
+						</p>
+					</div>	
+				</div>
+			</div>
+			<div class="bottom_shadow"></div>
+		</div>
+		<div class="clear"></div>
+	</section>
+	<footer class="container">
+		<p>@NeuralFramework &copy;</p>
+	</footer>
+	</div>
+</body>
+</html>

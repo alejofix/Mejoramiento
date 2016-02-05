@@ -1,0 +1,209 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+		{% include 'Menus/menu_comunicacion.html' %} 
+		
+		<style type="text/css">
+				.active {
+					font-weight: bold;
+              	}
+		</style>
+
+
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Comunicación  | Alto Impacto  </button> </strong>
+			           	</div>
+						<div class="panel-options">
+                        	<a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto"><i class="entypo-arrows-ccw"></i></a>
+						</div>
+					</div>
+							<!-- sub-menú alto impacto  -->
+							<ul class="nav nav-tabs">
+							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto">Ingresar Aviso</a></li>
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
+							</ul>
+							<!-- menú alto impacto  -->
+						
+					<div class="panel-body" id="mostrarPeticion">
+						
+						<form class="form-horizontal form-groups-bordered" id="FormularioAltoImpacto" name="Formulario_Alto_Impacto" action='#' method='post' role="form">
+			          
+                      		<div class="form-group">
+                           
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Número Aviso:</strong></label>
+    								<div class="col-sm-5">
+    									<input type="text" class="form-control" name="aviso" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required/>
+    								</div>
+                                </div>
+                                
+                            </div>
+							    
+                        	<!-- line -->	
+							<div class="form-group">
+							    
+								<div class="col-md-12">
+	                            		<label class="col-sm-3 control-label"><strong>Tipo</strong></label>
+	    								<div class="col-sm-5">
+	                                            <select class="form-control" name="prioridad" id="prioridad" required/>
+	                                                <option value="">Seleccione una Opción</option> 
+	                                                  <optgroup>
+	                                                    <option value="1">HFC</option>
+										   		        <option value="2">Televisión</option>
+										   		        <option value="3">Telefonía</option>
+										   		        <option value="4">Internet</option>
+										   		        <option value="5">Otros</option>
+	                                                  </optgroup>
+	                                            </select>
+	                                    </div> 
+	                                </div>
+	                         </div>       
+
+                            <!-- line -->
+                            <div class="form-group">
+                           
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Síntoma</strong></label>
+    			                     <div class="col-sm-5">
+										<input type="text" maxlength="15" name="falla" class="form-control typeahead" 
+                                        	data-local="Falla Telefonía,Lentitud @,Lentitud Página,Sin Página,Sin Internet,Sin Facebook,Sin Señal,Sin señal 3Play,Sin Canales,Sin Youtube,Fallo @ IntNal"
+										placeholder="Autocompletar o 15 caracteres max." required/>
+									</div>
+                                </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                           
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Afectación</strong></label>
+    			                     <div class="col-sm-7">
+										<input type="text" maxlength="27" name="regional" class="form-control typeahead" 
+                                            data-local="Afecta Todas las Regionales,Bogotá Bidireccional,Bogotá Unidireccional,Ciudad,CMTS,Nodo,Nodos,Regional Antioquia,Regional Centro,Regional Eje Cafetero,Regional Norte,Regional Occidente,Regional Oriente,SoftSwitch" 
+                                        placeholder="Autocompletar o 27 caracteres max." required/>
+									</div>
+                                </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                           
+                                <div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Detalle</strong></label>
+    			                     <div class="col-sm-5">
+										<select class="form-control" name="detalle" id="detalle" required/>
+                                       			<option value="">Selecione una Opción</option>
+                                       				<optgroup>
+														{% for info in DetalleLista %}
+    													<option value="{{ info.ID|e }}">{{ info.NOMBRE|e  }}</option>
+    													{% endfor %}
+													</optgroup>  
+									 	</select>
+									</div>
+							    </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            
+                           
+                            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                                <div class="form-group">
+								    <div class="col-sm-offset-3 col-sm-5">
+											<button type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Reporte – ALTO IMPACTO" data-original-title="Módulo de Comunicación">
+								                Reportar 
+								                <i class="entypo-check"></i>
+							                 </button>
+                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+                								Borrar Formulario 
+                								<i class="entypo-trash"></i>
+                							</button>
+									</div>
+					           </div>
+                            {% endif %}
+
+
+						</form>
+						
+					</div>
+				
+				</div>
+
+
+<!-- fin -->
+
+	
+	{% endblock %}
+    
+
+
+        {% block Script %}
+        
+            <style type="text/css">
+            	.error {
+            		font-family: verdana;
+            		font-size: 10px;
+            		font-weight: bold;
+            		color: red;
+            	}
+            </style>
+            
+            <script type="text/javascript">
+    			$(document).ready(function() {
+    				$("#borrar").click(function() {
+    					 $("#FormularioAltoImpacto")[0].reset();
+    				});
+    			 });
+		      </script>
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                    
+                   <script src="{{ NeuralRutaWebPublico|e }}/assets/js/typeahead.min.js"></script>
+	               <script src="{{ NeuralRutaWebPublico|e }}/assets/sweetalert/dist/sweetalert.min.js"></script>
+				   <link rel="stylesheet" type="text/css" href="{{ NeuralRutaWebPublico|e }}/assets/sweetalert/dist/sweetalert.css">
+	               
+	               <script type="text/javascript">
+				   	 function procesoAjax() {
+				   	 	jQuery.ajax({
+				   	 		url : "{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/procesoAjax",
+				   	 		cache : false,
+				   	 		data : $("#FormularioAltoImpacto").serialize(),
+				   	 		dataType : "json",
+				   	 		type : "POST",
+				   	 		beforeSend : function() {
+				   	 			//jQuery("#FormularioAltoImpacto").css({ "display" : "none"});
+				   	 			//jQuery("#mostrarPeticion").html('<div class="center"><img src="{{ NeuralRutaWebPublico|e }}/assets/images/loader-2.gif" /></div>');
+				   	 		},
+				   	 		success : function(respuesta) {
+				   	 			if(respuesta.STATUS >= 1) {
+				   	 				jQuery("#FormularioAltoImpacto").css({ "display" : "block"});
+				   	 				jQuery("#FormularioAltoImpacto")[0].reset();
+				   	 				swal("Aviso Guardado!", "El Aviso se ha guardado correctamente.", "success");
+				   	 			}
+				   	 			else {
+				   	 				swal("Cancelado", "El Aviso ya se encuentra en la base de datos", "error");
+				   	 			}
+				   	 		}
+				   	 		
+				   	 	});
+				   	 }
+				   </script>
+            	   
+           	        {{ Validacion|raw }}
+            	
+            {% endif %}
+        
+        
+        {% endblock %}
+
+
+    
+   

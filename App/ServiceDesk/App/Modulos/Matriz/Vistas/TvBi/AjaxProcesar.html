@@ -1,0 +1,18 @@
+	
+	{% extends 'Base/HFCguion.html' %}
+	
+	{% block Contenido %}
+	
+	
+		{% if Datos.prioridad == '1' %}
+<div id="description" style="display: none;">{% include 'TvBi/Prioridad/1.html' %}</div>
+{% include 'TvBi/Prioridad/1.html' %}
+
+			{% elseif Datos.prioridad == '2' %}
+<div id="description" style="display: none;">{% include 'TvBi/Prioridad/2.html' %}</div>
+{% include 'TvBi/Prioridad/2.html' %}
+			
+		{% endif %}
+	
+	
+	{% endblock %}

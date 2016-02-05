@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        {% include 'Base/Header/Head.html' %}
+</head>
+
+<body class="page-body" data-url="#">
+
+<div class="page-container">
+    	<!-- sidebar INICIO  -->
+    	<div class="sidebar-menu">
+    
+    		<div class="sidebar-menu-inner">
+    			
+                <header class="logo-env">
+        {% include 'Base/Header/Header.html' %}
+                </header>
+    			
+    			<!-- Menu Lateral  INICIO  -->						
+        {% include 'Base/Body/Menu_Lateral.html' %}			
+                <!-- Menu Lateral  FIN  -->
+    			
+    		</div>
+            
+    	</div>
+        <!-- sidebar FIN  -->
+        
+        <!-- CONTENIDO INICIO -->
+    	<div class="main-content">
+    				
+    		<div class="row">
+    		
+    			<!-- Profile  INICIO -->
+                <div class="col-md-6 col-sm-8 clearfix">        
+        {% include 'Base/Body/Menu_Profile.html' %}	
+                </div>	
+      		    <!-- Profile  FIN -->  
+    
+    			<!-- LOGOUT -  CHAT  INICIO -->
+    			<div class="col-md-6 col-sm-4 clearfix hidden-xs">
+        {% include 'Base/Body/Menu_Superior.html' %}	 		
+    			</div>
+                <!-- LOGOUT -  CHAT  FIN  -->
+                
+    		</div><hr />
+    	
+    	
+        	<div class="row">
+            
+    			<div class="col-md-12">
+                
+        {% block Contenido %}{% endblock %}   		
+    			
+                </div>
+    		
+            </div>
+            
+    		<!-- Footer -->
+    		<footer class="main">
+             {% include 'Base/Body/Footer.html' %}      			
+    		</footer>
+            
+    	</div>
+        <!-- CONTENIDO FIN -->
+        {% if Sesion.Permisos.Chat.LECTURA == true %}
+	        {% if Sesion.Chat|length >= 1 %}
+	        	{% include 'Base/Body/Chat.html' %}
+	       	{% endif %}
+       	{% endif %}
+            
+</div>
+
+            <!-- Core Scripts - Include with every page -->
+			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/jquery-1.10.2.js"></script>
+			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/bootstrap.min.js"></script>
+			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+			<!-- Page-Level Plugin Scripts - Blank -->
+
+        {% block Plugin %}{% endblock %}
+        
+            <!-- SB Admin Scripts - Include with every page -->
+			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/sb-admin.js"></script>
+        
+        {% include 'Base/Body/Script.html' %}
+        
+        {% block Script %}{% endblock %}
+		
+		{% if Sesion.Permisos.Chat.LECTURA == true %}
+			{% if Sesion.Chat|length >= 1 %}
+				<script src="{{NeuralRutaWebPublico}}/assets/js/chat/neonChat.js"></script>
+	        	<script src="{{ NeuralRutaApp|e }}/Chat/Js/notificacion/Notificacion.js"></script>
+	        	<script src="{{ NeuralRutaApp|e }}/Chat/Js/gestionChat/Chat.js"></script>
+	       	{% endif %}
+       	{% endif %}
+       	
+		
+</body>
+</html>

@@ -1,0 +1,19 @@
+		{% extends 'Base/HFCguion.html' %}
+		
+		{% block Contenido %}
+			<div id="description" style="display: none;">
+				{{ guion|e }}
+			</div>
+			<pre>
+				<style>
+					fieldset {
+					    color:black;
+					    font-family:verdana;
+					    font-size:109%;
+					}
+				</style>
+				<fieldset disabled="disabled" style="margin: 10px; padding: 10px;">
+					{{ guion|raw }}
+				</fieldset>
+			</pre>
+		{% endblock %}

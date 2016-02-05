@@ -1,0 +1,51 @@
+
+
+<body onLoad="checkDateTime()">
+
+<form name="clock">
+			<br />
+			FECHA 
+			<br />
+				<input type="text" name="face" size=31 value="">
+			<br />
+			PRIORIDAD ACTUAL 
+			<br />
+				<input type="text" name="locationx" size=21 value="">
+			<br />
+			<br />
+			<table>
+				<tr>
+			{% if prioridades|length >= 1 %}
+				
+				{% for prioridad in prioridades %}
+					<td>
+						<input type=button name=reset  value="{{ prioridad.ID|e }}" onclick="check{{ prioridad.NOMBRE|e }}()">
+					</td>
+				{% endfor %}
+				
+			{% endif %}
+				</tr>
+				<tr>
+					<td>
+						<input type=button name=reset  value="ALTA" onclick="checkALTA()">
+					</td>
+					<td>
+						<input type=button name=reset  value="MEDIAALTA" onclick="checkMEDIAALTA()">
+					</td>
+					<td>
+						<input type=button name=reset  value="MEDIABAJA" onclick="checkMEDIABAJA()">
+					</td>
+					<td>
+						<input type=button name=reset  value="BAJA" onclick="checkBAJA()">
+					</td>
+				
+					<td>
+						<input type=button name=reset  value="ACTUAL" onclick="checkACTUAL()">
+					</td>
+				</tr>
+			</table>
+</form>
+
+</body>
+
+

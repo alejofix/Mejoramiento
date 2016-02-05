@@ -1,0 +1,24 @@
+<!--  
+
+{% import 'Base/Macros/CampoFormulario.html' as form %}
+
+{{ form.inputxtImagen('entypo-user', 'mi_nombre', 'mi_id', 'Ingrese una opcion') }}
+-->
+
+	{% macro inputxt(name, id, placeholder) %}
+		<input type="text" name="{{ name|e }}" class="form-control" id="{{ id|e }}" placeholder="{{ placeholder|e }}">
+	{% endmacro %}
+	
+	{% macro inputxtImagen(imagen, name, id, placeholder) %}
+		{% import _self as input %}
+		<div class="input-group">
+			{{ input.inputxt(name, id, placeholder) }}
+			{{ input.tooltip(imagen, 'green', 'Este es mi titulo', 'Este es mi contenido') }}
+		</div>
+	{% endmacro %}
+	
+	{% macro tooltip(imagen, color, titulo, contenido) %}
+		<span class="input-group-addon btn btn-green popover-primary"  data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="{{ contenido|e }}" data-original-title="{{ titulo|e }}">
+			<i class="{{ imagen|e }}"></i>
+		</span>
+	{% endmacro %}

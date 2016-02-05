@@ -1,0 +1,20 @@
+{
+	"Configuracion" : {
+		"Activo" : true
+	},
+	"Modulos" : {
+		"Chat" : true,
+		"Index" : true,
+        "Inicio" : true,
+        "Datos_Usuario" : true,
+        "HFC" : true,
+        "Matriz" : true,
+        "Plataforma" : true,
+        "Dropdown" : true,
+        "Mantenimientos" : true,
+        "Mejoramiento" : true,
+        "Comunicacion" : true,
+        "Error" : false,
+        "CCAA" : true
+	}
+}

@@ -1,0 +1,287 @@
+<!-- AUI Documentation -->
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>.:: NeuralPHP Framework [ Documentación ] ::.</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			
+			<!-- Favicons -->
+			
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" href="assets/images/icons/apple-touch-icon-57-precomposed.png">
+			<link rel="shortcut icon" href="assets/images/icons/favicon.png">
+			
+			<!--[if lt IE 9]>
+			<script src="assets/js/minified/core/html5shiv.min.js"></script>
+			<script src="assets/js/minified/core/respond.min.js"></script>
+			<![endif]-->
+			
+			<!-- Fides Admin CSS Core -->
+			
+			<link rel="stylesheet" type="text/css" href="assets/css/minified/aui-production.min.css">
+			
+			<!-- Theme UI -->
+			
+			<link id="layout-theme" rel="stylesheet" type="text/css" href="assets/themes/minified/fides/color-schemes/dark-blue.min.css">
+			
+			<!-- Fides Admin Responsive -->
+			
+			<link rel="stylesheet" type="text/css" href="assets/themes/minified/fides/common.min.css">
+			<!-- <link rel="stylesheet" type="text/css" href="assets/themes/fides/common.css"> -->
+			
+			<link id="theme-animations" rel="stylesheet" type="text/css" href="assets/themes/minified/fides/animations.min.css">
+			
+			<link rel="stylesheet" type="text/css" href="assets/themes/minified/fides/responsive.min.css">
+			
+			<!-- Fides Admin JS -->
+			
+			<script type="text/javascript" src="assets/js/minified/aui-production.min.js"></script>
+			
+			<script type="text/javascript" src="assets/js/minified/core/raphael.min.js"></script>
+			<script type="text/javascript" src="assets/js/minified/widgets/charts-justgage.min.js"></script>
+		</head>
+		
+		<body>
+			<div class="rm-from-production">
+				<script type="text/javascript" src="assets/syntax-highlighter/scripts/shCore.js"></script>
+				<script type="text/javascript" src="assets/syntax-highlighter/scripts/shBrushPhp.js"></script>
+				<link type="text/css" rel="stylesheet" href="assets/syntax-highlighter/styles/shCoreDefault.css">
+				<script type="text/javascript">SyntaxHighlighter.all();</script>
+			</div>
+			
+			<div id="loading" class="ui-front loader ui-widget-overlay bg-white opacity-100">
+				<img src="assets/images/loader-dark.gif" alt="">
+			</div>
+			
+			<div id="page-wrapper">
+				<div id="page-header" class="clearfix">
+					<div id="header-logo">Documentación 3.0</div>
+					<div class="top-icon-bar">
+					<!-- -->    
+					</div>
+				</div><!-- #page-header -->
+			
+				<div id="page-sidebar" class="scrollable-content">
+					<div id="sidebar-menu">
+						<ul>
+							<li><a href="index.html" title="Dashboard"><i class="glyph-icon icon-dashboard"></i>Inicio</a></li>
+							<li>
+								<a href="javascript:;" title="Bases de Datos"><i class="glyph-icon icon-table"></i>Base Datos</a>
+								<ul>
+									<li><a href="NeuralConexionDB.html" title="NeuralConexionDB"><i class="glyph-icon icon-chevron-right"></i>Conexion Base Datos</a></li>
+									<li><a href="NeuralBDConsultas.html" title="NeuralBDConsultas"><i class="glyph-icon icon-chevron-right"></i>Consultas</a></li>
+									<li><a href="NeuralBDGab.html" title="NeuralBDGab"><i class="glyph-icon icon-chevron-right"></i><sub>Guardar - Actualizar - Eliminar</sub></a></li>
+								</ul>
+							</li>
+							<li><a href="NeuralCorreoSwiftMailer.html" title="NeuralCorreoSwiftMailer"><i class="glyph-icon icon-envelope-o"></i>Correo</a></li>
+							<li><a href="NeuralCriptografia.html" title="NeuralCriptografia"><i class="glyph-icon icon-gears"></i>Criptografia</a></li>
+							<li>
+								<a href="javascript:;" title="JQuery"><i class="glyph-icon icon-code"></i>JQuery</a>
+								<ul>
+									<li><a href="NeuralJQueryAjaxConstructor.html" title="NeuralJQueryAjaxConstructor"><i class="glyph-icon icon-chevron-right"></i>Constructor Ajax</a></li>
+									<li><a href="NeuralJQueryConstructor.html" title="NeuralJQueryConstructor"><i class="glyph-icon icon-chevron-right"></i>Constructor JQuery</a></li>
+									<li><a href="NeuralJQueryScript.html" title="NeuralJQueryScript"><i class="glyph-icon icon-chevron-right"></i>Scripts Construidos</a></li>
+									<li><a href="NeuralJQValidacion.html" title="NeuralJQValidacion"><i class="glyph-icon icon-chevron-right"></i>Validación Formularios</a></li>
+								</ul>
+							</li>
+							<li><a href="NeuralPlantillasTwig.html" title="NeuralPlantillasTwig"><i class="glyph-icon icon-outdent"></i>Plantillas</a></li>
+							<li><a href="NeuralSesiones.html" title="NeuralSesiones"><i class="glyph-icon icon-terminal"></i>Sesiones</a></li>
+						</ul>
+						<div class="divider mrg5T mobile-hidden"></div>
+					</div>
+				</div><!-- #page-sidebar -->
+			
+			
+				<div id="menu-right" class="scrollable-content hidden">
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Cloud status
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open pad20T pad20B">
+				
+				<div class="row">
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="55"><span>55</span>%</div>
+				</div>
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="46"><span>46</span>%</div>
+				</div>
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="92"><span>92</span>%</div>
+				</div>
+				</div>
+				<div class="divider"></div>
+				<div class="text-center">
+				<a href="javascript:;" class="btn center-div ui-state-default small text-transform-upr updateEasyPieChart">
+				<span class="button-content font-normal">
+				<i class="glyph-icon icon-refresh float-left"></i>
+				Refresh all pie charts
+				</span>
+				</a>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Realtime Rate
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open clearfix">
+				
+				<div id="g10" class="small-gauge float-left"></div>
+				<div id="g11" class="small-gauge float-right"></div>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Tasks for today
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<ul class="progress-box progress-box-alt">
+				<li>
+				<div class="progress-title">
+				New features development
+				<b>87%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="87">
+				<div class="progressbar-value bg-azure">
+				<div class="progressbar-overlay"></div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>66%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="66">
+				<div class="progressbar-value bg-red">
+				<div class="progressbar-overlay"></div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>58%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="58">
+				<div class="progressbar-value bg-blue-alt"></div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>74%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="74">
+				<div class="progressbar-value bg-purple"></div>
+				</div>
+				</li>
+				</ul>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Pending notifications
+				<span class="badge bg-orange tooltip-button" title="Orange badge">4</span>
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<ul class="notifications-box remove-border">
+				<li>
+				<span class="btn bg-red radius-all-100 icon-notification glyph-icon icon-glass"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				<li>
+				<span class="btn bg-blue-alt radius-all-100 icon-notification glyph-icon icon-leaf"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				<li>
+				<span class="btn bg-yellow radius-all-100 icon-notification glyph-icon icon-trophy"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				</ul>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Sales for today
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				<div class="info-box mrg10B bg-white remove-border radius-all-4 tooltip-button" title="4px border radius">
+				<div class="chart-icon">
+				<div class="sprk-1-dash">5,6,7,5,9,8,6,3,2,1,2,4,2,2,4,6,7</div>
+				</div>
+				<b>Current growth</b>
+				<span class="stats font-blue">
+				<i class="glyph-icon icon-chevron-down font-red"></i>
+				765
+				<span class="font-orange">-8.1</span>
+				</span>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Rate
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<div class="tabs">
+				<ul>
+				<li>
+				<a href="#core-helpers-tabs-1" title="Tab 1">
+				<i class="glyph-icon icon-archive font-blue font-size-23"></i>
+				</a>
+				</li>
+				<li>
+				<a href="#core-helpers-tabs-2" title="Tab 2">
+				<i class="glyph-icon icon-beaker font-black font-size-23"></i>
+				</a>
+				</li>
+				<li>
+				<a href="#core-helpers-tabs-3" title="Tab 3">
+				<i class="glyph-icon icon-cogs font-green font-size-23"></i>
+				</a>
+				</li>
+				</ul>
+				<div id="core-helpers-tabs-1">
+				Rate
+				</div>
+				<div id="core-helpers-tabs-2">
+				Rate
+				</div>
+				<div id="core-helpers-tabs-3">
+				Rate
+				</div>
+				</div>
+				
+				</div>
+				</div>
+			
+				<div id="page-content-wrapper">
+					<!-- Contenido -->
+						<div id="page-title">
+							<h3>Bienvenidos</h3>
+						</div>
+						<div id="page-content">
+							<p>Por favor escoja una de las funciones que se encuentran en el menu izquierdo y validar la información de su función y aplicación.</p>
+						</div>
+						
+					<!-- Fin Contenido -->
+				</div><!-- #page-main -->
+			</div><!-- #page-wrapper -->
+		</body>
+	</html>

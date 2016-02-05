@@ -1,0 +1,139 @@
+<table>
+
+    <tr>
+        <td>
+            AVISO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td>
+            {{Datos.aviso|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            SINTOMA:
+        </td>
+        <td>
+            {{Datos.sintoma|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    
+           
+    {% if Datos.soporte1 == true %}
+    <tr>
+        <td>
+            PROCESO<br />DE SOPORTE:
+        </td>
+        <td>
+            <table>
+          
+                <tr>
+                    <td>&nbsp;&nbsp;1.&nbsp;&nbsp;</td>
+                    <td>{{Datos.soporte1|e}}</td>
+                </tr>
+                
+                {% if Datos.soporte2 == true %}
+                <tr>
+                    <td><br /></td>
+                    <td>------------------------------------------------------------------------------------------------------------------------------------</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;2.&nbsp;&nbsp;</td>
+                    <td>{{Datos.soporte2|e}}</td>
+                </tr>
+                {% endif %}
+          
+                {% if Datos.soporte3 == true %}
+                <tr>
+                    <td><br /></td>
+                    <td>------------------------------------------------------------------------------------------------------------------------------------</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;3.&nbsp;&nbsp;</td>
+                    <td>{{Datos.soporte3|e}}</td>
+                </tr>
+                {% endif %}
+          
+            </table>
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    {% endif %}
+    <tr>
+        <td>
+            REF.:
+        </td>    
+        <td>
+                     <table>
+                       <tr>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SOFTSWICH</td>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CABLEMÓDEM</td>
+                      </tr>
+                      <tr>
+                          <td>
+                            <ul>
+                                <br />
+                                <li>{{Datos.SS1|e}}</li>
+                                {% if Datos.SS2 == true %}<li>{{Datos.SS2|e}}</li>{% endif %}
+                                {% if Datos.SS3 == true %}<li>{{Datos.SS3|e}}</li>{% endif %}
+                                {% if Datos.SS4 == true %}<li>{{Datos.SS3|e}}</li>{% endif %}
+                                {% if Datos.SS5 == true %}<li>{{Datos.SS3|e}}</li>{% endif %}
+                            </ul>
+                          </td>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            <ul>
+                                <br />
+                                <li>{{Datos.CM1|e}}</li>
+                                {% if Datos.CM2 == true %}<li>{{Datos.CM2|e}}</li>{% endif %}
+                                {% if Datos.CM3 == true %}<li>{{Datos.CM3|e}}</li>{% endif %}
+                                {% if Datos.CM4 == true %}<li>{{Datos.CM4|e}}</li>{% endif %}
+                                {% if Datos.CM5 == true %}<li>{{Datos.CM5|e}}</li>{% endif %}
+                            </ul>     
+                          </td>
+                      </tr>
+                    </table>
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            NOTAS <br />GERENCIA:
+        </td>   
+        <td>
+            <br />{{Datos.data|e}} con Aviso_{{Datos.aviso|e}}
+            {% if Datos.masnotas == true %}<br/>{{Datos.masnotas|e}}{% endif %}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+
+    {% if Datos.infoimportant == true %}
+    <tr> 
+        <td>
+            INFO. <br />IMPORTANTE:
+        </td>   
+        <td>
+            <br />{{Datos.infoimportant|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    {% endif %}
+    
+    <tr>
+        <td>
+          MARCACIÓN:  
+        </td>
+        <td>
+             1. Primera vez que el cliente llama por este aviso use  marcación {{Datos.marcacion|e}}<br />
+             2. Cliente ya había llamado por este aviso use marcación DIS-AVF           
+        </td>
+    </tr>
+    
+    
+    
+</table>
+<br />
+

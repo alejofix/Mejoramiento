@@ -1,0 +1,38 @@
+	/* Messages List */
+
+.messages-box li {
+    border-bottom: #ddd solid 1px;
+    white-space: nowrap;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.messages-box li:last-child {
+    border-bottom: 0;
+}
+
+.messages-box .messages-img {
+    float: left;
+}
+
+.messages-box .messages-content {
+    margin-left: 40px;
+    -moz-opacity:0.80;
+    filter:alpha(opacity:80);
+    opacity:0.80;
+}
+
+.messages-box .messages-time {
+    -moz-opacity:0.70;
+    filter:alpha(opacity:70);
+    opacity:0.70;
+    float: right;
+}
+
+.messages-box .messages-title {
+    font-weight: bold;
+}
+
+.messages-box .messages-title .glyph-icon {
+    margin-right: 2px;
+}

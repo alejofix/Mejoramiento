@@ -1,0 +1,20 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+		<form action="javascript:;" name="form" method="POST">
+			<label>Año</label>
+			<select name="anio">
+				<option value="">Escoja una Opción</option>
+				<optgroup>
+					{% for anio in 2015.."now"|date("Y") %}
+						<option value="{{ anio|e }}">{{ anio|e }}</option>
+					{% endfor %}
+				</optgroup>
+			</select>
+			<input type="submit" value="Consultar" />
+		</form>
+		
+		<div class="row">
+			<div class="col-md-12" id="cargar"></div>
+		</div>
+	{% endblock %}

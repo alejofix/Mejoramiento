@@ -1,0 +1,15 @@
+{
+	"404" : {
+		"Personalizado" : { 
+			"Habilitado" : false, 
+			"Parametros" : {
+				"CarpetaApp" : "Predeterminado",
+				"Modulo" : "Index",
+				"Controlador" : "Index",
+				"Metodo" : "Index", 
+				"Parametros" : false
+			} 
+		},
+		"Sistema" : "404/index.html"
+	}
+}

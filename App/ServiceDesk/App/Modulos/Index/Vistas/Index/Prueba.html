@@ -1,0 +1,8 @@
+	{% extends 'Base/Base.html' %}
+	{% import "Listas/Listas_Afectacion.html" as formulario %}
+	
+	{% block Contenido %}
+		<h1>Prueba</h1>
+		{{ formulario.afectacionCM('data', 'miID') }}
+		{{ formulario.afectacionTVUni('tvuni', 'miID2') }}
+	{% endblock %}

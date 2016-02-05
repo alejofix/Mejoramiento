@@ -1,0 +1,635 @@
+<!-- AUI Documentation -->
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>.:: NeuralPHP Framework [ Documentación ] ::.</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			
+			<!-- Favicons -->
+			
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/icons/apple-touch-icon-144-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icons/apple-touch-icon-114-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icons/apple-touch-icon-72-precomposed.png">
+			<link rel="apple-touch-icon-precomposed" href="assets/images/icons/apple-touch-icon-57-precomposed.png">
+			<link rel="shortcut icon" href="assets/images/icons/favicon.png">
+			
+			<!--[if lt IE 9]>
+			<script src="assets/js/minified/core/html5shiv.min.js"></script>
+			<script src="assets/js/minified/core/respond.min.js"></script>
+			<![endif]-->
+			
+			<!-- Fides Admin CSS Core -->
+			
+			<link rel="stylesheet" type="text/css" href="assets/css/minified/aui-production.min.css">
+			
+			<!-- Theme UI -->
+			
+			<link id="layout-theme" rel="stylesheet" type="text/css" href="assets/themes/minified/fides/color-schemes/dark-blue.min.css">
+			
+			<!-- Fides Admin Responsive -->
+			
+			<link rel="stylesheet" type="text/css" href="assets/themes/minified/fides/common.min.css">
+			<!-- <link rel="stylesheet" type="text/css" href="assets/themes/fides/common.css"> -->
+			
+			<link id="theme-animations" rel="stylesheet" type="text/css" href="assets/themes/minified/fides/animations.min.css">
+			
+			<link rel="stylesheet" type="text/css" href="assets/themes/minified/fides/responsive.min.css">
+			
+			<!-- Fides Admin JS -->
+			
+			<script type="text/javascript" src="assets/js/minified/aui-production.min.js"></script>
+			
+			<script type="text/javascript" src="assets/js/minified/core/raphael.min.js"></script>
+			<script type="text/javascript" src="assets/js/minified/widgets/charts-justgage.min.js"></script>
+		</head>
+		
+		<body>
+			<div class="rm-from-production">
+				<script type="text/javascript" src="assets/syntax-highlighter/scripts/shCore.js"></script>
+				<script type="text/javascript" src="assets/syntax-highlighter/scripts/shBrushPhp.js"></script>
+				<link type="text/css" rel="stylesheet" href="assets/syntax-highlighter/styles/shCoreDefault.css">
+				<script type="text/javascript">SyntaxHighlighter.all();</script>
+			</div>
+			
+			<div id="loading" class="ui-front loader ui-widget-overlay bg-white opacity-100">
+				<img src="assets/images/loader-dark.gif" alt="">
+			</div>
+			
+			<div id="page-wrapper">
+				<div id="page-header" class="clearfix">
+					<div id="header-logo">Documentación 3.0</div>
+					<div class="top-icon-bar">
+					<!-- -->    
+					</div>
+				</div><!-- #page-header -->
+			
+				<div id="page-sidebar" class="scrollable-content">
+					<div id="sidebar-menu">
+						<ul>
+							<li><a href="index.html" title="Dashboard"><i class="glyph-icon icon-dashboard"></i>Inicio</a></li>
+							<li>
+								<a href="javascript:;" title="Bases de Datos"><i class="glyph-icon icon-table"></i>Base Datos</a>
+								<ul>
+									<li><a href="NeuralConexionDB.html" title="NeuralConexionDB"><i class="glyph-icon icon-chevron-right"></i>Conexion Base Datos</a></li>
+									<li><a href="NeuralBDConsultas.html" title="NeuralBDConsultas"><i class="glyph-icon icon-chevron-right"></i>Consultas</a></li>
+									<li><a href="NeuralBDGab.html" title="NeuralBDGab"><i class="glyph-icon icon-chevron-right"></i><sub>Guardar - Actualizar - Eliminar</sub></a></li>
+								</ul>
+							</li>
+							<li><a href="NeuralCorreoSwiftMailer.html" title="NeuralCorreoSwiftMailer"><i class="glyph-icon icon-envelope-o"></i>Correo</a></li>
+							<li><a href="NeuralCriptografia.html" title="NeuralCriptografia"><i class="glyph-icon icon-gears"></i>Criptografia</a></li>
+							<li>
+								<a href="javascript:;" title="JQuery"><i class="glyph-icon icon-code"></i>JQuery</a>
+								<ul>
+									<li><a href="NeuralJQueryAjaxConstructor.html" title="NeuralJQueryAjaxConstructor"><i class="glyph-icon icon-chevron-right"></i>Constructor Ajax</a></li>
+									<li><a href="NeuralJQueryConstructor.html" title="NeuralJQueryConstructor"><i class="glyph-icon icon-chevron-right"></i>Constructor JQuery</a></li>
+									<li><a href="NeuralJQueryScript.html" title="NeuralJQueryScript"><i class="glyph-icon icon-chevron-right"></i>Scripts Construidos</a></li>
+									<li><a href="NeuralJQValidacion.html" title="NeuralJQValidacion"><i class="glyph-icon icon-chevron-right"></i>Validación Formularios</a></li>
+								</ul>
+							</li>
+							<li><a href="NeuralPlantillasTwig.html" title="NeuralPlantillasTwig"><i class="glyph-icon icon-outdent"></i>Plantillas</a></li>
+							<li><a href="NeuralSesiones.html" title="NeuralSesiones"><i class="glyph-icon icon-terminal"></i>Sesiones</a></li>
+						</ul>
+						<div class="divider mrg5T mobile-hidden"></div>
+					</div>
+				</div><!-- #page-sidebar -->
+			
+			
+				<div id="menu-right" class="scrollable-content hidden">
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Cloud status
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open pad20T pad20B">
+				
+				<div class="row">
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="55"><span>55</span>%</div>
+				</div>
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="46"><span>46</span>%</div>
+				</div>
+				<div class="col-md-4">
+				<div class="text-center font-gray-dark pad5B text-transform-upr font-size-11">Rate</div>
+				<div class="chart-alt-2" data-percent="92"><span>92</span>%</div>
+				</div>
+				</div>
+				<div class="divider"></div>
+				<div class="text-center">
+				<a href="javascript:;" class="btn center-div ui-state-default small text-transform-upr updateEasyPieChart">
+				<span class="button-content font-normal">
+				<i class="glyph-icon icon-refresh float-left"></i>
+				Refresh all pie charts
+				</span>
+				</a>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Realtime Rate
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open clearfix">
+				
+				<div id="g10" class="small-gauge float-left"></div>
+				<div id="g11" class="small-gauge float-right"></div>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Tasks for today
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<ul class="progress-box progress-box-alt">
+				<li>
+				<div class="progress-title">
+				New features development
+				<b>87%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="87">
+				<div class="progressbar-value bg-azure">
+				<div class="progressbar-overlay"></div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>66%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="66">
+				<div class="progressbar-value bg-red">
+				<div class="progressbar-overlay"></div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>58%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="58">
+				<div class="progressbar-value bg-blue-alt"></div>
+				</div>
+				</li>
+				<li>
+				<div class="progress-title">
+				Rate
+				<b>74%</b>
+				</div>
+				<div class="progressbar-smaller progressbar" data-value="74">
+				<div class="progressbar-value bg-purple"></div>
+				</div>
+				</li>
+				</ul>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Pending notifications
+				<span class="badge bg-orange tooltip-button" title="Orange badge">4</span>
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<ul class="notifications-box remove-border">
+				<li>
+				<span class="btn bg-red radius-all-100 icon-notification glyph-icon icon-glass"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				<li>
+				<span class="btn bg-blue-alt radius-all-100 icon-notification glyph-icon icon-leaf"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				<li>
+				<span class="btn bg-yellow radius-all-100 icon-notification glyph-icon icon-trophy"></span>
+				<span class="notification-text">Rate</span>
+				</li>
+				</ul>
+				
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Sales for today
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				<div class="info-box mrg10B bg-white remove-border radius-all-4 tooltip-button" title="4px border radius">
+				<div class="chart-icon">
+				<div class="sprk-1-dash">5,6,7,5,9,8,6,3,2,1,2,4,2,2,4,6,7</div>
+				</div>
+				<b>Current growth</b>
+				<span class="stats font-blue">
+				<i class="glyph-icon icon-chevron-down font-red"></i>
+				765
+				<span class="font-orange">-8.1</span>
+				</span>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<a href="javascript:;" title="Get Source" class="popover-title button-toggle-open">
+				Rate
+				<i class="glyph-icon icon-caret-right icon-caret-down"></i>
+				</a>
+				<div class="toggle-content-open">
+				
+				<div class="tabs">
+				<ul>
+				<li>
+				<a href="#core-helpers-tabs-1" title="Tab 1">
+				<i class="glyph-icon icon-archive font-blue font-size-23"></i>
+				</a>
+				</li>
+				<li>
+				<a href="#core-helpers-tabs-2" title="Tab 2">
+				<i class="glyph-icon icon-beaker font-black font-size-23"></i>
+				</a>
+				</li>
+				<li>
+				<a href="#core-helpers-tabs-3" title="Tab 3">
+				<i class="glyph-icon icon-cogs font-green font-size-23"></i>
+				</a>
+				</li>
+				</ul>
+				<div id="core-helpers-tabs-1">
+				Rate
+				</div>
+				<div id="core-helpers-tabs-2">
+				Rate
+				</div>
+				<div id="core-helpers-tabs-3">
+				Rate
+				</div>
+				</div>
+				
+				</div>
+				</div>
+			
+				<div id="page-content-wrapper">
+					<!-- Contenido -->
+						<div id="page-title">
+							<h3>
+								NeuralPlantillasTwig
+								<small>
+									Clase de Ayuda para el manejo del Motor de Plantillas Twig
+								</small>
+							</h3>
+						</div>
+						
+						<div id="page-content">
+							<p>
+								NeuralPHP Framework provee una clase que simplifica la instancia del motor de plantillas. <a href="http://twig.sensiolabs.org/" target="_blank">http://twig.sensiolabs.org/</a>
+							</p>
+							<br />
+							<hr />
+							
+							
+							<h3>NeuralPlantillasTwig('MiApp', 'Cache')</h3>
+							<br />
+							<p>
+								Instancia genera la inclusión de las libreria y el proceso correspondiente.<br /><br />
+								<ol>
+									<li><strong>MiApp</strong>: valor por defecto <i>Predeterminado</i>, Selecciona la aplicación donde se tomara las carpetas de origen de las plantillas.</li>
+									<li><strong>Cache</strong>: valor por defecto false, activa el sistema de cache que trae incorporado el motor de plantillas.</li>
+								</ol>
+							</p>
+							<pre class="brush: php;">
+								/**
+								 * Selección de aplicación
+								 */
+								$Plantilla = new NeuralPlantillasTwig('MiApp');
+								
+								/**
+								 * Selección de aplicación y activación de Cache
+								 */
+								$Plantilla = new NeuralPlantillasTwig('MiApp', true);</pre>
+							
+							<br /><br />
+							
+							<h3>Filtro('Nombre del Filtro', 'Función Anónima')</h3>
+							<br />
+							<p>
+								El filtro transforma el valor pasado a algo más.<br /><br />
+								<ol>
+									<li><strong>Nombre del Filtro</strong>: Nombre que se le dara al filtro correspondiente.</li>
+									<li><strong>Función Anónima</strong>: Es una Función Anónima ó Lambda donde solo tomara un solo y unico parametro.</li>
+								</ol>
+							</p>
+							<br />
+							<p>Ejemplo de Uso en el Controlador</p>
+							<pre class="brush: php;">
+								/**
+								 * Un filtro personalizado
+							 	 * Para cambiar un texto a Mayusculas
+								 */
+								$Plantilla->Filtro('Mayusculas', function($Parametro) {
+									return mb_strtoupper($Parametro);
+								});</pre>
+							<br />
+							<p>Ejemplo de Uso en la Plantilla</p>
+							<pre class="brush: php;">
+								/**
+								 * Ejemplo de Uso en la plantilla aplicando
+								 * el filtro en una variable de twig
+								 */
+								{{ Variable|Mayusculas }}
+								
+								/**
+								 * Ejemplo de Uso en la plantilla aplicando
+								 * el filtro en un texto en especifico
+								 */
+								{{ 'un texto que pasara a mayusculas'|Mayusculas }}</pre>
+							
+							<br /><br />
+							
+							<h3>Funcion('Nombre del Filtro', 'Función Anónima')</h3>
+							<br />
+							<p>
+								A diferencia del filtro, la función puede pasar varios parametros para ejecutar.<br /><br />
+								<ol>
+									<li><strong>Nombre del Filtro</strong>: Nombre que se le dara a la función correspondiente.</li>
+									<li><strong>Función Anónima</strong>: Es una Función Anónima ó Lambda donde tomara los parametros correspondientes.</li>
+								</ol>
+							</p>
+							<br />
+							<p>Ejemplo de Uso en el Controlador</p>
+							<pre class="brush: php;">
+								/**
+								 * Una función personalizada
+							 	 * Para validar parametros ingresados
+								 */
+								$Plantilla->Funcion('Escala', function($Parametro_1, $Parametro_2) {
+									return ($Parametro_1 >= 5 AND $Parametro_2 <= 10) ? 'Normal' : 'Desestabilizado';
+								});</pre>
+							<br />
+							<p>Ejemplo de Uso en la Plantilla</p>
+							<pre class="brush: php;">
+								/**
+								 * Ejemplo de Uso en la plantilla aplicando
+								 * la función con variables de twig
+								 */
+								{{ Escala(Variable_1, Variable_2) }}
+								
+								/**
+								 * Ejemplo de Uso en la plantilla aplicando
+								 * la función con valores predeterminados
+								 */
+								{{ Escala(5, 10) }}</pre>
+							
+							<br /><br />
+							
+							<h3>Parametro('Nombre de la Variable', 'Valor de la Variable')</h3>
+							<br />
+							<p>
+								Asigna una variable dentro de la plantilla
+								<ol>
+									<li><strong>Nombre de la Variable</strong>: Nombre de la variable asignada.</li>
+									<li><strong>Valor de la Variable</strong>: Valor que se le asignara.</li>
+								</ol>
+							</p>
+							<br />
+							<p>Ejemplo de Uso en el Controlador</p>
+							<pre class="brush: php;">$Plantilla->Parametro('Titulo', 'NeuralPHP Framework');</pre>
+							<br />
+							<p>Ejemplo de Uso en la Plantilla</p>
+							<pre class="brush: php;">
+								/**
+								 * Ejemplo de Uso en la plantilla aplicando
+								 * la variable o parametro correspondiente
+								 */
+								{{ Titulo }}</pre>
+							
+							<br /><br />
+							
+							<h3>MostrarPlantilla('Ruta de la Plantilla')</h3>
+							<br />
+							<p>
+								Este metodo genera el proceso de aplicar la plantilla especificada e imprimir el resultado de la validación del proceso del motor de plantillas.<br /><br />
+								<ol>
+									<li><strong>Ruta de la Plantilla</strong>: ruta donde se encuentra la plantilla correspondiente dentro de la carpeta de plantillas de la aplicación.</li>
+								</ol>
+								<br />
+								<div class="content-box mrg25B">
+									<h3 class="content-box-header primary-bg">
+									<span>Para Tener En Cuenta</span>
+									</h3>
+									<div class="content-box-wrapper">
+										Cuando se especifica dentro de un <b>Modulo</b>, este metodo buscara la plantilla dentro del modulo correspondiente, al no encontrarlo genera un mensaje de error, 
+										si la ruta de la plantilla del modulo es igual a la ruta de la carpeta principal de vistas ubicada en la carpeta MVC, se cargara la vista de la carpeta principal.<br /><br />
+										Se recomienda que las rutas de los modulos sean diferentes o esten contenidas en carpetas que no existan en la carpeta principal de vistas, pero a su vez puede extender e incluir plantillas sin restricción.
+									</div>
+								</div>
+								<p>Actualmente se pueden utilizar cualquier extensión de texto como puede ser html, htm, php, txt, phtml, ptl y demás formatos de texto.</p>
+							</p>
+							<pre class="brush: php;">echo $Plantilla->MostrarPlantilla('Portada/Plantilla.html');</pre>
+							
+							<br /><br />
+							
+							<h3>Variables Predefinidas</h3>
+							<br />
+							<p>
+								NeuralPHP Framework proveé dos variables predefinidas que se deben aplicar en la plantilla correspondiente, estas manejan la URL de la aplicación.<br /><br />
+								<ol>
+									<li><strong>{{NeuralRutaApp}}</strong>: retorna http://localhost/MiApp</li>
+									<li><strong>{{NeuralRutaWebPublico}}</strong>: retorna http://localhost/MiApp/WebRoot/Web el cual da acceso a los archivos publicos de la aplicación como Imagenes, JavaScript, Hojas de Estilos.</li>
+								</ol>
+							</p>
+							<pre class="brush: php;">
+								/**
+								 * Ejemplo de Uso en Hipervinculo
+								 * @return <a href="http://localhost/MiApp">Hipervinculo</a>
+								 */
+								<a href="{{NeuralRutaApp}}">Hipervinculo</a>
+								
+								/**
+								 * Ejemplo de Uso en Hipervinculo
+								 * @return <a href="http://localhost/MiApp/Controlador/Metodo/Parametro">Hipervinculo</a>
+								 */
+								<a href="{{NeuralRutaApp}}/Controlador/Metodo/Parametro">Hipervinculo</a>
+								
+								/**
+								 * Ejemplo de Uso en Imagens
+								 * @return <img src="http://localhost/MiApp/WebRoot/Web/Imagenes/Imagen.jpg" />
+								 */
+								<img src="{{NeuralRutaWebPublico}}/Imagenes/Imagen.jpg" />
+								
+								/**
+								 * Ejemplo de Uso en Hojas de Estilo
+								 * @return <link href="http://localhost/MiApp/WebRoot/Web/css/HojaEstilos.css" rel="stylesheet" type="text/css" />
+								 */
+								<link href="{{NeuralRutaWebPublico}}/css/HojaEstilos.css" rel="stylesheet" type="text/css" />
+								
+								/**
+								 * Ejemplo de Uso en JavaScript
+								 * @return <script type="text/javascript" src="http://localhost/MiApp/WebRoot/Web/js/JavaScript.js"></script>
+								 */
+								<script type="text/javascript" src="{{NeuralRutaWebPublico}}/js/JavaScript.js"></script></pre>
+							
+							<br /><br />
+							
+							<hr />
+							
+							<br /><br />
+							
+							<h2>Ejemplo de Uso</h2>
+							<br />
+							<p>Uso en el Controlador</p>
+							<pre class="brush: php;">
+								$Plantilla = new NeuralPlantillasTwig('MiApp');
+								$Plantilla->Filtro('Mayusculas', function($Parametro) {
+								    return mb_strtoupper($Parametro);
+								});
+								$Plantilla->Funcion('Escala', function($Parametro_1, $Parametro_2) {
+									return ($Parametro_1 >= 5 AND $Parametro_2 <= 10) ? 'Normal' : 'Desestabilizado';
+								});
+								echo $Plantilla->MostrarPlantilla('Portada/Plantilla.html');</pre>
+							<p>Ejemplo en la Plantilla</p>
+							<pre class="brush: php;">
+								<h1>Esta es la Variable: {{Titulo}}</h1>
+								<p>El estado actual es <strong>{{Escala(5, 8)}}</strong></p></pre>
+							
+							<br /><br />
+							
+							<hr />
+							
+							<br /><br />
+							
+							<h2>Introducción a Twig</h2>
+							<sub>Explicación Tomada de <a href="http://gitnacho.github.io/Twig/" target="_blank">http://gitnacho.github.io/Twig/</a></sub>
+							<p>En primer lugar, recuerda que el lenguaje de Twig tiene dos construcciones principales:</p>
+							<pre class="brush: php;">
+								{{ }}: Utilizada para imprimir el resultado de la evaluación de la expresión, imprime en la plantilla el resultado de una expresión;
+								{% %}: Utilizada para ejecutar instrucciones, se utiliza para ejecutar declaraciones como bucles FOR, estructuras de control IF.</pre>
+							
+							<p>Una plantilla simplemente es un archivo de texto. Esta puede generar cualquier formato basado en texto (HTML, XML, CSV, LaTeX, etc.) No tiene una extensión específica, .html o .xml están muy bien.</p>
+							<p>Una plantilla contiene variables o expresiones, las cuales se reemplazan por valores cuando se evalúa la plantilla, y las etiquetas, controlan la lógica de la plantilla.</p>
+							
+							<br />
+							
+							<h3>Variables</h3>
+							
+							<p>La aplicación pasa variables a las plantillas para que puedas combinarlas en la plantilla. Las variables pueden tener atributos o elementos en ellas a los cuales puedes acceder también. Cómo se ve una variable, en gran medida, depende de la aplicación que la proporcione.</p>
+							<p>Puedes utilizar un punto (.) para acceder a los atributos de una variable (métodos o propiedades de un objeto PHP, o elementos de un arreglo PHP), o la así llamada sintaxis de «subíndice» ([]).</p>
+							<pre class="brush: php;">
+								{{ foo.bar }}
+								{{ foo['bar'] }}</pre>
+							<p>Cuando el atributo contiene caracteres especiales (como el guión - se debe interpretar como el operador de sustracción), en su lugar usa la función <strong>attribute()</strong> para acceder al valor de la variable attribute:</p>
+							<pre class="brush: php;">
+								{{ attribute(foo, 'data-foo') }}</pre>
+							
+							<br />
+							
+							<h3>Filtros</h3>
+							<p>Los filtros pueden modificar variables. Los filtros están separados de la variable por un símbolo de tubo (|) y pueden tener argumentos opcionales entre paréntesis. Puedes encadenar múltiples filtros. La salida de un filtro se aplica al siguiente.</p>
+							<p>El siguiente ejemplo elimina todas las etiquetas HTML del name y lo formatea como nombre propio:</p>
+							<pre class="brush: php;">
+								{{ name|striptags|title }}</pre>
+							
+							<br />
+							
+							<h3>Funciones</h3>
+							<p>Las funciones se pueden llamar para generar contenido. Las funciones son llamadas por su nombre seguido de paréntesis (()) y pueden tener argumentos.</p>
+							<p>Por ejemplo, la función range devuelve una lista que contiene una progresión aritmética de números enteros:</p>
+							<pre class="brush: php;">
+								/**
+								 * Ejemplo 1
+								 */
+								{% for i in range(0, 3) %}
+									{{ i }},
+								{% endfor %}
+								
+								/**
+								 * Ejemplo 2
+								 */
+								{{ data|convert_encoding('UTF-8', 'iso-2022-jp') }}</pre>
+							
+							<br />
+							
+							<h3>Estructuras de Control</h3>
+							<p>Una estructura de control se refiere a todas esas cosas que controlan el flujo de un programa — condicionales (es decir, if/elseif/else), bucles for, así como cosas tales como bloques. Las estructuras de control aparecen dentro de bloques {% ... %}.</p>
+							<p>Por ejemplo, para mostrar una lista de usuarios provista en una variable llamada users, usa la etiqueta for:</p>
+							<pre class="brush: php;">
+								<h1>Members</h1>
+								<ul>
+									{% for Valor in ConsultaSQL %}
+										<li>{{ Valor.NombreUsuario }}</li>
+									{% endfor %}
+								</ul></pre>
+							<p>Puedes utilizar la etiqueta if para probar una expresión:</p>
+							<pre class="brush: php;">
+								{% if ConsultaSQL|length > 0 %}
+									<ul>
+										{% for Valor in ConsultaSQL %}
+											<li>{{ Valor.NombreUsuario }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}</pre>
+							<p>Puedes utilizar par Nombre Valor de la matriz correspondiente</p>
+							<pre class="brush: php;">
+								{% if ConsultaSQL|length > 0 %}
+									<ul>
+										{% for Nombre, Valor in ConsultaSQL %}
+											<li><b>{{ Nombre }}</b>{{ Valor }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}</pre>
+							
+							<br />
+							
+							<h3>Comentarios</h3>
+							<p>Para comentar parte de una línea en una plantilla, utiliza la sintaxis de comentario {# ... #}. Esta es útil para depuración o para agregar información para los diseñadores de otra plantilla o para ti mismo:</p>
+							<pre class="brush: php;">
+								{# nota: inhabilitado en la plantilla porque ya no se utiliza
+									{% for user in users %}
+										...
+									{% endfor %}
+								#}</pre>
+								
+							<br />
+							
+							<h3>Incluyendo Otras Plantillas</h3>
+							<p>La etiqueta include es útil para incluir una plantilla y devolver el contenido producido de esa plantilla a la actual:</p>
+							<pre class="brush: php;">{% include 'sidebar.html' %}</pre>
+							<p>De manera predeterminada se pasa el contexto actual a las plantillas incluidas.</p>
+							<p>El nombre de archivo de la plantilla depende del gestor de plantillas. Por ejemplo, el Twig_Loader_Filesystem te permite acceder a otras plantillas, dando el nombre del archivo. Puedes acceder a plantillas en subdirectorios con una barra inclinada:</p>
+							<pre class="brush: php;">{% include "sections/articles/sidebar.html" %}</pre>
+							
+							<br />
+							
+							<h3>Herencia en Plantillas</h3>
+							<p>La parte más poderosa de Twig es la herencia entre plantillas. La herencia de plantillas te permite crear un «esqueleto» de plantilla base que contenga todos los elementos comunes de tu sitio y define los bloques que las plantillas descendientes pueden sustituir.</p>
+							<p>Suena complicado pero es muy básico. Es más fácil entenderlo comenzando con un ejemplo.</p>
+							<p>Vamos a definir una plantilla base, base.html, la cual define el esqueleto de un documento HTML simple que puedes usar para una sencilla página de dos columnas:</p>
+							<pre class="brush: php;">
+								<div id="content">{% block Contenido %}{% endblock %}</div>
+								<div id="footer">
+									{% block PiePagina %}
+										&copy; Copyright 2014 by <a href="http://dominio.invalido/">tú</a>.
+									{% endblock %}
+								</div></pre>
+							<p>En este ejemplo, las etiquetas block definen los bloques que las plantillas herederas pueden rellenar. Todas las etiquetas block le dicen al motor de plantillas que una plantilla heredera puede sustituir esas porciones de la plantilla.</p>
+							<p>Una plantilla hija podría tener este aspecto:</p>
+							<pre class="brush: php;">
+								{% extends "base.html" %}
+								
+								{% block Contenido %}
+									<h1>Index</h1>
+									<p class="important">
+										Bienvenido a mi impresionante página.
+									</p>
+								{% endblock %}</pre>
+							<p>Aquí, la clave es la etiqueta extends. Esta le dice al motor de plantillas que esta plantilla «extiende» otra plantilla. Cuando el sistema de plantillas evalúa esta plantilla, en primer lugar busca la plantilla padre. La etiqueta extends debe ser la primera etiqueta en la plantilla.</p>
+							<p>Ten en cuenta que debido a que la plantilla heredera no define el bloque PiePagina, en su lugar se utiliza el valor de la plantilla padre.</p>
+						</div>
+						
+					<!-- Fin Contenido -->
+				</div><!-- #page-main -->
+			</div><!-- #page-wrapper -->
+		</body>
+	</html>

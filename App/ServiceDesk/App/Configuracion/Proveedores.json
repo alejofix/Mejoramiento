@@ -1,0 +1,8 @@
+{
+	"Configuracion" : {
+		"Activo" : false
+	},
+	"Paquetes" : {
+		"Nombre Descriptivo" : { "Estado" : false, "Ubicacion" : ["Carpeta", "archivo.php"] }
+	}
+}

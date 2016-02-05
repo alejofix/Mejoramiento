@@ -1,0 +1,12 @@
+	{% extends 'Base/HFCguion.html' %}
+	
+	{% block Contenido %}
+
+{% if Datos.aviso == true %}
+			 
+			 <div id="description" style="display: none;">{% filter escape %}{% include 'Generales/Guion/1.html' %}{% endfilter %}</div>
+			 {% include 'Generales/Guion/1.html' %}
+			
+{% endif %}
+
+	{% endblock %}

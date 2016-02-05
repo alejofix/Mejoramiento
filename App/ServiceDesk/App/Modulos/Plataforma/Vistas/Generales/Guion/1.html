@@ -1,0 +1,125 @@
+<table>
+
+    <tr>
+        <td>
+            AVISO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td>
+            {{Datos.aviso|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            SINTOMA:
+        </td>
+        <td>
+            {{Datos.sintoma|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    
+           
+    {% if Datos.soporte1 == true %}
+    <tr>
+        <td>
+            PROCESO<br />DE SOPORTE:
+        </td>
+        <td>
+            <table>
+          
+                <tr>
+                    <td>&nbsp;&nbsp;1.&nbsp;&nbsp;</td>
+                    <td>{{Datos.soporte1|e}}</td>
+                </tr>
+                
+                {% if Datos.soporte2 == true %}
+                <tr>
+                    <td><br /></td>
+                    <td>------------------------------------------------------------------------------------------------------------------------------------</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;2.&nbsp;&nbsp;</td>
+                    <td>{{Datos.soporte2|e}}</td>
+                </tr>
+                {% endif %}
+          
+                {% if Datos.soporte3 == true %}
+                <tr>
+                    <td><br /></td>
+                    <td>------------------------------------------------------------------------------------------------------------------------------------</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;3.&nbsp;&nbsp;</td>
+                    <td>{{Datos.soporte3|e}}</td>
+                </tr>
+                {% endif %}
+          
+            </table>
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    {% endif %}
+    
+<!--  manejo NOTAS GENRENCIA --> 
+   
+    {% if Datos.notasgerencia == true %}
+    <tr> 
+        <td>
+            NOTAS <br />GERENCIA:
+        </td>   
+        <td>
+            <br />{{Datos.data|e}} con Aviso_{{Datos.aviso|e}}
+            {% if Datos.masnotas == true %}<br/>{{Datos.masnotas|e}}{% endif %}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>    
+    </tr>
+    {% endif %}
+    
+    {% if Datos.notasgerencia == false %}
+    {% if Datos.masnotas == true %}
+    <tr> 
+        <td>
+            NOTAS <br />REFERENCIA:
+        </td>   
+        <td>
+            <br />{{Datos.masnotas|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>    
+    </tr>
+    {% endif %}
+    {% endif %}
+    
+ <!-- -->   
+   
+    
+    {% if Datos.infoimportant == true %}
+    <tr> 
+        <td>
+            INFO. <br />IMPORTANTE:
+        </td>   
+        <td>
+            <br />{{Datos.infoimportant|e}}
+            -------------------------------------------------------------------------------------------------------------------------------------------.<br />
+        </td>
+    </tr>
+    {% endif %}
+    
+
+    {% if Datos.marcacion == true %}
+    <tr>
+        <td>
+          MARCACIÓN:  
+        </td>
+        <td>
+             1. Primera vez que el cliente llama por este aviso use  marcación {{Datos.marcacion|e}}<br />
+             2. Cliente ya había llamado por este aviso use marcación DIS-AVF           
+        </td>
+    </tr>
+    {% endif %}
+    
+    
+</table>
+<br />
+

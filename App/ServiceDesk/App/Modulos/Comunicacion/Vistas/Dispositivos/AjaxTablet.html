@@ -1,0 +1,39 @@
+{% block Contenido %}
+		
+		{% if avisos|length >= 1 %}
+			
+			{% for datos in avisos %}
+			
+				{% if datos.PRIORIDAD == 1 %}
+					<div class="col-sm-4">
+						<div class="tile-stats tile-plum">
+							<div class="icon"><i class="entypo-attention"></i></div>
+							<div class="num">{{ datos.AVISO|e }}</div>
+				
+							<h3>{{ datos.REGIONAL|e|title }}</h3>
+							<h3>{{ datos.FALLA|e|title }}</h3>
+							<p>{{ datos.DETALLE|e|lower }}</p>
+						</div>
+					</div>
+				{% else %}
+					<div class="col-sm-4">
+						<div class="tile-stats tile-blue">
+							<div class="icon"><i class="entypo-traffic-cone"></i></div>
+							<div class="num">{{ datos.AVISO|e }}</div>
+				
+							<h3>{{ datos.REGIONAL|e|title }}</h3>
+							<h3>{{ datos.FALLA|e|title }}</h3>
+							<p>{{ datos.DETALLE|e|lower }}</p>
+						</div>
+					</div>
+				{% endif %}
+					
+			{% endfor %}
+			
+		{% else %}
+			<div class="col-md-6">
+				<div class="alert alert-danger"><strong>No hay reportes actuales de Alto Impacto !</strong>  <br /> Confirme Avisos Generales en Página de Gerencia.</div>
+			</div>
+		{% endif %}
+		
+	{% endblock %}

@@ -1,0 +1,170 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+	{% include 'Menus/menu_plataforma.html' %}
+			
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Creación de Guión Plataforma | Decodificadores</strong>
+						</div>
+						<div class="panel-options">
+							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+							<a href="{{ NeuralRutaApp|e }}/Plataforma/Decodificadores"><i class="entypo-arrows-ccw"></i></a>
+						</div>
+					</div>
+					
+					<div class="panel-body">
+						
+						<form class="form-horizontal form-groups-bordered" id="FormularioPDecodificadores" name="guionpDecodificadores" action='#' method='post' role="form">
+                        
+							<div class="form-group">
+                            
+                                <div class="col-md-12">
+                                    <label class="col-sm-3 control-label"><strong>Número Aviso:</strong></label>
+    								<div class="col-sm-5">
+    									<input type="text" class="form-control" name="aviso" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required/>
+    								</div>
+                                </div>
+
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                            
+                                <div class="col-md-12">
+                                    <label class="col-sm-3 control-label"><strong>Decodificador con Afectación</strong></label>
+                                    <div class="col-sm-5">
+                                            <select name="deco1" class="form-control" required/>
+    											<option value="">Seleccione una Opción</option>
+    											<optgroup>
+    												<option value="Todas las Referencias">Todas las Referencias</option>
+    												{% for decos in DecodificadoresListado %}
+    													<option value="{{ decos|join('_') }}">{{ decos|join('_') }}</option>
+    												{% endfor %}
+    											</optgroup>
+    										</select>
+                                           <button value="Mostrar" type="button" class="btn btn-default btn-icon btn-xs icon-left" onclick="mostrar()">
+                								Referencias
+                                                <i class="entypo-plus"></i>
+                                            </button>
+        		                    </div>
+                                </div>
+                                <div class="col-md-4" id='oculto' style='display:none;'>
+                                   {% include 'Listas/ref_Decos.html' %}
+                                </div>
+                                
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                                
+                                <div class="col-md-12">
+                                    <label class="col-sm-3 control-label"><strong>Síntoma</strong></label>
+    								<div class="col-sm-6">
+    									<textarea class="form-control" name="sintoma" id="sintoma" placeholder="Campo obligatorio* Descripción de la falla" required/></textarea>
+    								    <textarea class="form-control" name="masnotas" id="masnotas" placeholder="Agregar Notas Referencia" rows="1" maxlength="8888"></textarea>
+                                    </div>
+                                    	<div class="col-sm-3">
+                                        	<b>Primera Marcación</b>
+                                            <input type="text" style="width:111px;height:39px" class="form-control" name="marcacion" id="marcacion" placeholder="Marcación" maxlength="7" >
+                                        </div>
+                                </div>
+                            
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                            
+                                <div class="col-md-12">
+                                    <label class="col-sm-3 control-label"><strong>Proceso de Soporte</strong></label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" name="soporte1" id="soporte1" placeholder="1er. Proceso Soporte" maxlength="18888"></textarea>
+                                        <textarea class="form-control" name="soporte2" id="soporte2" placeholder="2do. Proceso Soporte" rows="1" maxlength="8888"></textarea>
+                                        <textarea class="form-control" name="soporte3" id="soporte3" placeholder="3er. Proceso Soporte" rows="1" maxlength="8888"></textarea>
+                                    </div>
+                                </div>
+                                       
+                            </div>
+                            <!-- line -->
+                            
+                            <div class="form-group">
+                            
+                                <div class="col-md-12">
+                                    <label class="col-sm-3 control-label"><strong>Información Importante</strong></label>
+                                        <div class="col-sm-6">
+                                            <textarea class="form-control" name="infoimportant" id="infoimportant" placeholder="Información relevante si lo requiere" ></textarea>   
+                                        </div>
+                                </div>
+                                       
+                            </div>
+                            <!-- line -->
+                            
+                            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                                <div class="form-group">
+								    <div class="col-sm-offset-3 col-sm-5">
+											<button type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Televisión – PLATAFORMA" data-original-title="Generador de Guión">
+								                Crear Guión 
+								                <i class="entypo-check"></i>
+							                 </button>
+                                            	<input type="hidden" name="data" value="Decodificadores">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+                								Borrar Formulario 
+                								<i class="entypo-trash"></i>
+                							</button>
+									</div>
+					           </div>
+                            {% endif %}
+
+
+						</form>
+						
+					</div>
+				
+				</div>
+	
+
+
+<div class="row" id="Respuesta" style="margin-top: 35px;"></div>
+
+<!-- fin -->
+    {% endblock %}
+	
+        {% block Script %}
+        
+            <style type="text/css">
+            	.error {
+            		font-family: verdana;
+            		font-size: 10px;
+            		font-weight: bold;
+            		color: red;
+            	}
+            </style>
+            
+            <script type="text/javascript">
+    			$(document).ready(function() {
+    				$("#borrar").click(function() {
+    					 $("#FormularioPDecodificadores")[0].reset();
+    				});
+    			 });
+		      </script>
+              <script type="text/javascript">
+                    function mostrar(){
+                    document.getElementById('oculto').style.display = 'block';}
+               </script>
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+            	
+ 		        <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/ajax.js"></script>
+			
+            	
+            	{{ Validacion|raw }}
+            	
+            {% endif %}
+        
+        
+        {% endblock %}

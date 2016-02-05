@@ -1,0 +1,43 @@
+{% macro afectacionCM(name, id) %}
+                            		<label class="col-sm-3 control-label"><strong>Afectación CableMódem</strong></label>
+    								<div class="col-sm-5">
+                                        <select class="form-control" name="{{ name|e }}" id="{{ id|e }}" required/>
+                                			<option value="">Seleccione una Opción</option>
+                                			<optgroup>
+                                				<option value="Sin_Niveles">Sin Niveles</option>
+                                	          	<option value="Desf._Ruido">Desf. Ruido</option>
+                                				<option value="Desf._Potencia">Desf. Potencia</option>
+                                	            <option value="Desf._Niveles">Desf. Niveles</option>
+                                			</optgroup>
+                                		</select>	
+    								</div>
+{% endmacro %}
+
+{% macro afectacionTVUni(name, id) %}
+                            		<label class="col-sm-3 control-label"><strong>Afectación Televisión</strong></label>
+    								<div class="col-sm-5">
+                                        <select class="form-control" name="{{ name|e }}" id="{{ id|e }}" required/>
+                                			<option value="">Seleccione una Opción</option>
+                                			<optgroup>
+                                				    <option value="Sin_Señal">Sin Señal</option>
+                                					<option value="Señal_Deficiente">Señal Deficiente</option>
+                                					<option value="Señal_Pixelada">Señal Pixelada</option>
+                                			</optgroup>
+                                		</select>	
+    								</div>
+{% endmacro %}
+
+{% macro afectacionTVBi(name, id) %}
+                            		<label class="col-sm-3 control-label"><strong>Afectación Televisión</strong></label>
+    								<div class="col-sm-5">
+                                        <select class="form-control" name="{{ name|e }}" id="{{ id|e }}" required/>
+                                			<option value="">Seleccione una Opción</option>
+                                			<optgroup>
+                                				    <option value="Sin_Señal">Sin Señal</option>
+                                					<option value="Señal_Deficiente">Señal Deficiente</option>
+                                					<option value="Señal_Pixelada">Señal Pixelada</option>
+                                					<option value="Pixelación(Plataforma)">Pixelada Plataforma</option>
+                                			</optgroup>
+                                		</select>	
+    								</div>
+{% endmacro %}

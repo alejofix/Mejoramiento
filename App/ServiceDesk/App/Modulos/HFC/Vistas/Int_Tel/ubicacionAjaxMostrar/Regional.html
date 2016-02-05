@@ -1,0 +1,12 @@
+	<label class="col-sm-3 control-label bold">Regionales</label>
+	<div class="col-sm-5">
+          
+     {% if regionales|length >= 1 %}
+		 {% for regional in regionales %}
+		 	<div class="col-sm-5 btn-default zyos" style="padding: 5px; margin: 5px; font-family: verdana; font-size: 8px; font-weight: bold; display: table-cell; vertical-align: middle;">
+				<input name="REGIONAL[]" value="{{ regional.ID|e }}" type="checkbox"> {{ regional.NOMBRE|e }}
+			</div>
+		 {% endfor %}                         
+     {% endif %}       
+			
+	</div> 

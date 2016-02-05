@@ -1,0 +1,27 @@
+{
+	"PHPini" : {
+		"Zona_Horaria" : { 
+			"Habilitado" : true, 
+			"Data" : { "Parametro" : "date.timezone", "Valor" : "America/Bogota" }
+		},
+		"Memoria_Limite" : { 
+			"Habilitado" : false, 
+			"Data" : { "Parametro" : "memory_limit", "Valor" : "64M" }
+		},
+		"Zlib" : { 
+			"Habilitado" : false, 
+			"Data" : { "Parametro" : "zlib.output_compression", "Valor" : "On" }
+		},
+		"Tamano_Post_Maximo" : { 
+			"Habilitado" : false, 
+			"Data" : { "Parametro" : "post_max_size", "Valor" : "20M" }
+		},
+		"Tamano_Upload_Maximo" : { 
+			"Habilitado" : false, 
+			"Data" : { "Parametro" : "upload_max_filesize", "Valor" : "20M" }
+		}
+	},
+	"Cabeceras" : {
+		"Codificacion" : { "Habilitado" : true, "Data" : "Content-Type: text/html; charset=UTF-8" }
+	}
+}

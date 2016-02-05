@@ -1,0 +1,11 @@
+	{% macro semaforo(info, color, icono) %}
+		<div class="col-sm-4 col-xs-6">
+			<div class="tile-stats tile-{{ color|e }}">
+				<div class="icon"><i class="{{ icono|e }}"></i></div>
+				<h3><strong><font size="6">{{ info.FALLA|e|title }}</font></strong></h3>
+				<h3><strong>{{ info.REGIONAL|e|title }}</strong></h3>
+				<div class="num">{{ info.AVISO|e }}</div>
+				<p><font size="4">{{ info.DETALLEFALLA|e|lower }}</font></p>
+			</div>
+		</div>
+	{% endmacro %}

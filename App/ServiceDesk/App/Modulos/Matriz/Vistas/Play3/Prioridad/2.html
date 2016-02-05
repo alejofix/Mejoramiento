@@ -1,0 +1,15 @@
+
+	MATRIZ: {{Datos.MATRIZ|e}} {% if Datos.DETALLE == TRUE %}({{Datos.DETALLE|e}} {{Datos.REFERENCIA|e}}){% endif %}  AVISO: {{Datos.AVISO|e}} <br /> SÍNTOMA: {{Datos.AVERIA|e}} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }}...  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------.
+GUIÓN: “Apreciado cliente, en este momento nuestro equipo técnico y de mantenimiento se encuentra trabajando para atender una falla en la red 
+de su edificio. Nuestro tiempo estimado para dar solución al inconveniente es de 12 horas, 
+tiempo en el cual su servicio puede presentar intermitencia o ausencia del mismo.”
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------.
+PROCESO DE SOPORTE: Validar 1 vecino cercano, para clientes con @ y/o TF validar los modem por Diagnosticador 
+y garantizar que el nodo corresponda al reportado… Para clientes con solo Televisión validar el vecino telefónicamente, 
+si ambos presentan la misma falla reportar las cuentas a través de la Página de Gerencia (opción de reportar edificio) – agregar notas.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------.
+ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este aviso, use la marcación DIS-FED 
+--2.Cliente se ha comunicado en más de una ocasión por este aviso, use la marcación  DIS-AVF.
+<br /><br />

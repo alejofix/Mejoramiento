@@ -1,0 +1,187 @@
+		{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+	
+		{% include 'Menus/menu_comunicacion.html' %} 
+		
+		<style type="text/css">
+			th {
+				text-align: center;
+			}
+			
+			.center {
+				text-align: center;
+			}
+			
+			.justificado {
+				text-align: justify;
+			}
+			.active {
+					font-weight: bold;
+              	}
+		</style>
+		
+		
+		
+
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Comunicación  | Alto Impacto </button> </strong>
+                       	</div>
+						<div class="panel-options">
+                      		<a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado"><i class="entypo-arrows-ccw"></i></a>
+						</div>
+					</div>
+	
+							<!-- sub-menú alto impacto  -->
+							<ul class="nav nav-tabs">
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto">Ingresar Aviso</a></li>
+							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
+							</ul>
+							<!-- menú alto impacto  -->
+							<br />
+							
+				<div id="table-2_wrapper" class="dataTables_wrapper form-inline no-footer">
+					<table class="table table-bordered table-striped datatable dataTable no-footer" id="table-2" role="grid" aria-describedby="table-2_info">
+						<thead>
+							<tr role="row">
+								<th class="sorting" rowspan="1" colspan="1">Fecha</th>
+								<th class="sorting" rowspan="1" colspan="1">Aviso</th>
+								<th class="sorting" rowspan="1" colspan="1">Afectación</th>
+								<th class="sorting" rowspan="1" colspan="1">Síntoma</th>
+								<th class="sorting" rowspan="1" colspan="1">Prioridad</th>
+								<th class="sorting" rowspan="1" colspan="1">Acciones</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							{% if listado|length>=1 %}
+								{% for datos in listado %}
+									<tr role="row" class="odd" id="tr_{{ datos.ID|e }}">
+										<td class="center">{{ datos.FECHA|e }}</td>
+										<td class="center">{{ datos.AVISO|e }}</td>
+										<td class="justificado">{{ datos.REGIONAL|e }}</td>
+										<td class="justificado">{{ datos.FALLA|e }}</td>
+										<td class="center">{{ datos.PRIORIDAD|e }}</td>
+										<td class="center">
+											<a href="javascript:;" id="finalizar" data-id="{{ datos.ID|e }}" data-aviso="{{ datos.AVISO|e }}" class="btn btn-warning btn-sm btn-icon icon-left finalizar"><i class="entypo-pencil"></i>Finalizar</a>
+											<a href="javascript:;" id="eliminar" data-id="{{ datos.ID|e }}" data-aviso="{{ datos.AVISO|e }}" class="btn btn-danger btn-sm btn-icon icon-left eliminar"><i class="entypo-cancel"></i>Eliminar</a>
+											<a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Observar" class="btn btn-info btn-sm btn-icon icon-left"><i class="entypo-info"></i>Observar</a>
+											<a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Actualizar/{{ datos.ID|codificar }}" class="btn btn-default btn-sm btn-icon icon-left"><i class="entypo-pencil"></i>Editar</a>
+										</td>
+									</tr>
+								{% endfor %}
+							{% else %}
+								<tr>
+									<td colspan="6" >
+									<div class="alert alert-success"><strong>NO HAY AVISOS INGRESADOS !</strong> Sin reportes de Alto impacto .</div>
+									</td>
+								</tr>
+							{% endif %}
+						</tbody>
+					</table>
+				</div>
+					
+
+				
+			</div>
+		
+
+	
+	
+	{% endblock %}
+	
+	{% block Script %}
+		<script src="{{ NeuralRutaWebPublico|e }}/assets/sweetalert/dist/sweetalert.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ NeuralRutaWebPublico|e }}/assets/sweetalert/dist/sweetalert.css">
+		
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery(".finalizar").click(function() {
+					var id = jQuery(this).attr('data-id');
+					var numero_aviso = jQuery(this).attr('data-aviso');
+					swal(
+						{
+							title: "¿Está seguro de finalizar el Aviso:" + numero_aviso + "?", 
+							text: "Incidente solucionado - El Aviso se finalizara y no aparecerá más la información", 
+							type: "warning", 
+							showCancelButton: true,
+							cancelButtonText : "Cerrar", 
+							confirmButtonColor: "#DD6B55", 
+							confirmButtonText: "Si, Finalizarlo!",   
+							closeOnConfirm: false 
+						}, 
+						function() { 
+							jQuery.ajax(
+								{
+									url : "{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/procesoAjaxFinalizar",
+					   	 			cache : false,
+					   	 			data : { AVISO : id },
+					   	 			dataType : "json",
+					   	 			type : "POST",
+					   	 			error : function() {
+					   	 				swal("Error al Procesar!", "Se ha presentado un error, no es posible finalizar el Aviso!", "error");
+					   	 			},
+					   	 			success : function(respuesta) {
+					   	 				if(respuesta.STATUS == 1) {
+					   	 					swal("Finalizado!", "Su Aviso se ha finalizado con éxito.", "success");
+					   	 					jQuery("#tr_" + id).fadeOut(4000);
+					   	 				}
+					   	 				else {
+					   	 					swal("Error al Finalizar!", "Se ha presentado un error, no es posible finalizar el Aviso!", "error");
+					   	 				}
+					   	 			}
+								}
+							);
+						}
+					);
+				});
+				
+				
+				jQuery(".eliminar").click(function() {
+					var id = jQuery(this).attr('data-id');
+					var numero_aviso = jQuery(this).attr('data-aviso');
+					swal(
+						{
+							title: "¿Está seguro de Eliminar el Aviso: " + numero_aviso + "?", 
+							text: "El Aviso se eliminara  y su información se perderá de manera definitiva", 
+							type: "warning", 
+							showCancelButton: true,
+							cancelButtonText : "Cerrar", 
+							confirmButtonColor: "#DD6B55", 
+							confirmButtonText: "Si, Eliminar!",   
+							closeOnConfirm: false 
+						}, 
+						function() { 
+							jQuery.ajax(
+								{
+									url : "{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/procesoAjaxEliminar",
+					   	 			cache : false,
+					   	 			data : { AVISO : id },
+					   	 			dataType : "json",
+					   	 			type : "POST",
+					   	 			error : function() {
+					   	 				swal("Error al Procesar!", "Se ha presentado un error, no es posible Eliminar el aviso!", "error");
+					   	 			},
+					   	 			success : function(respuesta) {
+					   	 				if(respuesta.STATUS == 1) {
+					   	 					swal("Eliminado!", "Su aviso se ha eliminado con éxito.", "success");
+					   	 					jQuery("#tr_" + id).fadeOut(4000);
+					   	 				}
+					   	 				else {
+					   	 					swal("Error al Finalizar!", "Se ha presentado un error, no es posible Eliminar el Aviso!", "error");
+					   	 				}
+					   	 			}
+								}
+							);
+						}
+					);
+				});
+				
+				
+			});
+		</script>
+		
+	{% endblock %}

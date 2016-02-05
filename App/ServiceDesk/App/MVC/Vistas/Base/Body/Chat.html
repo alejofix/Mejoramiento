@@ -1,0 +1,85 @@
+    	<div id="chat" class="fixed" data-current-user="{{ Sesion.Informacion.NOMBRE|e }}" data-order-by-status="1" data-max-chat-history="25">
+    	
+    		<div class="chat-inner">
+    	
+    	
+    			<h2 class="chat-header">
+    				<!-- <a href="#" class="chat-close"><i class="entypo-cancel"></i></a> -->
+    	
+    				<i class="entypo-users"></i>
+    				Chat
+    				<span class="badge badge-success is-hidden">0</span>
+    			</h2>
+    	
+    	
+    			<div class="chat-group" id="group-1">
+    				<strong>Salas</strong>
+    					{% for Datos in Sesion.Chat %}
+    						<a href="javascript:;" onclick="jQuery('#sala-{{ Datos.ID|e }}').modal('show', {backdrop: 'static'});" data-sala="{{ Datos.ID|e }}"  class="Class_Notifica_sala">
+								<span class="user-status is-online"></span> 
+								<em>{{ Datos.NOMBRE|e }}</em> 
+								<span class="badge badge-success chat-notifications-badge is-hidden" id="Notificacion_Sala_{{ Datos.ID|e }}" data-info="chat_{{ Datos.ID|e }}">
+									0
+								</span>
+							</a>
+    					{% endfor %}
+    				<!--
+    				<a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
+    				<a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
+    				<a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
+    				-->
+    			</div>
+    	
+    		</div>
+   		</div>
+    	
+		{% for Datos in Sesion.Chat %}
+			<div class="modal fade" id="sala-{{ Datos.ID|e }}" data-backdrop="static">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title bold">Sala: [ {{ Datos.NOMBRE|e|title }} ]</h4>
+						</div>
+						<div class="modal-body">
+							
+							<div style="overflow-y: scroll; height: 200px;">
+<!-- INICIO DE PRUEBA -->
+								<ul class="comments-list" id="chat_{{ Datos.ID|e }}">
+									
+								</ul>
+<!-- FIN DE PRUEBA -->
+								
+							</div>
+							
+							
+						{% if Sesion.Permisos.Chat.ESCRITURA == true %}
+							
+							<div style="margin-top: 15px;">
+								<form action="#" method="POST" id="FormMensaje_{{ Datos.ID|e }}" name="FormMensaje_{{ Datos.ID|e }}">
+									<div class="input-group">
+										
+										<div class="col-sm-10">
+											<textarea id="mensaje_{{ Datos.ID|e }}" style="color: black; font-family: verdana; font-size: 10px; font-weight: bold;" class="form-control" rows="6" id="field-6" placeholder="Escriba su Mensaje"></textarea>
+										</div>
+										
+										<div class="col-sm-2">
+											<span class="input-group-btn">
+												<input type="hidden" name="usuario" id="usuario_{{ Datos.ID|e }}" value="{{ Sesion.Informacion.USUARIO_RR|e }}" />
+												<button class="btn btn-success enviarForm" data-name="{{ Datos.ID|e }}" type="button">Enviar</button>
+											</span>
+										</div>
+									</div>
+									<div style="margin-top: 15px;" id="alerta_{{ Datos.ID|e }}" class="alert alert-danger hidden"><strong>Error!</strong> Debe ingresar un mensaje para enviar, el campo se encuentra vacio.</div>
+								</form>
+							</div>
+							
+						{% endif %}	
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-info Class_Notifica_sala" data-sala="{{ Datos.ID|e }}" data-dismiss="modal">Cerrar Sala</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}

@@ -1,0 +1,36 @@
+{
+	"Predeterminado" : {
+		"Carpeta": "ServiceDesk",
+		"Entorno_Desarrollo": {
+			"Localhost" : { "Activo" : true, "ip" : ["::1", "127.0.0.1"], "Plantilla" : false },
+			"Externo" : { "Activo" : false }
+		},
+		"Criptografia" : {
+			"RIJNDAEL" : "e941ef0ab7ecd3856ad6c3a128247cd9",
+			"BLOWFISH" : "f3a7ef54b73b88d1fc86fe5e089cd40242ec7f57"
+		},
+		"Error" : {
+			"404" : {
+				"Activo" : false, 
+				"Parametros" : { "Modulo" : false, "Controlador" : "Index", "Metodo" : "Index", "Parametros" : false }
+			}
+		}
+	},
+	"ServiceDesk" : {
+		"Carpeta": "ServiceDesk",
+		"Entorno_Desarrollo": {
+			"Localhost" : { "Activo" : true, "ip" : ["::1", "127.0.0.1"], "Plantilla" : false },
+			"Externo" : { "Activo" : false }
+		},
+		"Criptografia" : {
+			"RIJNDAEL" : "e941ef0ab7ecd3856ad6c3a128247cd9",
+			"BLOWFISH" : "f3a7ef54b73b88d1fc86fe5e089cd40242ec7f57"
+		},
+		"Error" : {
+			"404" : {
+				"Activo" : false, 
+				"Parametros" : { "Modulo" : false, "Controlador" : "Index", "Metodo" : "Index", "Parametros" : false }
+			}
+		}
+	}
+}

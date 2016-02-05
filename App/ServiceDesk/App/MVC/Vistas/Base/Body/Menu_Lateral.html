@@ -1,0 +1,20 @@
+	{% import 'Base/Macros/MenuLateral.html' as menu %}
+
+                <ul id="main-menu" class="main-menu">
+    					
+    					{{ menu.elemento(Sesion.Permisos.Inicio.LECTURA, 'Inicio', URL, 'entypo-layout', 'Inicio', 'Inicio') }}
+    					{{ menu.hfc(Sesion.Permisos.HFC, URL, 'HFC', 'entypo-traffic-cone') }}
+    					{{ menu.matriz(Sesion.Permisos.Matriz, URL, 'Matriz', 'entypo-map') }}
+                        {{ menu.plataforma(Sesion.Permisos.Plataforma, URL, 'Plataforma', 'entypo-home') }}
+                        {{ menu.elemento(Sesion.Permisos.Mantenimientos.LECTURA, 'Mantenimientos', URL, 'entypo-list', 'Guiones Mantenimientos', 'Mantenimientos/Preventivo') }}
+                        {{ menu.comunicacion(Sesion.Permisos.Comunicacion, URL, 'Comunicacion', 'entypo-megaphone') }}
+                        {{ menu.mejoramiento(Sesion.Permisos.Mejoramiento, URL, 'Mejoramiento', 'entypo-direction') }}
+                        {{ menu.chat_lateral(Sesion.Permisos.Chat, Sesion.Chat, 'entypo-chat', 'Chat') }}
+                        
+                        <li>
+                            <a href="{{NeuralRutaApp}}/LogOut">
+                                <i class="entypo-cancel-squared"></i>
+                          		<span class="title">Cerrar Sesión</span>
+        					</a>
+                        </li>     
+    			</ul>
