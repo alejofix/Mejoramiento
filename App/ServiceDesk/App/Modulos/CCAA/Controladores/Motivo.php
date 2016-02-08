@@ -46,6 +46,7 @@
 			$pl->Parametro('validacionForm', $this->validacionForm());
 			$pl->Parametro('tipo', $tipo);
 			echo $pl->MostrarPlantilla('Motivo', 'MostrarPlantilla', $tipo.'.html');
+			// http://localhost/Pruebas/Mejoramiento/ServiceDesk/CCAA/Motivo/Index/?
 		}
 		
 		private function validacionForm() {
@@ -61,7 +62,7 @@
                             ->URL(NeuralRutasApp::RutaUrlAppModulo('CCAA', 'Motivo', 'ProcesarIndex'))
                       		->FinalizadoEnvio('$("#respuestaDiv").html(Respuesta);')
 			);
-			return $Val->Constructor('FormFixZyos');
+			return $Val->Constructor('FormFix');
 		}
 		
 		
