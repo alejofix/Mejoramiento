@@ -12,8 +12,7 @@
 				$this->validarTipo($tipo);
 			else:
 				echo '
-				## Plantilla indicando que hay un error no se selecciono
-				## un formulario
+				No hay Formulario Seleccionado ...  
 				';
 			endif;
 		}
@@ -23,7 +22,7 @@
 				$this->existenciaTipo($tipo);
 			else:
 				echo '
-				## No se selecciono un tipo de formulario valido
+				No hay Formulario Valido ...
 				';
 			endif;
 		}
@@ -35,7 +34,7 @@
 				$this->mostrarPlantilla($tipo);
 			else:
 				echo '
-				## El formulario indicado no existe
+				Formulario Inexistente ...
 				';
 			endif;
 		}
@@ -46,7 +45,6 @@
 			$pl->Parametro('validacionForm', $this->validacionForm());
 			$pl->Parametro('tipo', $tipo);
 			echo $pl->MostrarPlantilla('Motivo', 'MostrarPlantilla', $tipo.'.html');
-			// http://localhost/Pruebas/Mejoramiento/ServiceDesk/CCAA/Motivo/Index/?
 		}
 		
 		private function validacionForm() {
@@ -58,11 +56,11 @@
 			$Val->ControlEnvio(
 				NeuralJQueryAjaxConstructor::TipoDatos('html')
                             ->TipoEnvio('POST')
-                            ->Datos('#respuestaDiv')
+                            ->Datos('#Formularios')
                             ->URL(NeuralRutasApp::RutaUrlAppModulo('CCAA', 'Motivo', 'ProcesarIndex'))
                       		->FinalizadoEnvio('$("#respuestaDiv").html(Respuesta);')
 			);
-			return $Val->Constructor('FormFix');
+			return $Val->Constructor('Formularios');
 		}
 		
 		
@@ -71,17 +69,18 @@
 				$this->ProcesarIndexVacio();
 			else:
 				echo '
-				## mostrar Error
+				No resuelve Petición Ajax ...
 				';
 			endif;
 		}
 		
 		private function ProcesarIndexVacio() {
+			// Ayudas::print_r($_POST);
 			if(AppValidar::Vacio()->MatrizDatos($_POST) == true):
 				$this->guardarIndex();
 			else:
 			echo '
-				##Mensaje de hay datos vacios en el formulario
+				Hay Datos vacíos en el Formulario ...
 				';
 			endif;
 		}
@@ -91,13 +90,13 @@
 			$this->Modelo->GuardarInfo($datos);
 			$this->plantilla();
 			echo '
-			## Mostrar mensaje de OK
+			Información almacenada con éxito ... 
 			';
 		}
 		
 		public function plantilla() {
 			echo '
-			## Mostrar texto de  SE GUARDO CON EXISTO LA INFORMACION
+			!Gracias!, 
 			';
 		}
 	}

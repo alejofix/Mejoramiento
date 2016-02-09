@@ -29,6 +29,7 @@
 			$SQL = new NeuralBDGab($this->conexion, 'CCAA_MOTIVO');
 			foreach ($array AS $columna => $valor):
 				$SQL->Sentencia($columna, $valor);
+				$SQL->Sentencia('Fecha', date("Y-m-d H:i:s"));
 			endforeach;
 			return $SQL->Insertar();
 		}
