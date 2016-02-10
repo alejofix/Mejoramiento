@@ -97,9 +97,9 @@
 				$array = array('1' => 5, '2' => 8, '3' => 12, '4' => 17);
 				$fecha = new DateTime(date("Y-m-d H:i"));
 				$fecha->add(new DateInterval('PT'.$array[$valor].'H'));
-				echo json_encode(array('fecha' => $fecha->format('Y-m-d H:i')));
+				echo json_encode(array('fecha' => $fecha->format('Y-m-d / H:i')));
 			else:
-				echo json_encode(array('fecha' => '0000-00-00 00:00'));
+				echo json_encode(array('fecha' => '0000-00-00 / 00:00'));
 			endif;
 		}
 		
