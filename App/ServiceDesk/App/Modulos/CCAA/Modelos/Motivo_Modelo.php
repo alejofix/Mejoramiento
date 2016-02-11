@@ -24,7 +24,7 @@
 			$consulta->execute();
 			return $consulta->fetchAll(PDO::FETCH_ASSOC);
 		}
-		
+				
 		public function GuardarInfo($array = false) {
 			$SQL = new NeuralBDGab($this->conexion, 'CCAA_MOTIVO');
 			foreach ($array AS $columna => $valor):
