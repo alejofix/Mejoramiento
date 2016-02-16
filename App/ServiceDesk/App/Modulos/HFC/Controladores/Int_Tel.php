@@ -106,12 +106,12 @@
 		public function HorasCalculoRuido() {
 			if(AppValidar::PeticionAjax() == true):
 				$valor = $_POST['averia'];
-				$array = array('Des_Ruido' => 98, 'Des_Potencia' => 98, 'Des_Niveles' => 98);
+				$array = array('Niveles_Desf_Ruido' => 98, 'Niveles_Desf_Potencia' => 98, 'Niveles_Desfasados' => 98);
 				$fecha = new DateTime(date("Y-m-d H:i"));
 				$fecha->add(new DateInterval('PT'.$array[$valor].'H'));
-				echo json_encode(array('fecha' => $fecha->format('Y-m-d H:i')));
+				echo json_encode(array('fecha' => $fecha->format('Y-m-d - H:i')));
 			else:
-				echo json_encode(array('fecha' => '0000-00-00 00:00'));
+				echo json_encode(array('fecha' => '0000-00-00 - 00:00'));
 			endif;
 		}
 
