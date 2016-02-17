@@ -1,0 +1,31 @@
+<br />
+ AVISO: {{ Datos.AVISO|e }}... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SERV.AFECTADOS: {{Datos.AFECTACION|e}}
+________________________________________________________________________________________________________________
+GUIÓN: 
+{% if Datos.RAZON == '1' %}
+“Nuestro equipo técnico se encuentra trabajando para atender una falla ocasionada por el hurto de un dispositivo en nuestra red. Tiempo estimado de solución 12 Horas, durante este lapso su servicio puede presentar intermitencia o ausencia del mismo.”
+{% endif %}
+{% if Datos.RAZON == '2' %}
+“Nuestro equipo técnico se encuentra trabajando para atender una falla ocasionada por una ruptura de fibra en nuestra red. Tiempo estimado de solución 12 Horas, durante este lapso su servicio puede presentar intermitencia o ausencia del mismo.”
+{% endif %}
+{% if Datos.RAZON == '3' %}
+“Nuestro equipo técnico se encuentra trabajando para atender una falla ocasionada por fallas en fluido eléctrico. Tiempo estimado de solución 12 Horas, durante este lapso su servicio puede presentar intermitencia o ausencia del mismo.”
+{% endif %}
+{% if Datos.RAZON == '4' %}
+“Nuestro equipo técnico se encuentra trabajando para atender una falla en nuestra plataforma de {{Datos.AFECTACION|e}}. Tiempo estimado de solución 12 Horas, durante este lapso su servicio puede presentar intermitencia o ausencia del mismo.”
+{% endif %}
+{% if Datos.RAZON == '5' %}
+“Nuestro equipo técnico se encuentra trabajando para atender una falla ajena a claro. Tiempo estimado de solución 12 Horas, durante este lapso su servicio puede presentar intermitencia o ausencia del mismo.”
+{% endif %}
+{% if Datos.RAZON == '6' %}
+“Nuestro equipo técnico se encuentra trabajando para atender una falla en la red. Tiempo estimado de solución 12 Horas, durante este lapso su servicio puede presentar intermitencia o ausencia del mismo.”
+{% endif %}
+________________________________________________________________________________________________________________
+PROCESO DE SOPORTE: Reportar la cuenta a través de la Página de Gerencia, 
+NO REQUIERE VALIDAR VECINOS.
+________________________________________________________________________________________________________________
+ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este aviso, use la marcación DIS-FMS 
+--2.Cliente se ha comunicado en más de una ocasión por este aviso, use la marcación  DIS-AVF.
+<br /><br />
