@@ -1,7 +1,7 @@
 {
 	"Predeterminado": {
 		"Doctrine" : { 
-			"dbname" : "expertos",
+			"dbname" : "pruebas",
 			"user" : "root",
 			"password" : "secret",
 			"host" : "localhost",
@@ -17,7 +17,7 @@
 	},
 	"ServiceDesk": {
 		"Doctrine" : { 
-			"dbname" : "expertos",
+			"dbname" : "pruebas",
 			"user" : "root",
 			"password" : "secret",
 			"host" : "localhost",
