@@ -1,6 +1,6 @@
 "1","HFC","TRIPLEPLAY","PRIORIDAD 1","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} ... 
+ SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN:
@@ -31,7 +31,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "2","HFC","TRIPLEPLAY","PRIORIDAD 2","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} ... 
+ SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -62,7 +62,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "3","HFC","TRIPLEPLAY","PRIORIDAD 3","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} ... 
+ SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -94,7 +94,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "4","HFC","TRIPLEPLAY","PRIORIDAD 4","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} ... 
+ SÍNTOMA: {{ ubicacion.NOMBRE|e|title }} {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -126,7 +126,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "5","HFC","TVBIDIRECCIONAL","PRIORIDAD 1","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -157,7 +157,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "6","HFC","TVBIDIRECCIONAL","PRIORIDAD 2","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -188,7 +188,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "7","HFC","TVBIDIRECCIONAL","PRIORIDAD 3","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -220,7 +220,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "8","HFC","TVBIDIRECCIONAL","PRIORIDAD 4","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -252,7 +252,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "9","HFC","TVUNIDIRECCIONAL","PRIORIDAD 1","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -283,7 +283,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "10","HFC","TVUNIDIRECCIONAL","PRIORIDAD 2","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -314,7 +314,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "11","HFC","TVUNIDIRECCIONAL","PRIORIDAD 3","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -345,7 +345,7 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "12","HFC","TVUNIDIRECCIONAL","PRIORIDAD 4","<br />
  AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} ... 
+ SÍNTOMA: {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }} . 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -376,8 +376,8 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />","1"
 "13","HFC","INTYTEL","PRIORIDAD 1","{% if Datos.AVERIA == 'Sin_Niveles' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -409,11 +409,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Ruido' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz  
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz  
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -443,11 +443,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />		
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Potencia' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -477,11 +477,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desfasados' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -512,8 +512,8 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 {% endif %}","1"
 "14","HFC","INTYTEL","PRIORIDAD 2","{% if Datos.AVERIA == 'Sin_Niveles' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}... 
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}. 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -544,11 +544,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Ruido' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz  
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz  
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -578,11 +578,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />		
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Potencia' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -612,11 +612,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desfasados' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -647,8 +647,8 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 {% endif %}","1"
 "15","HFC","INTYTEL","PRIORIDAD 3","{% if Datos.AVERIA == 'Sin_Niveles' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}... 
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}. 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -679,11 +679,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Ruido' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -715,11 +715,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />		
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Potencia' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -751,11 +751,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desfasados' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -788,8 +788,8 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 {% endif %}","1"
 "16","HFC","INTYTEL","PRIORIDAD 4","{% if Datos.AVERIA == 'Sin_Niveles' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}... 
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}. 
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -820,11 +820,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Ruido' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz  
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz  
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -856,11 +856,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />		
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Potencia' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -892,11 +892,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desfasados' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}

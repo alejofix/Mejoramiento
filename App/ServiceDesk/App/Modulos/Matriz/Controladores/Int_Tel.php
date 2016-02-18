@@ -107,6 +107,6 @@
 			$Plantilla = new NeuralPlantillasTwig(APP);
 			$Plantilla->Parametro('guion', $GuionCreado);
 			echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Int_Tel', 'ajaxProcesar2.html')));
-			 Ayudas::print_r($array);
+			// Ayudas::print_r($array);
 		}
 	}

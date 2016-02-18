@@ -1,7 +1,7 @@
 {% if Datos.AVERIA == 'Sin_Niveles' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: {{Datos.AFECTACION|e}}
 ________________________________________________________________________________________________________________
 GUIÓN: 
@@ -33,11 +33,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Ruido' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz  
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz  
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -67,11 +67,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />		
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desf_Potencia' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
@@ -101,11 +101,11 @@ ESCENARIOS DE MARCACIÓN: --1.Primera vez que el cliente se comunica por este av
 <br /><br />
 {% endif %}{% if Datos.AVERIA == 'Niveles_Desfasados' %}
 <br />
- AVISO: {{ Datos.AVISO|e }}... 
- SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}...  
+ AVISO: {{ Datos.AVISO|e }}. 
+ SÍNTOMA:  Cable_Módem {{ Datos.AVERIA|e }} {{ Datos.INTERMITENCIA == 'SI' ? 'y/o Intermitencia' }} en {{ ubicacion.NOMBRE|e|title }}.  
  SERV.AFECTADOS: 3_Play
 ________________________________________________________________________________________________________________
-Recuerde: <br />Cable_Módems con {{ Datos.AVERIA|e }} generan Intermitencia - Pixelación - Ausencia de Señal- Lentitud y problemas de Calidad de Voz
+Recuerde: <br />{{ Datos.AVERIA|e }} generan Intermitencia, Pixelación, Ausencia de Señal, Lentitud y problemas de Calidad de Voz
 ________________________________________________________________________________________________________________
 GUIÓN: 
 {% if Datos.RAZON == '1' %}
