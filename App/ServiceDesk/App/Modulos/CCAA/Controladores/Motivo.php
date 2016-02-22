@@ -53,6 +53,7 @@
 			$Val->CantMaxCaracteres('CUENTA', 10, 'Debe ingresar max 10 Números');
 			$Val->Requerido('CUENTA', 'Debe Ingresar Número Cta Suscriptor.');
 			$Val->Requerido('RAZON', 'Debe Seleccionar una Opción');
+			$Val->Requerido('INFORMACION', 'Información Requerida');
 			$Val->ControlEnvio(
 				NeuralJQueryAjaxConstructor::TipoDatos('html')
                             ->TipoEnvio('POST')

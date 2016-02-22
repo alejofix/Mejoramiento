@@ -34,14 +34,28 @@
 	                </div>
 	            
 	            </div>
-				<!-- line -->        
+				<!-- line -->
+				
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Frecuencias de Canales:</strong></label>
+						<div class="col-sm-5">
+							<input type="text" pattern="[0-9,]{3,15}" class="form-control" name="INFORMACION" id="informacion" placeholder="Informe máximo 3 frecuencias separadas por comas(,)" maxlength="20"  />
+						</div>
+	                </div>
 	            
+	            </div>
+				
+				        
+	            
+	            <!-- line -->
 	              <div class="form-group">
 					    <div class="col-sm-offset-3 col-sm-5">
 								<button type="submit" class="btn btn-green btn-icon icon-left">
 					                Guardar 
 					                <i class="entypo-check"></i>
-					             <input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}">   
+					             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}">   
 				                 </button>
 						</div>
 		           </div>

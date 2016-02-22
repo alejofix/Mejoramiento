@@ -19,7 +19,7 @@
 	           
 	                <div class="col-md-12">
 	            		
-						<label class="col-sm-3 control-label"><strong>Razón cambio Clave WiFi</strong></label>
+						<label class="col-sm-3 control-label"><strong>Síntoma</strong></label>
 						<div class="col-sm-5">
 	                        <select name="RAZON" id="razon" class="form-control" />
 								<option value="">Seleccione una Opción</option>
@@ -34,15 +34,29 @@
 	                </div>
 	            
 	            </div>
-				<!-- line -->        
+				<!-- line -->
+				
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Observaciones:</strong></label>
+						<div class="col-sm-5">
+							<textarea class="form-control" name="INFORMACION" id="informacion" maxlength="140" placeholder="Sea breve y conciso con las Notas"></textarea>
+						</div>
+	                </div>
 	            
+	            </div>
+				
+				        
+	            
+	            <!-- line -->
 	              <div class="form-group">
 					    <div class="col-sm-offset-3 col-sm-5">
 								<button type="submit" class="btn btn-green btn-icon icon-left">
 					                Guardar 
 					                <i class="entypo-check"></i>
-					             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}">
-					         	 </button>
+					             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}">   
+				                 </button>
 						</div>
 		           </div>
 	            
