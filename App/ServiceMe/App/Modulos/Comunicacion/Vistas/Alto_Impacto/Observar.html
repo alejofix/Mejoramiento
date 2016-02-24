@@ -1,0 +1,41 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+		{% include 'Menus/menu_comunicacion.html' %}
+		
+		<style type="text/css">
+				.active {
+					font-weight: bold;
+              	}
+		</style>
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Comunicación  | Alto Impacto </button> </strong>
+			           	</div>
+
+					</div>
+							<!-- sub-menú alto impacto  -->
+							<ul class="nav nav-tabs">
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto">Ingresar Aviso</a></li>
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
+							  <li role="presentation" class="active"><a href="javascript:;">Observar Aviso </a></li>
+							</ul>
+							
+					<div>
+					<!-- -->
+
+
+					
+					<!-- -->
+					</div>
+				
+				</div>
+
+<!-- fin -->
+
+	
+	{% endblock %}

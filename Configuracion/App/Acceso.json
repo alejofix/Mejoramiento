@@ -1,6 +1,6 @@
 {
 	"Predeterminado" : {
-		"Carpeta": "ServiceDesk",
+		"Carpeta": "ServiceMe",
 		"Entorno_Desarrollo": {
 			"Localhost" : { "Activo" : true, "ip" : ["::1", "127.0.0.1"], "Plantilla" : false },
 			"Externo" : { "Activo" : false }
@@ -16,8 +16,8 @@
 			}
 		}
 	},
-	"ServiceDesk" : {
-		"Carpeta": "ServiceDesk",
+	"ServiceMe" : {
+		"Carpeta": "ServiceMe",
 		"Entorno_Desarrollo": {
 			"Localhost" : { "Activo" : true, "ip" : ["::1", "127.0.0.1"], "Plantilla" : false },
 			"Externo" : { "Activo" : false }

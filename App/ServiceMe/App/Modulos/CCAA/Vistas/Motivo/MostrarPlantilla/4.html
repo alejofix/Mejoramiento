@@ -1,0 +1,92 @@
+	{% extends 'CCAA/Base.html' %}
+	
+	{% block Contenido %}
+		<form class="form-horizontal form-groups-bordered" id="Formularios" name="Formularios" action="javascript:;" method="POST" role="form">
+	
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Cuenta de Suscriptor:</strong></label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="CUENTA" id="cuenta" placeholder="Cuenta de Suscriptor" maxlength="10" autofocus="autofocus" />
+						</div>
+	                </div>
+	            
+	            </div>
+	            <!-- line -->
+	            
+	            <div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		
+						<label class="col-sm-3 control-label"><strong>Síntoma</strong></label>
+						<div class="col-sm-5">
+	                        <select name="RAZON" id="razon" class="form-control" />
+								<option value="">Seleccione una Opción</option>
+								<optgroup>
+									{% for info in listado %}
+										<option value="{{ info.ID|e }}">{{ info.RAZON|e }}</option>
+									{% endfor %}
+								</optgroup>
+							</select>	
+						</div>
+						
+	                </div>
+	            
+	            </div>
+				<!-- line -->
+				
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Observaciones</strong></label>
+						<div class="col-sm-5">
+							<textarea class="form-control" name="INFORMACION" id="informacion" maxlength="140" placeholder="Sea breve y conciso con las Notas"></textarea>
+						</div>
+	                </div>
+	            
+	            </div>
+				
+				        
+	            
+	            <!-- line -->
+	              <div class="form-group">
+					    <div class="col-sm-offset-3 col-sm-5">
+								<button type="submit" class="btn btn-green btn-icon icon-left">
+					                Guardar 
+					                <i class="entypo-check"></i>
+					             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}">   
+				                 </button>
+						</div>
+		           </div>
+	            
+	
+			</form>
+			
+			{# Manejar div para mostrar el resultado de la petición ajax #}
+			<div id="respuestaDiv"></div>
+			
+			
+			
+<style type="text/css">
+	.error {
+		font-family: verdana;
+		font-size: 10px;
+		font-weight: bold;
+		color: red;
+	}
+	
+	#respuestaDiv {
+		font-family: verdana;
+		font-size: 15px;
+		color: red;
+		text-align: center;
+	}
+</style>
+			
+			
+	{% endblock %}
+	
+	{% block Script %}
+		{{ validacionForm|raw }}
+	{% endblock %}
