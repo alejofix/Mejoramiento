@@ -1,9 +1,8 @@
 	{% import 'Base/Macros/ComunicacionTv.html' as cuadro %}
-<!DOCTYPE html>
-<html lang="en">
+
 
 <head>
-	{% include 'Base/Header/Head.html' %}
+	{% include 'Base/Comunicacion/Head.html' %}
 	
 </head>
 <body class="page-body" >
@@ -36,7 +35,7 @@
 				<div class="alert alert-danger"><strong>&nbsp;&nbsp;No hay reportes actuales de Alto Impacto !</strong>  <br />&nbsp;&nbsp; Confirme Avisos Generales en Página de Gerencia.</div>
 			{% endif %}
 		</div>
-	{% include 'Base/Body/Script.html' %}
+	{% include 'Base/Comunicacion/Script.html' %}
 	<script type="text/javascript">
 			
 			function peticionAjax() {
@@ -72,9 +71,7 @@
 				transicion();
 			});
 		</script>
-</body>
-</html>
-
+		
 
 <!--
 

@@ -1,57 +1,60 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-	{% include 'Base/Comunicacion/Head.html' %} 
+			{% include 'Base/Comunicacion/Head.html' %}
 </head>
+
 <body class="page-body">
 
 <div class="page-container horizontal-menu">
 
 	
-<header class="navbar navbar-fixed-top">
+	<header class="navbar navbar-fixed-top">
 		
-	{% include 'Base/Comunicacion/Header.html' %}	
-		
-</header>
+			{% include 'Base/Comunicacion/Header.html' %}	
+	
+	</header>
+	
+<div class="main-content">
 
-	<div>
+	<div class="row">
+		<!--Alto Impacto  Inicio -->
+				{% block Contenido %}{% endblock %} 
 
-		
-		<div class="row">
-			<!--ROW Superior INFORMATIVOS Inicio -->
-			{% include 'Base/Comunicacion/Temporal/Row_Superior.html' %}
-			<!--ROW Superior INFORMATIVOS Inicio -->
+<!--Informativos (video)y Notas (blog serviceCo)-->	
+		<div class="col-sm-6">
+				{% include 'Informativos/Vista.html' %}
 		</div>
-		
-		<br />
-		
-		<!--ROW Inferior Inicio -->
-		<div class="row">
-			
-			<div class="col-sm-9">
-				<!--Alto Impacto  Inicio -->
-				{% block Contenido %}{% endblock %}  
-				<!--Alto Impacto  Fin -->
-			</div>
-		
-			<div class="col-sm-3">
-				<!--ROW Lateral NOTAS Inicio -->
-				{% include 'Base/Comunicacion/Temporal/Lateral.html' %}
-				<!--ROW Lateral NOTAS fIN -->
-			</div>
-			
+	
+		<div class="col-sm-6">
+				{% include 'Notas/Vista.html' %}
 		</div>
-		<!--ROW Inferior Inicio -->
+<!-- -->
 
 
-<br />
-
+				 
+		<!--Alto Impacto  Fin -->
 	</div>
 	
-	   {% include 'Base/Comunicacion/Script.html' %}
+	<!-- Footer -->
+	<footer class="main">
+		
+				{% include 'Base/Body/Footer.html' %}	
+	
+	</footer>
+
+</div>
+
+
+
+
+
+	   		{% include 'Base/Comunicacion/Script.html' %}
     {% block JS %}
     {% endblock %}
+
 
 </body>
 </html>

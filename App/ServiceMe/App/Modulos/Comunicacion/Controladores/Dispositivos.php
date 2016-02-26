@@ -49,7 +49,7 @@
 		public function Television() {
 			$plantilla = new NeuralPlantillasTwig(APP);
 			$plantilla->Parametro('Titulo', 'Comunicación');
-			$plantilla->Parametro('avisos', array_chunk($this->Modelo->avisos(), 6));
+			$plantilla->Parametro('avisos', array_chunk($this->Modelo->avisos(), 4));
 			echo $plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Dispositivos', 'Television.html')));
 		}
 		
@@ -62,7 +62,7 @@
 		 */
 		public function AjaxTelevision() {
 			$data = $this->Modelo->avisos();
-			$pagina = (count($data) >= 1) ? array_chunk($data, 6) : array();
+			$pagina = (count($data) >= 1) ? array_chunk($data, 4) : array();
 			
 			$plantilla = new NeuralPlantillasTwig(APP);
 			$plantilla->Parametro('cantidad', count($data));
