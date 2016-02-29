@@ -32,7 +32,13 @@
 				{% endfor %}
 				
 			{% else %}
-				<div class="alert alert-danger"><strong>&nbsp;&nbsp;No hay reportes actuales de Alto Impacto !</strong>  <br />&nbsp;&nbsp; Confirme Avisos Generales en Página de Gerencia.</div>
+				<div class="jumbotron">
+				  <h2>
+				  <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+				  Sin Avisos de Alto Impacto ! 
+				  </h2>
+				  <h4>Actualmente no existen avisos de alto impacto, por favor ingrese a página de Gerencia o Visor Único. </h4>
+				</div>
 			{% endif %}
 		</div>
 	{% include 'Base/Comunicacion/Script.html' %}

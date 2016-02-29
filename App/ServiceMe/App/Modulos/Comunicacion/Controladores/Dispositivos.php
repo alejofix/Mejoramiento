@@ -48,7 +48,7 @@
 		 */
 		public function Television() {
 			$plantilla = new NeuralPlantillasTwig(APP);
-			$plantilla->Parametro('Titulo', 'Comunicación');
+			$plantilla->Parametro('Titulo', 'Service-Co');
 			$plantilla->Parametro('avisos', array_chunk($this->Modelo->avisos(), 4));
 			echo $plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Dispositivos', 'Television.html')));
 		}
