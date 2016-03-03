@@ -27,5 +27,32 @@
             $Plantilla->Parametro('Titulo', 'Comunicación');
 			echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Informativos', 'Informativos.html')));
 		}
+		
+		/**
+		 * Informativos::Vista()
+		 * 
+		 * Genera la tabla infor
+		 * @return raw
+		 */
+		public function Vista() {
+			$plantilla = new NeuralPlantillasTwig(APP);
+			echo $plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Informativos', 'Vista.html')));
+		}
+		
+		/**
+		 * Informativos::AjaxVista()
+		 * 
+		 * Genera la validacion de existencia peticion ajax
+		 * @return void
+		 */
+		public function AjaxVista() {
+			if(AppValidar::PeticionAjax() == true):
+				$plantilla = new NeuralPlantillasTwig(APP);
+				echo $plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Informativos', 'AjaxVista.html')));
+			else:
+				echo 'No es posible cargar el Ajax';
+			endif;
+		}
+		
 
 	}

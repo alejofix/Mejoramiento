@@ -70,4 +70,5 @@
 			$plantilla->Parametro('listado', $pagina);
 			echo $plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Dispositivos', 'AjaxTelevision.html')));
 		}
+		
 	}

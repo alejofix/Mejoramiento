@@ -3,35 +3,27 @@
 	{% block Contenido %}
 
 <!-- inicio -->
-	{% include 'Menus/menu_hfc.html' %}		
+	{% include 'Menus/menu_matriz.html' %}		
 			
 				<div class="panel panel-default" data-collapsed="0">
 				
 					<div class="panel-heading">
 						<div class="panel-title">
-							<strong>Creación de Guión | Afectación Triple Play</strong>
+							<strong>Creación de Guión Matriz | Afectación Triple Play</strong>
 						</div>
 						<div class="panel-options">
 							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-							<a href="{{ NeuralRutaApp|e }}/HFC/TriplePlay"><i class="entypo-arrows-ccw"></i></a>
+							<a href="{{ NeuralRutaApp|e }}/Matriz/TriplePlay"><i class="entypo-arrows-ccw"></i></a>
 						</div>
 					</div>
 					
 					<div class="panel-body">
 						
 						<form class="form-horizontal form-groups-bordered" id="FormularioGuion" name="guion" action='javascript:;' method='post' role="form">
-							
-							{# 
-                       			/**
-                       			 *	Input de AVISO
-                       			 *
-                       			 *	Input asociado a columna AVISO en la tabla
-                       			 *	GUIONES_REGISTRO
-                       			 *	@param integer
-                       			 */
-							#}
+
 							<div class="form-group">
-                                <div class="col-md-12">
+                           
+						        <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Número Aviso</strong></label>
     								<div class="col-sm-5">
     									<input type="text" class="form-control" name="AVISO" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required/>
@@ -39,69 +31,10 @@
                                 </div>
                             
                             </div>
-                            <!-- line -->
-                            
-                            {# 
-                       			/**
-                       			 *	Input de PRIORIDAD
-                       			 *
-                       			 *	Input asociado a columna PRIORIDAD en la tabla
-                       			 *	GUIONES_REGISTRO_HFC la cual es una relacion de
-                       			 *	de la tabla PRIORIDADES
-                       			 */
-							#}
-                            <div class="form-group">
-                           		
-                                <div class="col-md-12">
-                            		<label class="col-sm-3 control-label"><strong>Prioridad</strong></label>
-    								<div class="col-sm-3">
-                                        <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
-                                            <option value="">Seleccione una Opción</option>
-											<optgroup>
-											
-												{% if prioridades|length >= 1 %}
-													
-													{% for prioridad in prioridades %}
-														<option value="{{ prioridad.ID|e }}">{{ prioridad.NOMBRE|e }}</option>
-													{% endfor %}
-													
-												{% endif %}
-												
-											</optgroup>
-                                        </select>	
-    								</div>
-    								{# 
-		                       			/**
-		                       			 *	Input de HORA SOLUCIÓN  
-		                       			 *
-		                       			 *	Define la Hora manual terminación Aviso
-		                       			 * 	
-		                       			 */ 
-									#}
-    								<div class="col-sm-2">
-										<div>
-											<label>
-													<input placeholder="Hora Solución" class="form-control" name="HORAFIN" id="horafin" type="text" />	
-											</label>
-										</div>
-									</div>
-                                </div>
-                                
-                                                           
-                            </div>
-                            
+							
 							<!-- line -->
-
-                            {# 
-                       			/**
-                       			 *	Input de Razón Avería 
-                       			 *
-                       			 *	Asociado a tipo de Guion por Razón Avería
-                       			 *	DEFINE EL CAMPO GUION  
-                       			 */
-							#}
-                  			
-						    <div class="form-group">
+							
+                          	<div class="form-group">
 								
 								<div class="col-md-12">
 									<label class="col-sm-3 control-label"><strong>Razón Avería</strong></label>
@@ -121,51 +54,72 @@
 							
 							</div>
                             
+                            <!-- line -->
 
-	                        {# 
-                       			/**
-                       			 *	Input de UBICACION
-                       			 *
-                       			 *	Input asociado a columna UBICACION en la tabla
-                       			 *	GUIONES_REGISTRO la cual es una relacion de
-                       			 *	de la tabla GUIONES_REGISTRO_UBICACION
-                       			 */
-							#}
-                            <div class="form-group">
-                            
+							<div class="form-group">
+                           		
                                 <div class="col-md-12">
-                            		<label class="col-sm-3 control-label"><strong>Lugar afectación</strong></label>
-        								<div class="col-sm-5">
-                                            <select class="form-control" name="UBICACION" id="ubicacion" required/>
+                            		<label class="col-sm-3 control-label"><strong>Falla</strong></label>
+    								<div class="col-sm-3">
+                                        <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
                                                 <option value="">Seleccione una Opción</option> 
                                                   <optgroup>
-                                                  
-                                                  	{% if ubicaciones|length >= 1 %}
-                                                  		
-                                                  		{% for ubicacion in ubicaciones %}
-                                                  			<option value="{{ ubicacion.ID|e }}">{{ ubicacion.NOMBRE|e }}</option>
-                                                  		{% endfor %}
-                                                  		
-                                                  	{% endif %}
-                                                    
+                                                    <option value="1">GENERAL</option>
+									   		        <option value="2">PUNTUAL</option>
                                                   </optgroup>
-                                                 
-                                            </select>
-                                        </div> 
+                                         </select>	
+    								</div>
+    								<div class="col-sm-2">
+										<div>
+											<label>
+													<input placeholder="Hora Solución" class="form-control" name="HORAFIN" id="horafin" type="text" />	
+											</label>
+										</div>
+									</div>
                                 </div>
                                 
+                                                           
                             </div>
                             
-                            <div class="form-group">
-
-                                <div class="col-md-12" id="cargaAjaxUbicacion">
-                        	 
-                                </div>
-                                
-                            </div>
-
                             <!-- line -->
+		                    
+		                    <div class="form-group">
+                            	
+								<div class="col-md-12">
+                            		<label class="col-sm-3 control-label"><strong>Matriz</strong></label>
+    								<div class="col-sm-3">
+    									<input type="text" class="form-control" name="MATRIZ" id="matriz" type="text" placeholder="# Cta. Matriz" maxlength="6" onkeyUp="return ValNumero(this);" required>
+    								</div>
+    								<div class="col-sm-2">
+										<div>
+											<label>
+													<input type="text" class="form-control"  name="NODO" id="nodo" type="text" placeholder="Nodo" required>	
+											</label>
+										</div>
+									</div>
+    			                </div>
+    			                
+                            </div>
                             
+                            <!-- line -->
+							
+							<div class="form-group">
+                            	
+								<div class="col-md-12">
+             						<label class="col-sm-3 control-label"><strong>Detalle</strong></label>
+    								<div class="col-sm-2">
+    						              
+                                          {% include 'Listas/Listas_Detalle_Matriz.html' %}
+                                          
+                              		</div>
+                                    <div class="col-sm-3">
+    		                             <input name="REFERENCIA" id="referencia"  type="text" class="form-control" placeholder="Ref." maxlength="15">
+                              		</div>
+    			                </div>
+    			                
+                            </div>
+                            
+                            <!-- line -->
                            
                             <div class="form-group">
                             
@@ -181,18 +135,20 @@
 				                </div>
                 
                         	</div>
+
 							
                             {% if Sesion.Permisos.HFC.ESCRITURA == true %}
                                 <div class="form-group">
 								    <div class="col-sm-offset-3 col-sm-5">
 											
-											<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Triple Play - HFC" data-original-title="Generador de Guión">
+											<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Triple Play - MATRIZ" data-original-title="Generador de Guión">
 								                Crear Guión 
 								                <i class="entypo-check"></i>
 							                 </button>
 							                 
                                             		<input type="hidden" name="AFECTACION" value="3_Play">
-	                                            	<input type="hidden" name="TIPO" value="1"/>
+	                                            	<input type="hidden" name="TIPO" value="2"/>
+	                                            	<input type="hidden" name="UBICACION" value="1"/>
 													{% for averia in listaAveria %}
 														{% if averia.SERVICIO == '1' %}
 	                                            		<input type="hidden" name="AVERIA" value="{{ averia.GUION|e }}">
@@ -257,8 +213,8 @@
             
             {% if Sesion.Permisos.HFC.ESCRITURA == true %}
             	
-            	<script type="text/javascript" src="{{ NeuralRutaApp|e }}/HFC/TriplePlay/ajaxJs/ajax.js"></script>
-				<script type="text/javascript" src="{{ NeuralRutaApp|e }}/HFC/TriplePlay/Horas/Horas.js"></script>
+            	<script type="text/javascript" src="{{ NeuralRutaApp|e }}/Matriz/TriplePlay/ajaxJs/ajax.js"></script>
+				<script type="text/javascript" src="{{ NeuralRutaApp|e }}/Matriz/TriplePlay/Horas/Horas.js"></script>
 				{# 
            			/**
            			 *	{{ validacion|raw }}

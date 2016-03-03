@@ -54,7 +54,7 @@
                            		
                                 <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Prioridad</strong></label>
-    								<div class="col-sm-5">
+    								<div class="col-sm-3">
                                         <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
                                             <option value="">Seleccione una Opción</option>
 											<optgroup>
@@ -70,40 +70,28 @@
 											</optgroup>
                                         </select>	
     								</div>
+    								{# 
+		                       			/**
+		                       			 *	Input de HORA SOLUCIÓN  
+		                       			 *
+		                       			 *	Define la Hora manual terminación Aviso
+		                       			 * 	
+		                       			 */ 
+									#}
+    								<div class="col-sm-2">
+										<div>
+											<label>
+													<input placeholder="Hora Solución" class="form-control" name="HORAFIN" id="horafin" type="text" />	
+											</label>
+										</div>
+									</div>
                                 </div>
                                 
                                                            
                             </div>
-                            
-							<!-- line -->
-                            {# 
-                       			/**
-                       			 *	Input de HORA SOLUCIÓN  
-                       			 *
-                       			 *	Define la Hora manual terminación Aviso
-                       			 * 	
-                       			 */ 
-							#}
-                  			
-                            
-     						<div class="form-group">
-								
-								<div class="col-md-12">
-								
-									<label class="col-sm-3 control-label" ><strong>Hora Solución</strong></label>
-								
-										<div class="col-sm-5">
-											<div class="input-group minimal">
-												<input class="form-control" name="HORAFIN" id="horafin" type="text" />
-											</div>
-										</div>
-	
-								</div>
-								
-							</div>
-							
-							<!-- -->
-														{# 
+                           
+						    
+							{# 
                        			/**
                        			 *	Input de AVERIA   
                        			 *
@@ -111,7 +99,6 @@
                        			 * 	
                        			 */ 
 							#}
-							
 							<div class="form-group">
 							
 							 	<div class="col-md-12">
