@@ -20,7 +20,7 @@
 		<script type="text/javascript">
 			
 			jQuery(document).ready(function() {
-				var altura = Number(jQuery(window).height = 200);
+				var altura = Number(jQuery(window).height = 400);
 				jQuery("Iframe").css({ "height" : altura + 'px' });
 				setInterval(function() {
 					jQuery('#Iframe').attr("src", "{{ NeuralRutaApp|e }}/Comunicacion/Dispositivos/AjaxTelevision");
