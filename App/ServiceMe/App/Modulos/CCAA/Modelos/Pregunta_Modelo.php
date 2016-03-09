@@ -27,5 +27,17 @@
 			$consulta->execute();
 			return $consulta->fetch(PDO::FETCH_ASSOC);
 		}
+
+
+		public function listadoTipoPregunta($tipo = false) {
+			$consulta = $this->conexion->prepare('
+			
+			
+			');
+			$consulta->bindValue(1, $tipo);
+			$consulta->bindValue(2, 1);
+			$consulta->execute();
+			return $consulta->fetchAll(PDO::FETCH_ASSOC);
+		}		
 		
 	}

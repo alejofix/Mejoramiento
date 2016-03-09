@@ -15,12 +15,34 @@
 				';
 			endif;
 		}
+		
+		private function validarTipo($tipo = false) {
+			if(is_numeric($tipo) == true):
+				$this->existenciaTipoPregunta($tipo);
+			else:
+				echo '
+				No hay Formulario Valido ...
+				';
+			endif;
+		}
+		
+		private function existenciaTipoPregunta($tipo = false) {
+			$validar = $this->Modelo->existenciaTipoPregunta($tipo);
+			
+			if($validar['CANTIDAD'] == 1):
+				$this->mostrarPlantilla($tipo);
+			else:
+				echo '
+				Formulario Inexistente ...
+				';
+			endif;
+		}
 
 		private function mostrarPlantilla () {
-			$plantilla = new NeuralPlantillasTwig(APP);
-			$plantilla->Parametro('tipo', $tipo);
-			$plantilla->Parametro('pregunta', $pregunta);
-			echo $plantilla->MostrarPlantilla('Pregunta', $tipo, $pregunta.'.html');
+			$pl = new NeuralPlantillasTwig(APP);
+			$pl->Parametro('tipo', $tipo);
+			$pl->Parametro('listado', $this->Modelo->listadoTipoPregunta($tipo));
+			echo $pl->MostrarPlantilla('Pregunta', 'MostrarPlantilla', $tipo.'.html');
 		}
 		
 	}
