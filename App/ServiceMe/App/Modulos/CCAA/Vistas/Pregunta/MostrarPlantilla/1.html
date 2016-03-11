@@ -1,1 +1,88 @@
-hola mundo
+	{% extends 'CCAA/Base.html' %}
+	
+	
+	{% block Contenido %}
+	
+		<form class="form-horizontal form-groups-bordered" id="Formularios" name="Formularios" action="javascript:;" method="POST" role="form">
+	
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Cuenta de Suscriptor:</strong></label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="CUENTA" id="cuenta" placeholder="Cuenta de Suscriptor" maxlength="10" autofocus="autofocus" />
+						</div>
+	                </div>
+	            
+	            </div>
+
+				<!-- line --> 
+				
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label">
+							<b id="pregunta">¿</b>
+								<strong>pregunta</strong>
+							<b id="pregunta">?</b>
+						</label>
+						<div class="col-sm-5">
+							<ul class="icheck-list">
+								    <li>
+								        <input class="icheck" type="radio" id="SI" name="minimal-radio">
+								        <label for="SI">SI</label>
+								    </li>
+								    <li>
+								        <input class="icheck" type="radio" id="NO" name="minimal-radio">
+								        <label for="NO">NO</label>
+								    </li>
+								</ul>
+						</div>
+	                </div>
+	                
+	            
+	            </div>
+				
+				<!-- line -->  
+	            
+	              <div class="form-group">
+					    <div class="col-sm-offset-3 col-sm-5">
+								<button type="submit" class="btn btn-green btn-icon icon-left">
+					                Guardar 
+					                <i class="entypo-check"></i>
+					             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}">
+					         	 </button>
+						</div>
+		           </div>
+	            
+	
+			</form>	
+	
+<style type="text/css">
+
+	.error {
+		font-family: verdana;
+		font-size: 10px;
+		font-weight: bold;
+		color: red;
+	}
+	
+	#respuestaDiv {
+		font-family: verdana;
+		font-size: 15px;
+		color: red;
+		text-align: center;
+	}
+	#pregunta { 
+			font: 26px quicksand; 
+			color:#00BFFF;
+			font-weight: bold; 
+			padding: 6px;  
+			}
+</style>
+	
+	{% endblock %}
+	
+	{% block Script %}
+		{{ validacionForm|raw }}
+	{% endblock %}

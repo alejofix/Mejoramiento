@@ -1,7 +1,7 @@
 {
 	"Predeterminado": {
 		"Doctrine" : { 
-			"dbname" : "pruebas",
+			"dbname" : "serviceme",
 			"user" : "root",
 			"password" : "secret",
 			"host" : "localhost",
@@ -17,7 +17,7 @@
 	},
 	"ServiceMe": {
 		"Doctrine" : { 
-			"dbname" : "pruebas",
+			"dbname" : "serviceme",
 			"user" : "root",
 			"password" : "secret",
 			"host" : "localhost",
