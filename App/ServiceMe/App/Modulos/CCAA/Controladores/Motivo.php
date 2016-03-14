@@ -50,8 +50,8 @@
 		
 		private function validacionForm() {
 			$Val = new NeuralJQueryFormularioValidacion(true, true, true);
-			$Val->Numero('CUENTA', 'El Aviso debe Ser Numérico');
-			$Val->CantMaxCaracteres('CUENTA', 10, 'Debe ingresar max 10 Números');
+			$Val->Numero('CUENTA', 'La Cuenta debe de ser Numérica ');
+			$Val->CantMaxCaracteres('CUENTA', 8, 'Debe ingresar max 8 Números');
 			$Val->Requerido('CUENTA', 'Debe Ingresar Número Cta Suscriptor.');
 			$Val->Requerido('RAZON', 'Debe Seleccionar una Opción');
 			$Val->Requerido('INFORMACION', 'Información Requerida');

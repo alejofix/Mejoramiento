@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Neon Admin Panel" />
+	<meta name="author" content="" />
+
+	<title>Neon | File Tree</title>
+
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/css/neon-core.css">
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/css/neon-theme.css">
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/css/neon-forms.css">
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/css/custom.css">
+
+	<script src="{{NeuralRutaWebPublico}}/assets/js/jquery-1.11.0.min.js"></script>
+	<script>$.noConflict();</script>
+
+<div class="form-group">
+<div class="col-md-12">
+
+					
+		<h2>File Tree</h2>
+		<br />
+		
+
+		<script type="text/javascript">
+		jQuery(document).ready(function() {
+		 
+		 	var $ = jQuery,
+		 		$events_log = $("#events_log");
+		 	
+		 	// File parser is located here: assets/js/aci-tree/php/aciTree.php?branch=, you can modify for your own purpose
+			$('#tree1').aciTree({
+				ajax:{
+					// url: 'assets/js/aci-tree/php/aciTree.php?branch='
+					// url : "{{ NeuralRutaApp|e }}/CCAA/aci-tree/php/aciTree.php?branch=",
+						url: "{{NeuralRutaWebPublico}}/assets/js/aci-tree/php/aciTree.php?branch="
+				},
+				fullRow: true,
+				
+				// Columns
+				columnData: [{
+						props: 'type',
+						width: 150
+					}, {
+						props: 'size',
+						width: 100
+					}]
+		 
+			})
+			.on('acitree', function(event, api, item, eventName, options) {
+		 
+				// tell what tree it is
+				var index = ($(this).attr('id') == 'tree1') ? 0 : 1;
+		 
+				switch (eventName) {
+		 
+					case 'init':
+		 
+						// at init open the first folder
+						api.open(api.first(), {
+							success: function(item) {
+								this.select(this.first(item));
+							}
+		 
+						});
+		 
+						// set focus so we can use the keyboard already
+						$('#tree1').focus();
+		 
+						break;
+		 
+					case 'selected':
+					
+						// Log select event
+						var itemData = api.itemData(item);
+						
+						$events_log.val( "Selected Item: " + api.getId(item) + " [Props size: "+itemData.size+"; type: "+itemData.type+" ]\n" + $events_log.val());
+		 
+						break;
+				}
+		 
+			});
+		 
+		});
+		</script>
+
+
+		
+		
+		<div class="panel panel-primary" data-collapsed="0">
+					
+			<div class="panel-heading">
+				<div class="panel-title">
+					Parsing Folder List
+				</div>
+				
+				<div class="panel-options">
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+				</div>
+			</div>
+			
+			
+			<div class="panel-body no-padding" style="padding: 5px 0;">
+				
+				<div id="tree1" class="aciTree aciTreeFullRow" style="min-height: 70px;"></div>
+				
+			</div>
+			
+			<div class="panel-body border-top">
+				<textarea class="form-control" id="events_log" rows="5" placeholder="Logged Events"></textarea>
+			</div>
+		</div>
+		
+		
+</div>
+</div>
+
+
+
+
+	<!-- Imported styles on this page -->
+	<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/aci-tree/css/aciTree.css">
+
+	<!-- Bottom scripts (common) -->
+	<script src="{{NeuralRutaWebPublico}}/assets/js/gsap/main-gsap.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/bootstrap.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/joinable.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/resizeable.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-api.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/aci-tree/js/jquery.aciPlugin.min.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="{{NeuralRutaWebPublico}}/assets/js/aci-tree/js/jquery.aciTree.min.js"></script>
+	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-chat.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-custom.js"></script>
+
+
+	<!-- Demo Settings -->
+	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-demo.js"></script>
+
+</body>
+</html>
