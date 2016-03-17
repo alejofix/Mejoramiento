@@ -37,7 +37,7 @@
 			WHERE 
 				TIPO = ? 
 			AND 
-				ESTADO = ? 
+				ESTADO = ?
 			');
 			$consulta->bindValue(1, $tipo);
 			$consulta->bindValue(2, 1);
@@ -53,6 +53,30 @@
 			endforeach;
 			return $SQL->Insertar();
 		}
+		
+		/**
+		 * * CCAA listadoTipoPregunta
+		 * lista la informacón de formularios preguntas
+		 * @author alejo_fix
+		 * @return Array
+		 */
+		
+		 public function listadoTipoPregunta(){
+		 	$consulta = $this->conexion->prepare('
+			SELECT 
+				CCAA_PREGUNTA_TIPO.ID,
+			    CCAA_PREGUNTA_TIPO.NOMBRE,
+			    CCAA_PREGUNTA_TIPO.SERVICIO,
+			    CCAA_PREGUNTA_TIPO.ESTADO
+			FROM
+				CCAA_PREGUNTA_TIPO
+			WHERE 
+				ESTADO = ?	
+			 ');
+			$consulta->bindValue(1, 1);
+			$consulta->execute();
+			return $consulta->fetchAll(PDO::FETCH_ASSOC);
+		 }		
 		
 		/**
 		 * CCAA listadoPreguntas()

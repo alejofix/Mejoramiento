@@ -14,6 +14,7 @@
 			</div>
 			
 			<ul>
+			
 				<li class="active">
 					<a href="#tab2-0" data-toggle="tab"><span>0</span>Cuenta Suscriptor</a>
 				</li>
@@ -37,7 +38,11 @@
 				</li>
 				<li>
 					<a href="#tab2-7" data-toggle="tab"><span>7</span>Uso Internet</a>
-				</li>				
+				</li>
+				<li>
+					<a href="#tab2-8" data-toggle="tab"><span>8</span>RESPUESTA</a>
+				</li>
+								
 			</ul>
 			
 			<div class="tab-content">
@@ -70,16 +75,16 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="control-label" for="state">
-									<strong>ref</strong><br />
+									<strong>Confirme con el cliente Tipo de Vivienda.</strong><br />
 									<b id="pregunta">¿</b>
-										<b id="fix">pregunta</b> 
+										<b id="fix">Vive en Casa o Apartamento</b> 
 									<b id="pregunta">?</b> 
 								</label>
 								<select class="form-control" name="#" id="#" required/>
                                             <option value="">Seleccione una Opción</option>
 											<optgroup>
-												<option value="1">SI</option>
-												<option value="0">NO</option>
+												<option value="CASA">CASA</option>
+												<option value="APARTAMENTO">APARTAMENTO</option>
 											</optgroup>
            						</select>
 							</div>
@@ -238,6 +243,25 @@
 					</div>
 					
 				</div>
+				<div class="tab-pane" id="tab2-8">
+								
+					<div class="row">
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Cargar Respuesta</button>
+						</div>
+						<div class="col-md-12">
+							{# Manejar div para mostrar el resultado de la petición ajax #}
+							<div id="respuestaDiv"></div>	
+						</div>
+						
+
+						
+					</div>
+
+					
+				</div>
+				
 				<ul class="pager wizard">
 					<li class="previous">
 						<a href="#"><i class="entypo-left-open"></i> Anterior</a>

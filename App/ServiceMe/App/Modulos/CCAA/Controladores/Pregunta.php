@@ -45,6 +45,7 @@
 			$pl->Parametro('tipo', $tipo);
 			$pl->Parametro('validacionForm', $this->validacionForm());
 			$pl->Parametro('listadoPreguntas', $this->Modelo->listadoPreguntas());
+			$pl->Parametro('listadoTipoPregunta', $this->Modelo->listadoTipoPregunta());
 			echo $pl->MostrarPlantilla('Pregunta', 'MostrarPlantilla', $tipo.'.html');
 		}
 		
