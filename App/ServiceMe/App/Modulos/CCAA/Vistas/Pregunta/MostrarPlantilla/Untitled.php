@@ -14,11 +14,11 @@
 
 
 					
-pregunta	titulo	resultado	asociado	respuesta	estado
-1	txt select	1	null	lls	1
-	si		1		
-	no		2		
-	niveles desfasados		3		
+pregunta	titulo				resultado	asociado	respuesta	estado
+1			txt select			1			null		lls	1
+			si					1		
+			no		2		
+			niveles desfasados	3		
 			4		
 					
 					
