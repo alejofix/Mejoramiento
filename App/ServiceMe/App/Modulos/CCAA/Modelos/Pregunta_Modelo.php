@@ -31,7 +31,7 @@
 		public function listadoTipo($tipo = false) {
 			$consulta = $this->conexion->prepare('
 			SELECT 
-				ID, OPCION 
+				ID, PREGUNTA, TITULO 
 			FROM 
 				CCAA_PREGUNTA_OPCION 
 			WHERE 
@@ -90,7 +90,8 @@
  			SELECT 
 				CCAA_PREGUNTA_OPCION.ID,
 				CCAA_PREGUNTA_OPCION.TIPO,
-				CCAA_PREGUNTA_OPCION.OPCION,
+				CCAA_PREGUNTA_OPCION.PREGUNTA,
+				CCAA_PREGUNTA_OPCION.TITULO,
 				CCAA_PREGUNTA_OPCION.ESTADO 
 			FROM 
 				CCAA_PREGUNTA_OPCION 

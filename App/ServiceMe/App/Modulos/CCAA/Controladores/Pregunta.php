@@ -44,8 +44,8 @@
 			$pl->Parametro('listado', $this->Modelo->listadoTipo($tipo));
 			$pl->Parametro('tipo', $tipo);
 			$pl->Parametro('validacionForm', $this->validacionForm());
-			$pl->Parametro('listadoPreguntas', $this->Modelo->listadoPreguntas());
 			$pl->Parametro('listadoTipoPregunta', $this->Modelo->listadoTipoPregunta());
+			$pl->Parametro('listadoPreguntas', $this->Modelo->listadoPreguntas());
 			echo $pl->MostrarPlantilla('Pregunta', 'MostrarPlantilla', $tipo.'.html');
 		}
 		
@@ -76,7 +76,7 @@
 		}
 		
 		private function ProcesarIndexVacio() {
-	 	//	Ayudas::print_r($_POST);
+	 		Ayudas::print_r($_POST);
 			if(AppValidar::Vacio()->MatrizDatos($_POST) == true):
 				$this->guardarIndex();
 			else:
