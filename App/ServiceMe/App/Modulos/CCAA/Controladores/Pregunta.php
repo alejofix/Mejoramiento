@@ -43,7 +43,7 @@
 			$pl = new NeuralPlantillasTwig(APP);
 			$pl->Parametro('listado', $this->Modelo->listadoTipo($tipo));
 			$pl->Parametro('tipo', $tipo);
-			$pl->Parametro('validacionForm', $this->validacionForm());
+			$pl->Parametro('validacionForm1', $this->validacionForm1());
 			$pl->Parametro('listadoTipoPregunta', $this->Modelo->listadoTipoPregunta());
 			$pl->Parametro('listadoPreguntas', $this->Modelo->listadoPreguntas());
 			echo $pl->MostrarPlantilla('Pregunta', 'MostrarPlantilla', $tipo.'.html');
@@ -51,9 +51,6 @@
 		
 		private function validacionForm() {
 			$Val = new NeuralJQueryFormularioValidacion(true, true, true);
-			$Val->Numero('CUENTA', 'La Cuenta debe de ser Numérica ');
-			$Val->CantMaxCaracteres('CUENTA', 8, 'Debe ingresar max 8 Números');
-			$Val->Requerido('CUENTA', 'Debe Ingresar Número Cta Suscriptor.');
 			$Val->ControlEnvio(
 				NeuralJQueryAjaxConstructor::TipoDatos('html')
                             ->TipoEnvio('POST')
@@ -62,6 +59,37 @@
                       		->FinalizadoEnvio('$("#respuestaDiv").html(Respuesta);')
 			);
 			return $Val->Constructor('Formularios');
+		}
+		
+		/**
+		 * validacionForm1::validacionForm1()
+		 * 
+		 * valida el formulario para MostrarPlantilla/1.html
+		 */
+		
+		private function validacionForm1() {
+			$Val = new NeuralJQueryFormularioValidacion(true, true, true);
+			$Val->Numero('CUENTA', 'La Cuenta debe de ser Numérica ');
+			$Val->CantMaxCaracteres('CUENTA', 8, 'Debe ingresar max 8 Números');
+			$Val->Requerido('CUENTA', 'Debe Ingresar Número Cta Suscriptor.');
+			$Val->Requerido('PREGUNTA1', 'Debe Seleccionar una Opción.');
+			$Val->Requerido('PREGUNTA2', 'Debe Seleccionar una Opción.');
+			$Val->Requerido('PREGUNTA3', 'Debe Seleccionar una Opción.');
+			$Val->Requerido('PREGUNTA4', 'Debe Seleccionar una Opción.');
+			$Val->ControlEnvio(
+				NeuralJQueryAjaxConstructor::TipoDatos('html')
+                            ->TipoEnvio('POST')
+                            ->Datos('#Formularios')
+                            ->URL(NeuralRutasApp::RutaUrlAppModulo('CCAA', 'Pregunta', 'ProcesarIndex'))
+                      		->FinalizadoEnvio('$("#respuestaDiv").html(Respuesta);')
+			);
+			return $Val->Constructor('Formularios');
+		}
+		
+		private function casos1() {
+			
+			
+			
 		}
 		
 		

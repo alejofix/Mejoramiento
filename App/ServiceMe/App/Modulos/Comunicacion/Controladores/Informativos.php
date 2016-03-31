@@ -54,5 +54,20 @@
 			endif;
 		}
 		
+		 /**
+		 * Informativos::Listado()
+		 * 
+		 * Listado de Informativos
+		 * @return void
+		 */
+		public function Listado() {
+			$Plantilla = new NeuralPlantillasTwig(APP);
+			$Plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
+            $Plantilla->Parametro('activo', __CLASS__);
+            $Plantilla->Parametro('URL', \Neural\WorkSpace\Miscelaneos::LeerModReWrite());
+            $Plantilla->Parametro('Titulo', 'Comunicación');
+			echo $Plantilla->MostrarPlantilla('Informativos/Listado.html');
+		}
+		
 
 	}

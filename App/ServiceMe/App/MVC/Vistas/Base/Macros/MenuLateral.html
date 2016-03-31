@@ -125,7 +125,7 @@
 						</a>
 						<ul>
 							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Informativos', 'Index', URL, 'entypo-upload', 'Ingresar Informativo ', modulo ~ '/Informativos/Index') }}
-							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Informativos', 'Index', URL, 'entypo-download', 'Listado', modulo ~ '/Informativos/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Informativos', 'Listado', URL, 'entypo-download', 'Listado', modulo ~ '/Informativos/Listado') }}
 						</ul>
 					</li>
 				</ul>
@@ -137,7 +137,7 @@
 						</a>
 						<ul>
 							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Notas', 'Index', URL, 'entypo-upload', 'Ingresar Nota ', modulo ~ '/Notas/Index') }}
-							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Notas', 'Index', URL, 'entypo-download', 'Listado', modulo ~ '/Notas/Index') }}
+							{{ menu.sub_elemento3(permiso.LECTURA, modulo, 'Notas', 'Listado', URL, 'entypo-download', 'Listado', modulo ~ '/Notas/Listado') }}
 						</ul>
 					</li>
 				</ul>
@@ -154,6 +154,20 @@
 					<i class="{{ icono|e }}"></i>	
         			<span class="title">APP Mejoramiento</span>
 				</a>
+				
+				<ul>
+					<li class="{{ URL.1 == modulo and URL.2 == 'Proyectos' ? 'opened active has-sub' }}">
+						<a href="javascript:;">
+							<i class="entypo-box"></i>	
+		        			<span class="title">Proyectos</span>
+						</a>
+						<ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Proyectos', 'Index', URL, 'entypo-folder', 'Ingreso', modulo ~ '/Proyectos/Index') }}
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Proyectos', 'Seguimientos', URL, 'entypo-archive', 'Seguimientos', modulo ~ '/Proyectos/Seguimientos') }}
+						</ul>
+					</li>
+				</ul>
+				
 				<ul>
 					<li class="{{ URL.1 == modulo and URL.2 == 'Causa_Raiz' ? 'opened active has-sub' }}">
 						<a href="javascript:;">
@@ -174,21 +188,10 @@
 		        			<span class="title">Mejoras CCAA</span>
 						</a>
 						<ul>
-							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Mejoras_CCAA', 'Index', URL, 'entypo-folder', 'Ingreso', modulo ~ '/Mejoras_CCAA/Index') }}
-							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Mejoras_CCAA', 'Listado', URL, 'entypo-archive', 'Seguimiento', modulo ~ '/Mejoras_CCAA/Seguimiento') }}
-						</ul>
-					</li>
-				</ul>
-				<ul>
-					<li class="{{ URL.1 == modulo and URL.2 == 'Proyectos' ? 'opened active has-sub' }}">
-						<a href="javascript:;">
-							<i class="entypo-lamp"></i>	
-		        			<span class="title">Proyectos</span>
-						</a>
-						<ul>
-							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Proyectos', 'Index', URL, 'entypo-folder', 'Ingreso', modulo ~ '/Proyectos/Index') }}
-							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Proyectos', 'Listado', URL, 'entypo-archive', 'Seguimiento', modulo ~ '/Proyectos/Seguimiento') }}
-						</ul>
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Mejoras_CCAA', 'Asignar', URL, 'entypo-download', 'Asignar', modulo ~ '/Mejoras_CCAA/Asignar') }}
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Mejoras_CCAA', 'Seguimientos', URL, 'entypo-arrows-ccw', 'Seguimientos', modulo ~ '/Mejoras_CCAA/Seguimientos') }}
+							{{ menu.sub_elemento3(permiso.ESCRITURA, modulo, 'Mejoras_CCAA', 'Index', URL, 'entypo-upload', 'Registrar ', modulo ~ '/Mejoras_CCAA/Index') }}
+					</ul>
 					</li>
 				</ul>
 

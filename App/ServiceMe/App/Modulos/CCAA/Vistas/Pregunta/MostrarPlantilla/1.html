@@ -48,7 +48,7 @@
 								<div class="input-group-addon">
 									<i class="entypo-user-add"></i>
 								</div>
-								<input type="text" class="form-control" name="CUENTA" id="cuenta" data-validate="required" placeholder="Cuenta de Suscriptor" maxlength="8" autofocus="autofocus" />
+								<input type="text" class="form-control" autofocus="autofocus" name="CUENTA" id="cuenta" data-validate="required" placeholder="Cuenta de Suscriptor" maxlength="8" />
 							</div>
 						</div>
 						
@@ -63,7 +63,6 @@
 					
 					<div class="row">
 						
-
 						<div class="col-md-4">
 							<div class="form-group">
 								<label class="control-label" for="state">
@@ -72,14 +71,20 @@
 										<b id="fix">Presenta Ruido histórico CableMódem</b> 
 									<b id="pregunta">?</b> 
 								</label>
-								<select class="form-control" name="#" id="#" required/>
-                                            <option value="">Seleccione una Opción</option>
-											<optgroup>
-												<option value="SI">SI - Menores o Igual a 26</option>
-												<option value="NO">NO - Mayores o Igual a 27</option>
-											</optgroup>
-           						</select>
-							</div>
+								<select class="form-control" name="PREGUNTA1" id="pregunta1" required="required">
+                                    <option value="">Seleccione una Opción</option>
+										<optgroup>
+										{% for listadoPreguntas in listado %}
+											{% if listadoPreguntas.ID == '1' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Menores o Igual a 26</option>
+											{% endif %}
+											{% if listadoPreguntas.ID == '2' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Mayores o Igual a 27</option>
+											{% endif %}	
+										{% endfor %}
+										</optgroup>
+								</select>
+           					</div>
 						</div>
 						<div class="col-md-8">
 							<div class="form-group" align="center" >
@@ -107,13 +112,19 @@
 										<b id="fix">Presenta Ruido histórico Nodo</b> 
 									<b id="pregunta">?</b> 
 								</label>
-								<select class="form-control" name="#" id="#" required/>
-                                            <option value="">Seleccione una Opción</option>
-											<optgroup>
-												<option value="SI">SI - Menores o Igual a 26</option>
-												<option value="NO">NO - Mayores o Igual a 27</option>
-											</optgroup>
-           						</select>
+           						<select class="form-control" name="PREGUNTA2" id="pregunta2" required="required">
+                                    <option value="">Seleccione una Opción</option>
+										<optgroup>
+										{% for listadoPreguntas in listado %}
+											{% if listadoPreguntas.ID == '3' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Menores o Igual a 26</option>
+											{% endif %}
+											{% if listadoPreguntas.ID == '4' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Mayores o Igual a 27</option>
+											{% endif %}	
+										{% endfor %}
+										</optgroup>
+								</select>
 							</div>
 						</div>
 						<div class="col-md-8">
@@ -143,13 +154,19 @@
 										<b id="fix">Presenta perdida de Paquetes Nodo</b> 
 									<b id="pregunta">?</b> 
 								</label>
-								<select class="form-control" name="#" id="#" required/>
-                                            <option value="">Seleccione una Opción</option>
-											<optgroup>
-												<option value="SI">SI - Menor o Igual a 1</option>
-												<option value="NO">NO - Ok </option>
-											</optgroup>
-           						</select>
+           						<select class="form-control" name="PREGUNTA3" id="pregunta3" required="required">
+                                    <option value="">Seleccione una Opción</option>
+										<optgroup>
+										{% for listadoPreguntas in listado %}
+											{% if listadoPreguntas.ID == '5' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Menor o Igual a 1</option>
+											{% endif %}
+											{% if listadoPreguntas.ID == '6' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Ok</option>
+											{% endif %}	
+										{% endfor %}
+										</optgroup>
+								</select>
 							</div>
 						</div>
 						<div class="col-md-8">
@@ -178,13 +195,19 @@
 										<b id="fix">Hay falla en la Modulación</b> 
 									<b id="pregunta">?</b> 
 								</label>
-								<select class="form-control" name="#" id="#" required/>
-                                            <option value="">Seleccione una Opción</option>
-											<optgroup>
-												<option value="SI">SI - Menor a 180</option>
-												<option value="NO">NO - Ok </option>
-											</optgroup>
-           						</select>
+           						<select class="form-control" name="PREGUNTA4" id="pregunta4" required="required">
+                                    <option value="">Seleccione una Opción</option>
+										<optgroup>
+										{% for listadoPreguntas in listado %}
+											{% if listadoPreguntas.ID == '7' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Menor a 180</option>
+											{% endif %}
+											{% if listadoPreguntas.ID == '8' %}
+												<option value="{{ listadoPreguntas.TITULO|e }}">{{ listadoPreguntas.TITULO|e }} - Ok</option>
+											{% endif %}	
+										{% endfor %}
+										</optgroup>
+								</select>
 							</div>
 						</div>
 						<div class="col-md-8">
@@ -267,5 +290,5 @@
 	{% endblock %}
 	
 	{% block Script %}
-		{{ validacionForm|raw }}
+		{{ validacionForm1|raw }}
 	{% endblock %}
