@@ -21,7 +21,7 @@
 	            		
 						<label class="col-sm-3 control-label"><strong>Opción Reset Físico</strong></label>
 						<div class="col-sm-5">
-	                        <select name="RAZON" id="razon" class="form-control" />
+	                        <select name="RAZON" id="razon" class="form-control" >
 								<option value="">Seleccione una Opción</option>
 								<optgroup>
 									{% for info in listado %}
@@ -42,7 +42,7 @@
 					<div class="col-md-12">
 	            		<label class="col-sm-3 control-label"><strong>Modelo Decodificador RR</strong></label>
 						<div class="col-sm-5">
-	                        <select name="REFERENCIA" id="referencia" class="form-control" />
+	                        <select name="REFERENCIA" id="referencia" class="form-control" required="required" >
 	                       		<option value="">Seleccione una Opción</option>
 						
 								<optgroup>

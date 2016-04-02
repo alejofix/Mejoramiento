@@ -18,9 +18,9 @@
 				<div class="form-group">
 	           
 	                <div class="col-md-12">
-	            		<label class="col-sm-3 control-label"><strong>Canales Afectados</strong></label>
+	            		<label class="col-sm-3 control-label"><strong>No. Orden </strong></label>
 						<div class="col-sm-5">
-							<input type="text" pattern="[0-9, ]{3,30}" class="form-control" name="INFORMACION" id="informacion" placeholder="Máximo 5 frecuencias separadas por Comas(,)" maxlength="30"  />
+							<input type="number" class="form-control" name="INFORMACION" id="informacion" placeholder="Llamada de Servicio / Orden de Trabajo" maxlength="9" />
 						</div>
 	                </div>
 	            
@@ -32,7 +32,7 @@
 	           
 	                <div class="col-md-12">
 	            		
-						<label class="col-sm-3 control-label"><strong>Razón Ausencia de Audio </strong></label>
+						<label class="col-sm-3 control-label"><strong>Tipo de Orden</strong></label>
 						<div class="col-sm-5">
 	                        <select name="RAZON" id="razon" class="form-control" >
 								<option value="">Seleccione una Opción</option>
@@ -53,16 +53,15 @@
 	            <div class="form-group">
 					
 					<div class="col-md-12">
-	            		<label class="col-sm-3 control-label"><strong>Modelo Decodificador RR</strong></label>
+	            		<label class="col-sm-3 control-label"><strong>Motivo de Insatisfacción</strong></label>
 						<div class="col-sm-5">
-	                        <select name="REFERENCIA" id="referencia" class="form-control" required="required" >
+	                        <select name="REFERENCIA" id="referencia" class="form-control" required="required">
 	                       		<option value="">Seleccione una Opción</option>
-						
 								<optgroup>
-								{% for lista in listadoDecosRR %}
-									<option value="{{ lista.REFERENCIA }}">{{ lista.REFERENCIA }}</option>
-								{% endfor %}
-						
+									<option value="NOTAS FALSAS">NOTAS FALSAS</option>
+									<option value="TÉCNICO NO ASISTE">TÉCNICO NO ASISTE</option>
+									<option value="INCUMPLIMIENTO FRANJA">INCUMPLIMIENTO FRANJA</option>
+									<option value="INCUMPLIMIENTO REITERATIVO ">INCUMPLIMIENTO REITERATIVO </option>
 								</optgroup>
 							</select>	
 						</div>

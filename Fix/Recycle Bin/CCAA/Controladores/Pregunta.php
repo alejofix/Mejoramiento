@@ -86,12 +86,28 @@
 			return $Val->Constructor('Formularios');
 		}
 		
-		private function casos1() {
-			
-			
-			
-		}
 		
+		/**
+		 * validación respuesta validacionForm1 caso1 ()
+		 * 
+		 * switch para caso1 /1.html
+		 */
+		 		
+		private function casos1() {
+			switch ($string) {
+			    case (string) "0":
+			        echo "";
+			        break;
+			    case (string) "1":
+			        echo "";
+			        break;
+			    case (string) "2":
+			        echo "";
+			        break;
+       			default:
+                	echo "";
+			}
+		}
 		
 		public function ProcesarIndex() {
 			if(isset($_POST) == true AND AppValidar::PeticionAjax() == true):
