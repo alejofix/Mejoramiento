@@ -50,9 +50,11 @@
 													<option value="{{ datos.PRIORIDAD|e }}" selected="">Tipo {{ datos.PRIORIDAD|e }}</option>
 												</optgroup> 
 												<optgroup label="Seleccione una Opción">
-													{% for num in 1..5 %}
-														<option value="{{ num|e }}">Tipo {{ num|e }}</option>
-													{% endfor %}
+														<option value="1">1. - HFC</option>
+										   		        <option value="2">2. - Televisión</option>
+										   		        <option value="3">3. - Telefonía</option>
+										   		        <option value="4">4. - Internet</option>
+										   		        <option value="5">5. - Otros</option>
 												</optgroup>
                                             </select>
                                     </div> 

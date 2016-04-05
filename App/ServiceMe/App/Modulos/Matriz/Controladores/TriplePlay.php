@@ -18,8 +18,6 @@
 	 		$plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
 			$plantilla->Parametro('activo', __CLASS__);
 			$plantilla->Parametro('URL', \Neural\WorkSpace\Miscelaneos::LeerModReWrite());
-	 		$plantilla->Parametro('prioridades', $this->Modelo->listadoPrioridades());
-	 		$plantilla->Parametro('ubicaciones', $this->Modelo->listadoUbicacion());
 			$plantilla->Parametro('listaAveria', $this->Modelo->listaAveria());
  			$plantilla->Parametro('validacion', $this->IndexValidacionFormulario());
  			$plantilla->Parametro('razonAveria', $this->Modelo->listadoRazonAveria());
@@ -39,9 +37,9 @@
 			$Val->Numero('AVISO', 'El Aviso debe Ser Numérico');
 			$Val->CantMaxCaracteres('AVISO', 10, 'Debe ingresar aviso con 10 Números');
 			$Val->Requerido('PRIORIDAD', 'Debe Seleccionar una Opción');
-			$Val->Requerido('UBICACION', 'Debe Seleccionar una Opción');
 			$Val->Requerido('RAZON', 'Debe Seleccionar una Opción');
-			$Val->Requerido('NODO', 'Debe ingresar el Nodo de la Matriz');
+			$Val->Requerido('REGIONAL[]', 'Seleccione la Regional a Reportar');
+			$Val->Requerido('NODO', 'Debe ingresar el Nodo al que pertenece la Matriz');
 			$Val->Requerido('HORAFIN', 'Defina la fecha-hora que termina el Aviso');
 			$Val->Requerido('MATRIZ', 'Debe informar el Número de la Matriz');
 			$Val->ControlEnvio('peticionAjax("FormularioGuion", "Respuesta");');
@@ -85,7 +83,6 @@
 				echo json_encode(array('fecha' => '0000-00-00 / 00:00'));
 			endif;
 		}
-		
 		
 		/**
 		 * TriplePlay::ajaxGuion()
@@ -137,7 +134,7 @@
 		 * @return void
 		 */
 		private function ajaxGuionFormato() {
-			$DatosPost = AppFormato::Espacio(array('TIPO', 'AFECTACION', 'AVISO', 'UBICACION', 'DETALLE', 'INTERMITENCIA', 'AFECTACION', 'GUION', 'PRIORIDAD', 'AVERIA', 'RAZON'))->MatrizDatos($_POST);
+		    $DatosPost = AppFormato::Espacio(array('TIPO', 'AFECTACION', 'AVISO', 'UBICACION', 'DETALLE', 'INTERMITENCIA', 'AFECTACION', 'GUION', 'PRIORIDAD', 'AVERIA', 'RAZON'))->MatrizDatos($_POST);
 			$DatosPost['INTERMITENCIA'] = (array_key_exists('INTERMITENCIA', $DatosPost) == true) ? $DatosPost['INTERMITENCIA'] : 'NO';
 			$this->ajaxGuionProcesar($DatosPost);
 		}
@@ -158,6 +155,29 @@
 			endswitch;
 			
 		}
+		
+		/**
+		 * TriplePlay::ajaxProcesoRegional()
+		 * 
+		 * genera el proceso de generar y guardar los datos 
+		 * de regional
+		 * 
+		 * @param array $array
+		 * @param strig $usuario
+		 * @return string
+		 */
+		private function ajaxProcesoRegional ($array = false, $usuario = false) {
+			$guion = $this->ajaxProcesoPlantilla($array);
+			$id = $this->Modelo->MATRIZ($array, $usuario, $guion);
+			if ($id['ID'] >= 1) {
+				$this->Modelo->guardarRegionales($array['REGIONAL'], $id['ID']);
+				$this->ajaxPlantillaBase($guion);
+			}
+			else {
+				exit('No es posible generar el Guión contacte con el administrador del sistema');
+			}
+		}
+		
 		
 		/**
 		 * TriplePlay::ajaxProcesoNodo()
@@ -182,7 +202,7 @@
 					exit('No fue posible guardar el guion correspondiente, validar con el administrador del sistema');
 				endif;
 			else:
-				exit('Debe agregar un nodo');
+				exit('Debe agregar por lo menos un nodo');
 			endif;
 		}
 		
@@ -196,7 +216,7 @@
 		 * @return string
 		 */
 		private function ajaxProcesoPlantilla($array = false) {
-			$plantilla = $this->Modelo->consultaPlantilla('MATRIZ', 'TRIPLEPLAY', 'PRIORIDAD'.$array['PRIORIDAD']);
+			$plantilla = $this->Modelo->consultaPlantilla('MATRIZ', 'TRIPLEPLAY', 'PRIORIDAD '.$array['PRIORIDAD']);
 			$guion = new NeuralPlantillasTwig(APP);
 			$guion->Parametro('Datos', $array);
 			$guion->Parametro('plantilla', stripcslashes(html_entity_decode($plantilla['PLANTILLA'])));

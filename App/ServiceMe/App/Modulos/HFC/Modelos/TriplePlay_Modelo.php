@@ -96,7 +96,7 @@
 			$SQL->bindValue(':RAZON', $array['RAZON']);
 			$SQL->execute();
 			
-			$consulta = $this->conexion->prepare('SELECT @OUTPUT AS ID');
+			$consulta = $this->conexion->prepare('SELECT @RESPUESTA AS ID');
 			$consulta->execute();
 			return $consulta->fetch(PDO::FETCH_ASSOC);
 		}

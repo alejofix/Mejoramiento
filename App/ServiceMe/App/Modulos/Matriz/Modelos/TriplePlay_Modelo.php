@@ -15,33 +15,6 @@
 			$this->conexion = NeuralConexionDB::DoctrineDBAL(APPBD);
 		}
 		
-		/**
-		 * TriplePlay_Modelo::listadoPrioridades()
-		 *
-		 * Genera la lista de prioridades 
-		 * @return array
-		 */
-		public function listadoPrioridades() {
-			$consulta = $this->conexion->prepare('SELECT ID, NOMBRE FROM PRIORIDADES WHERE ESTADO = ? ORDER BY ID ASC');
-			$consulta->bindValue(1, 1, PDO::PARAM_INT);
-			$consulta->execute();
-			return $consulta->fetchAll(PDO::FETCH_ASSOC);
-		}
-		
-		/**
-		 * TriplePlay_Modelo::listadoUbicacion()
-		 *
-		 * Genera el listado de ubicaciones correspondientes 
-		 * @return array
-		 */
-		public function listadoUbicacion() {
-			$consulta = $this->conexion->prepare('SELECT ID, NOMBRE FROM GUIONES_REGISTRO_UBICACION WHERE ESTADO = ? ORDER BY NOMBRE DESC');
-			$consulta->bindValue(1, 1, PDO::PARAM_INT);
-			$consulta->execute();
-			return $consulta->fetchAll(PDO::FETCH_ASSOC);
-		}
-		
-
 		/**  
 		 * TriplePlay_Modelo 	listadoRazonAveria
 		 * genera el listado de las razones averia 

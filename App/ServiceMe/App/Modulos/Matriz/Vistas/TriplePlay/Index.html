@@ -3,7 +3,7 @@
 	{% block Contenido %}
 
 <!-- inicio -->
-	{% include 'Menus/menu_matriz.html' %}		
+	{% include 'Menus/menu_matriz.html' %}
 			
 				<div class="panel panel-default" data-collapsed="0">
 				
@@ -20,10 +20,18 @@
 					<div class="panel-body">
 						
 						<form class="form-horizontal form-groups-bordered" id="FormularioGuion" name="guion" action='javascript:;' method='post' role="form">
-
+							
+							{# 
+                       			/**
+                       			 *	Input de AVISO
+                       			 *
+                       			 *	Input asociado a columna AVISO en la tabla
+                       			 *	GUIONES_REGISTRO
+                       			 *	@param integer
+                       			 */
+							#}
 							<div class="form-group">
-                           
-						        <div class="col-md-12">
+                                <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Número Aviso</strong></label>
     								<div class="col-sm-5">
     									<input type="text" class="form-control" name="AVISO" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required/>
@@ -31,10 +39,19 @@
                                 </div>
                             
                             </div>
-							
+                            
 							<!-- line -->
-							
-                          	<div class="form-group">
+
+                            {# 
+                       			/**
+                       			 *	Input de Razón Avería 
+                       			 *
+                       			 *	Asociado a tipo de Guion por Razón Avería
+                       			 *	DEFINE EL CAMPO GUION  
+                       			 */
+							#}
+                  			
+						    <div class="form-group">
 								
 								<div class="col-md-12">
 									<label class="col-sm-3 control-label"><strong>Razón Avería</strong></label>
@@ -52,23 +69,40 @@
 										</div>
 								</div>
 							
-							</div>
+							</div>                            
+                            
                             
                             <!-- line -->
-
-							<div class="form-group">
+                            
+                            {# 
+                       			/**
+                       			 *	Input de PRIORIDAD
+                       			 *
+                       			 *	Input asociado a columna PRIORIDAD en la tabla
+                       			 *	GUIONES_REGISTRO_MATRIZ la cual es una relación de Falla
+                       			 */
+							#}
+                            <div class="form-group">
                            		
                                 <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Falla</strong></label>
     								<div class="col-sm-3">
                                         <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
-                                                <option value="">Seleccione una Opción</option> 
-                                                  <optgroup>
-                                                    <option value="1">GENERAL</option>
-									   		        <option value="2">PUNTUAL</option>
-                                                  </optgroup>
-                                         </select>	
+                                            <option value="">Seleccione una Opción</option>
+											<optgroup>
+				                                <option value="1">GENERAL</option>
+								   		        <option value="2">PUNTUAL</option>
+                    						</optgroup>
+                                        </select>	
     								</div>
+    								{# 
+		                       			/**
+		                       			 *	Input de HORA SOLUCIÓN  
+		                       			 *
+		                       			 *	Define la Hora manual terminación Aviso
+		                       			 * 	
+		                       			 */ 
+									#}
     								<div class="col-sm-2">
 										<div>
 											<label>
@@ -81,6 +115,14 @@
                                                            
                             </div>
                             
+	                        {# 
+                       			/**
+                       			 *	Input de UBICACION SECTOR MATRIZ - NODO
+                       			 *
+                       			 *	Registra la Matriz como sector y agrega el Nodo
+                       			 *	de la tabla GUIONES_REGISTRO_UBICACION_NODO
+                       			 */
+							#}
                             <!-- line -->
 		                    
 		                    <div class="form-group">
@@ -88,12 +130,12 @@
 								<div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Matriz</strong></label>
     								<div class="col-sm-3">
-    									<input type="text" class="form-control" name="MATRIZ" id="matriz" type="text" placeholder="# Cta. Matriz" maxlength="6" onkeyUp="return ValNumero(this);" required>
+    									<input type="text" class="form-control" name="MATRIZ" id="matriz" type="text" placeholder="# Cta. Matriz" maxlength="6" onkeyUp="return ValNumero(this);" required="required" />
     								</div>
     								<div class="col-sm-2">
 										<div>
 											<label>
-													<input type="text" class="form-control"  name="NODO" id="nodo" type="text" placeholder="Nodo" required>	
+													<input type="text" id="cargaAjaxUbicacion" class="form-control"  name="NODO" id="nodo" type="text" placeholder="Nodo" required="required" />	
 											</label>
 										</div>
 									</div>
@@ -102,6 +144,8 @@
                             </div>
                             
                             <!-- line -->
+                            
+                           <!-- line -->
 							
 							<div class="form-group">
                             	
@@ -120,6 +164,7 @@
                             </div>
                             
                             <!-- line -->
+                            
                            
                             <div class="form-group">
                             
@@ -135,13 +180,12 @@
 				                </div>
                 
                         	</div>
-
 							
                             {% if Sesion.Permisos.HFC.ESCRITURA == true %}
                                 <div class="form-group">
 								    <div class="col-sm-offset-3 col-sm-5">
 											
-											<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Triple Play - MATRIZ" data-original-title="Generador de Guión">
+											<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Triple Play - HFC" data-original-title="Generador de Guión">
 								                Crear Guión 
 								                <i class="entypo-check"></i>
 							                 </button>
@@ -224,18 +268,6 @@
            			 */
 				#}
 				{{ validacion|raw }}
-				
-				{# 
-           			/**
-           			 *	{{ selectDependiente|raw }}
-           			 *
-           			 *	variable que contiene el script de jquery
-           			 *	que genera el select dependiente del campo
-           			 *	UBICACION
-           			 */
-				#}
-				{{ selectDependiente|raw }}
-				
 				
             	
             {% endif %}
