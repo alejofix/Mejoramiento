@@ -72,6 +72,13 @@
 			$plantilla = new NeuralPlantillasTwig(APP);
 			echo $plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('TriplePlay', 'Horas.js')));
 		}
+		
+		/**
+		 * TriplePlay::HorasCalculo()
+		 *
+		 * Genera el calculo de horas segun la prioridad 
+		 * @return void
+		 */
 		public function HorasCalculo() {
 			if(AppValidar::PeticionAjax() == true):
 				$valor = $_POST['prioridad'];
@@ -194,6 +201,10 @@
 			if(count($nodos) >= 1):
 				$guion = $this->ajaxProcesoPlantilla($array);
 				unset($array['boton'], $array['NODO']);
+				Ayudas::print_r($array);
+				Ayudas::print_r($usuario);
+				Ayudas::print_r($guion);
+				
 				$id = $this->Modelo->MATRIZ($array, $usuario, $guion);
 				if($id['ID'] >= 1):
 					$this->Modelo->guardarNodos($nodos, $id['ID']);
