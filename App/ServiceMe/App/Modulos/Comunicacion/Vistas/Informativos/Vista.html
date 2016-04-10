@@ -1,7 +1,3 @@
-	{% extends 'Vista/Vista.html' %}
-	
-	{% block Info %}
-
 		
 			<div class="panel panel-gradient">
 				
@@ -14,23 +10,29 @@
 
 				</div>
 	
-				
-				<div  style="text-align:center" class="panel-options">
-					<hr />
-			 		<video id="video0" width="515" height="230" controls="controls" autoplay="autoplay"> 
-						<source src="http://190.84.51.204/CCAA/QUEESNAT.mp4" type="video/mp4" />
-					</video>
-					<hr />
-				</div>
+				<!-- cargaInformativos  -->
+				<div  id="cargaInformativos" style="text-align:center" class="panel-options">
 
+				</div>
+				<!--  -->
 				
 			</div>
 
-
-		
-	{% endblock %}
+	{% block JS %}
 	
-
-
-
-			
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+    			var tiempo = setInterval(function() {
+    				jQuery.ajax({
+    					type : "POST",
+						dataType : "html",
+						url : "{{ NeuralRutaApp|e }}/Comunicacion/Informativos/AjaxVista",
+						success : function(resultado) {
+							jQuery("#cargaInformativos").html(resultado);
+						}
+    				});	
+    			}, 2400000);
+			});
+		</script>
+	
+	{% endblock %}

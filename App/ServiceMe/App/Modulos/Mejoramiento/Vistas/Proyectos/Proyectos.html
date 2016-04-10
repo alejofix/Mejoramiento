@@ -1,33 +1,93 @@
 	{% extends 'Base/Html.html' %}
 	
 	{% block Contenido %}
-		
-		<div class="row">
-			<div class="col-lg-12">
-         
-                <h3 class="page-header">Crear Proyecto</h3>
-    
-                <!--  -->
-                <div class="main-content">
-
-
-		
-
-
-
-
-
-
-            	</div>
-                <!--  -->
-                
-
-            </div>
-		    <div align="right">
-             <b>&#169;</b>
-            </div>  
-        </div>
-
+	
+		{% include 'Menus/menu_mejoramiento.html' %}
+		<style type="text/css">
+				.active {
+					font-weight: bold;
+              	}
+		</style>
 	
 		
+				<div class="panel panel-default" data-collapsed="0">
+				
+					<div class="panel-heading">
+						<div class="panel-title">
+							<strong>Proyectos Mejoramiento</strong>
+						</div>
+					</div>
+					
+							<!-- sub-menú alto impacto  -->
+							<ul class="nav nav-tabs">
+							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos">Nuevo  Proyecto </a></li>
+							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Seguimientos">Seguimientos </a></li>
+							</ul>
+							<!-- menú alto impacto  -->
+
+				<!-- row project -->
+				<br />
+				<div class="calendar-env">
+				
+					<div class="calendar-sidebar">
+				
+						<div class="calendar-sidebar-row">
+				
+							<form name="add_event_form" id="add_event_form" class="form-horizontal form-groups-bordered"  action="javascript:;" method="POST" role="form">
+				
+								<div class="input-group minimal">
+									<input  name="PROYECTO" type="text" class="form-control" placeholder="Nombre del Proyecto" />
+									<div class="input-group-addon">
+										<i class="entypo-pencil"></i>
+									</div>
+								</div>
+								
+							</form>
+				
+						</div>
+				
+				
+						<!-- Events List -->
+						<ul class="events-list" id="draggable_events">
+							
+							<li>
+								<p id="respuestaLi"></p>
+							</li>
+				
+						</ul>
+				
+					</div>
+					
+					<div>
+						...
+					</div>
+					
+				
+				</div>		
+	
+				<!-- row project -->
+
+				</div>
+
+
+	
+
+	
+	{% endblock %}
+	
+	
+	{% block Script %}
+	
+		{{ validacionForm|raw }}
+		
+		<!-- Imported styles on this page -->
+		<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/fullcalendar-2/fullcalendar.min.css">
+	
+		<!-- Imported scripts on this page -->
+		<script src="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/moment.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/fullcalendar-2/fullcalendar.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/neon-calendar-2.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/neon-chat.js"></script>
+
+	
 	{% endblock %}

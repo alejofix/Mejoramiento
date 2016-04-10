@@ -1,0 +1,13 @@
+			<style type="text/css">
+				.seleccionado {
+					font-weight: bold;
+				}
+			</style>
+			<div class="col-lg-12">
+                    <ul class="nav nav-pills">
+                      <li role="presentation" class="{{ activo == 'Proyectos' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos">Proyectos</a></li>
+                      <li role="presentation" class="{{ activo == 'Causa_Raiz' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Causa_Raiz">Causa Raíz</a></li>
+                      <li role="presentation" class="{{ activo == 'Mejoras_CCAA' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA">Mejoras CCAA</a></li>
+                    </ul>
+			</div>
+            <br />

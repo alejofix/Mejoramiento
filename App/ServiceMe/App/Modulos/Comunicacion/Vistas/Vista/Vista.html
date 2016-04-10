@@ -21,16 +21,24 @@
 
 	<div class="row">
 		<!--Alto Impacto  Inicio -->
-				{% block Contenido %}{% endblock %} 
-
+				
+				{% block Contenido %}
+				{% endblock %} 
+				
 <!--Informativos (video)y Notas (blog serviceCo)-->	
+		
 		<div class="col-sm-5">
-				{% block Info %}{% endblock %}
+	
+				{% include 'Informativos/Vista.html' %}
+		
 		</div>
 	
 		<div class="col-sm-7">
-				{% block Notas %}{% endblock %}
+		
+				{% include 'Notas/Vista.html' %}
+			
 		</div>
+
 <!-- -->
 
 
@@ -46,9 +54,6 @@
 	</footer>
 
 </div>
-
-
-
 
 
 	   		{% include 'Base/Comunicacion/Script.html' %}

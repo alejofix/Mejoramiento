@@ -138,35 +138,6 @@
 			endif;
 		}
 		
-		/**fix
-		 * Metodo: listadoRegional()
-		 *
-		 * Genera el listado de Regionales
-		 * @return array
-		 */
-		public function listadoRegional() {
-			$consulta = $this->conexion->prepare('SELECT ID, NOMBRE FROM LISTA_REGIONALES WHERE ESTADO = ? ORDER BY NOMBRE DESC');
-			$consulta->bindValue(1, 1, PDO::PARAM_INT);
-			$consulta->execute();
-			return $consulta->fetchAll(PDO::FETCH_ASSOC);
-		}
-		
-		/**
-		 * TriplePlay_Modelo::guardarRegionales()
-		 * 
-		 * Guarda Regionales reportadas en tabla 
-		 * GUIONES REGISTRO UBICACION REGIONAL 
-		 * 
-		 * @param array $array: array de regionales
-		 * @param string $registro : id del registro guardado
-		 * @return void
-		 */
-		public function guardarRegionales($array = false, $registro =false) {
-			foreach ($array AS $regional) {
-				$this->conexion->insert('GUIONES_REGISTRO_UBICACION_REGIONAL', array('REGISTRO' => $registro, 'REGIONAL' => $regional));
-			}
-		}
-		
 		/**
 		 * TriplePlay_Modelo::consultaUbicacion()
 		 * 
@@ -180,7 +151,6 @@
 			$consultas->execute();
 			return $consultas->fetch(PDO::FETCH_ASSOC);
 		}
-		
 		
 		/**
 		 * TriplePlay_Modelo::listaAveria()

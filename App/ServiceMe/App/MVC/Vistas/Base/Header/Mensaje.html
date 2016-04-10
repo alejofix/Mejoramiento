@@ -1,13 +1,12 @@
 <script type="text/javascript">
 		jQuery(document).ready(function($)
 		{
-			// Sample Toastr Notification
 			setTimeout(function()
 			{
 				var opts = {
 					"closeButton": true,
 					"debug": false,
-					"positionClass": rtl() || public_vars.$pageContainer.hasClass('right-sidebar') ? "toast-top-left" : "toast-top-right",
+					"positionClass": rtl() || public_vars.$pageContainer.hasClass('right-sidebar') ? "toast-bottom-right" : "toast-bottom-right",
 					"toastClass": "black",
 					"onclick": null,
 					"showDuration": "300",
@@ -20,12 +19,9 @@
 					"hideMethod": "fadeOut"
 				};
 		
-				toastr.success("You have been awarded with 1 year free subscription. Enjoy it!", "Account Subcription Updated", opts);
-			}, 3000);
+				toastr.success("Aconsejamos el uso de Navegador CHROME para una mejor Experiencia. ", "Bienvenido a la Herramienta de Gestión ServiceMe", opts);
+			}, 1000);
 		
-		
-
-			// Rickshaw
 			var seriesData = [ [], [] ];
 		
 			var random = new Rickshaw.Fixtures.RandomData(50);
@@ -79,4 +75,4 @@
 		
 			}, 500 );
 		});
-		</script>
+</script>

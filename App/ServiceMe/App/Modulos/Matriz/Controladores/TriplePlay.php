@@ -164,29 +164,6 @@
 		}
 		
 		/**
-		 * TriplePlay::ajaxProcesoRegional()
-		 * 
-		 * genera el proceso de generar y guardar los datos 
-		 * de regional
-		 * 
-		 * @param array $array
-		 * @param strig $usuario
-		 * @return string
-		 */
-		private function ajaxProcesoRegional ($array = false, $usuario = false) {
-			$guion = $this->ajaxProcesoPlantilla($array);
-			$id = $this->Modelo->MATRIZ($array, $usuario, $guion);
-			if ($id['ID'] >= 1) {
-				$this->Modelo->guardarRegionales($array['REGIONAL'], $id['ID']);
-				$this->ajaxPlantillaBase($guion);
-			}
-			else {
-				exit('No es posible generar el Guión contacte con el administrador del sistema');
-			}
-		}
-		
-		
-		/**
 		 * TriplePlay::ajaxProcesoNodo()
 		 * 
 		 * Genera el proceso de guardar la informacion y mostrar
@@ -197,25 +174,19 @@
 		 * @return void
 		 */
 		private function ajaxProcesoNodo($array = false, $usuario = false) {
-			$nodos = explode("\n", trim($array['NODO']));
-			if(count($nodos) >= 1):
+				$nodos = ($array['NODO']);
 				$guion = $this->ajaxProcesoPlantilla($array);
 				unset($array['boton'], $array['NODO']);
-				Ayudas::print_r($array);
-				Ayudas::print_r($usuario);
-				Ayudas::print_r($guion);
+				
+					Ayudas::print_r($array);
+					Ayudas::print_r($usuario);
+					Ayudas::print_r($guion);
+					Ayudas::print_r($nodos);
 				
 				$id = $this->Modelo->MATRIZ($array, $usuario, $guion);
-				if($id['ID'] >= 1):
-					$this->Modelo->guardarNodos($nodos, $id['ID']);
-					$this->ajaxPlantillaBase($guion);
-				else:
-					exit('No fue posible guardar el guion correspondiente, validar con el administrador del sistema');
-				endif;
-			else:
-				exit('Debe agregar por lo menos un nodo');
-			endif;
-		}
+				$this->Modelo->guardarNodos($nodos, $id['ID']);
+				$this->ajaxPlantillaBase($guion);
+				}
 		
 		/**
 		 * TriplePlay::ajaxProcesoPlantilla()

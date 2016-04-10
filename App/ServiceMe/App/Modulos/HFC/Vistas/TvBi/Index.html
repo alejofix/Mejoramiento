@@ -34,7 +34,7 @@
                                 <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Número Aviso</strong></label>
     								<div class="col-sm-5">
-    									<input type="text" class="form-control" name="AVISO" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required/>
+    									<input type="text" class="form-control" name="AVISO" id="aviso" placeholder="10 caracteres Numéricos" maxlength="10" autofocus="autofocus" required="required" />
     								</div>
                                 </div>
                             
@@ -55,7 +55,7 @@
                                 <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Prioridad</strong></label>
     								<div class="col-sm-3">
-                                        <select class="form-control" name="PRIORIDAD" id="prioridad" required/>
+                                        <select class="form-control" name="PRIORIDAD" id="prioridad" required="required" >
                                             <option value="">Seleccione una Opción</option>
 											<optgroup>
 											
@@ -106,7 +106,7 @@
 	                            		<label class="col-sm-3 control-label"><strong>Avería</strong></label>
 	    								<div class="col-sm-5">
 	                                        
-											<select name="AVERIA" class="form-control" required/>
+											<select name="AVERIA" class="form-control" required="required" >
 												<option value="">Seleccione una Opción</option>
 													<optgroup>
 													{% for averia in listaAveria %}
@@ -137,7 +137,7 @@
 								<div class="col-md-12">
 									<label class="col-sm-3 control-label"><strong>Razón Avería</strong></label>
 										<div class="col-sm-5">
-											<select class="form-control" name="RAZON" id="razon" required/>
+											<select class="form-control" name="RAZON" id="razon" required="required" >
 												<option value="">Seleccione una Opción</option>
 												<optgroup>
 											
@@ -167,7 +167,7 @@
                                 <div class="col-md-12">
                             		<label class="col-sm-3 control-label"><strong>Lugar afectación</strong></label>
         								<div class="col-sm-5">
-                                            <select class="form-control" name="UBICACION" id="ubicacion" required/>
+                                            <select class="form-control" name="UBICACION" id="ubicacion" required="required" >
                                                 <option value="">Seleccione una Opción</option> 
                                                   <optgroup>
                                                   
@@ -205,7 +205,7 @@
                             		<div class="col-sm-3 control-label">
     									<div class="checkbox">
     										<label>
-                                                <input name="INTERMITENCIA" value="SI" type="checkbox">
+                                                <input name="INTERMITENCIA" value="SI" type="checkbox" />
     										</label>
     									</div>
 								    </div>
@@ -222,11 +222,11 @@
 								                <i class="entypo-check"></i>
 							                 </button>
 							                 
-                                            		<input type="hidden" name="AFECTACION" value="TV_Bi">
+                                            		<input type="hidden" name="AFECTACION" value="TV_Bi" />
 	                                            	<input type="hidden" name="TIPO" value="1"/>
 				          
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+                                            <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario" >
                 								Borrar Formulario 
                 								<i class="entypo-trash"></i>
                 							</button>
