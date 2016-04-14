@@ -10,7 +10,7 @@
 		 */
 		function __Construct() {
 			parent::__Construct();
-			AppSesion::validar('ESCRITURA');
+			AppSesion::validar('LECTURA');
 		}
 		
 		/**
@@ -20,16 +20,19 @@
 		 * @return void
 		 */
 		public function Index() {
+			AppSesion::validar('ESCRITURA');
 			$Plantilla = new NeuralPlantillasTwig(APP);
 			$Plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
             $Plantilla->Parametro('Titulo', 'Proyectos');
             $Plantilla->Parametro('activo', __CLASS__);
+            $Plantilla->Parametro('listadoProyectosBase', $this->Modelo->listadoProyectosBase());
+            $Plantilla->Parametro('listadoAnalistasMejoramiento', $this->Modelo->listadoAnalistasMejoramiento());
             $Plantilla->Parametro('URL', \Neural\WorkSpace\Miscelaneos::LeerModReWrite());
 			echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Proyectos', 'Proyectos.html')));
 		}
 		
 		private function validacionForm() {
-			$Val = new NeuralJQueryFormularioValidacion(true, true, true);
+			$Val = new NeuralJQueryFormularioValidacion();
 			$Val->Requerido('PROYECTO', 'Informe Nombre del Proyecto.');
 			$Val->ControlEnvio(
 				NeuralJQueryAjaxConstructor::TipoDatos('html')
@@ -96,5 +99,7 @@
 			!Asignar Analista!, 
 			';
 		}
+		
+		
 
 	}

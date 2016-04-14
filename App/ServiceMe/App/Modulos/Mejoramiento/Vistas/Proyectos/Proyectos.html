@@ -9,45 +9,47 @@
               	}
 		</style>
 	
+	<!-- row project -->	
+	<div class="panel panel-default" data-collapsed="0">
+	
+		<div class="panel-heading">
+			<div class="panel-title">
+				<strong>Proyectos Mejoramiento</strong>
+			</div>
+		</div>
 		
-				<div class="panel panel-default" data-collapsed="0">
-				
-					<div class="panel-heading">
-						<div class="panel-title">
-							<strong>Proyectos Mejoramiento</strong>
-						</div>
-					</div>
-					
-							<!-- sub-menú alto impacto  -->
-							<ul class="nav nav-tabs">
-							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos">Nuevo  Proyecto </a></li>
-							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Seguimientos">Seguimientos </a></li>
-							</ul>
-							<!-- menú alto impacto  -->
-
-				<!-- row project -->
-				<br />
-				<div class="calendar-env">
-				
+		<!-- sub-menú alto impacto  -->
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos">Nuevo  Proyecto </a></li>
+		  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Seguimientos">Seguimientos </a></li>
+		</ul>
+		
+						
+		<div class="col-md-12">
+		
+			
+			<div class="calendar-env">
+					<br />
+					<!-- ID Proyecto Tabla Principal   -->
 					<div class="calendar-sidebar">
 				
 						<div class="calendar-sidebar-row">
 				
 							<form name="add_event_form" id="add_event_form" class="form-horizontal form-groups-bordered"  action="javascript:;" method="POST" role="form">
-				
-								<div class="input-group minimal">
+					{% if Sesion.Permisos.HFC.ESCRITURA == true %}
+							<div class="input-group minimal">
 									<input  name="PROYECTO" type="text" class="form-control" placeholder="Nombre del Proyecto" />
 									<div class="input-group-addon">
-										<i class="entypo-pencil"></i>
+										<i class="entypo-plus-circled"></i>
 									</div>
 								</div>
-								
+					{% endif %}							
 							</form>
 				
 						</div>
 				
 				
-						<!-- Events List -->
+						<!-- Project List -->
 						<ul class="events-list" id="draggable_events">
 							
 							<li>
@@ -57,20 +59,144 @@
 						</ul>
 				
 					</div>
+					<!-- ID Proyecto Tabla Principal   -->
 					
-					<div>
-						...
+					<!-- Proyecto Asiganción Principal -->
+					<div class="col-md-9">
+								
+						<div class="panel panel-primary" data-collapsed="0">
+						
+							<div class="panel-heading">
+								<div class="panel-title">
+									Asignación del proyecto
+								</div>
+								<div class="panel-options">
+									<a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos"><i class="entypo-arrows-ccw"></i></a>
+								</div>
+							</div>
+							
+							<div class="panel-body">
+							
+							<form name="#" id="#" action="javascript:;" method="POST" role="form">
+							
+									<div class="row">
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="full_name">Proyecto Guardado</label>
+												<select name="NOMBRE" class="form-control" required="required" >
+												<option value="">Seleccione una Opción</option>
+													<optgroup>
+													{% for lista in listadoProyectosBase %}
+														<option value="{{ lista.ID }}">{{ lista.NOMBRE }}</option>
+													{% endfor %}
+													</optgroup>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="birthdate">
+													<i class="entypo-user">Analista</i>
+												</label>
+												<select name="ANALISTA" class="form-control" required="required" >
+												<option value="">Seleccione una Opción</option>
+													<optgroup>
+													{% for analista in listadoAnalistasMejoramiento %}
+														<option value="{{ analista.ID }}">{{ analista.NOMBRE }}</option>
+													{% endfor %}
+													</optgroup>
+												</select>
+											</div>
+										</div>
+										
+									</div>
+									
+									<div class="row">
+									
+										<div class="col-md-2">
+											<div class="form-group">
+												<label class="control-label" for="prim_school">
+													<i class="entypo-clock">Total Horas</i>
+												</label>
+												<input class="form-control" name="#" id="#" placeholder="Total Horas Proyecto" />
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<label class="control-label" for="prim_school">
+													<i class="entypo-clock">Horas Día</i>
+												</label>
+												<input class="form-control" name="#" id="#" placeholder="Horas Día asignadas" />
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="form-group">
+												<label class="control-label" for="prim_school">
+													<i class="entypo-back-in-time">Total días</i>
+												</label>
+												<input class="form-control" name="#" id="#" placeholder="Total Días" />
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<label class="control-label" for="prim_date_start">
+													<i class="entypo-calendar">Fecha Inicio</i>
+												</label>
+												<input class="form-control datepicker" name="#" id="prim_date_start" data-start-view="2" placeholder="(Fecha Inicio)" />
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<label class="control-label" for="prim_date_end">
+													<i class="entypo-calendar">Fecha Final</i>
+												</label>
+												<input class="form-control datepicker" name="#" id="prim_date_end" data-start-view="2" placeholder="(Estimado Fin)" />
+											</div>
+										</div>
+						
+									</div>
+									
+									<div class="row">
+						
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="control-label" for="other_qualifications"><strong>Objetivo</strong></label>
+												<textarea class="form-control autogrow" name="#" id="#" placeholder="Objetivo referencia del Proyecto"></textarea>
+											</div>
+										</div>
+										
+									</div>
+									
+									
+									{% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                                	<div class="form-group">
+									    <div class="col-sm-offset-3 col-sm-5">
+												<button onclick="show_loading_bar(100);" type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Mejoramiento y Causa Raíz" data-original-title="Asignar Proyecto">
+									                Asignar
+									                <i class="entypo-floppy"></i>
+								                 </button>
+										</div>
+					           		</div>
+                            		{% endif %}
+									
+							</form>		
+							
+							</div>
+							
+						</div>
+						
 					</div>
-					
+					<!-- Proyecto Asiganción Principal -->
+			</div>		
+			
+			
+
+		</div>
+	</div>
+	<!-- row project -->
+	
 				
-				</div>		
-	
-				<!-- row project -->
-
-				</div>
-
-
-	
 
 	
 	{% endblock %}
@@ -78,16 +204,30 @@
 	
 	{% block Script %}
 	
+		<script type="text/javascript" src="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Index/Horas.js"></script>
+		
 		{{ validacionForm|raw }}
+		
+		<!-- Imported styles on this page -->
+		<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/daterangepicker-bs3.css">
+
+		<!-- Imported scripts on this page -->
+		<script src="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/moment.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/daterangepicker.js"></script>
 		
 		<!-- Imported styles on this page -->
 		<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/fullcalendar-2/fullcalendar.min.css">
 	
 		<!-- Imported scripts on this page -->
+		<script src="{{NeuralRutaWebPublico}}/assets/js/bootstrap-datepicker.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/bootstrap-timepicker.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/bootstrap-colorpicker.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/moment.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/daterangepicker.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/jquery.multi-select.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/icheck/icheck.min.js"></script>
 		<script src="{{NeuralRutaWebPublico}}/assets/js/daterangepicker/moment.min.js"></script>
 		<script src="{{NeuralRutaWebPublico}}/assets/js/fullcalendar-2/fullcalendar.min.js"></script>
 		<script src="{{NeuralRutaWebPublico}}/assets/js/neon-calendar-2.js"></script>
-		<script src="{{NeuralRutaWebPublico}}/assets/js/neon-chat.js"></script>
-
 	
 	{% endblock %}
