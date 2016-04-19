@@ -18,7 +18,8 @@
 					$("#" + idRespuesta).html('... Espere un Momento Por Favor ... !!!!');
 				},
 				success : function(resultado) {
-					$("#" + idRespuesta).html(resultado);
+					$("#Respuesta").html(resultado);
+					jQuery('#Guion-1').modal('show', {backdrop: 'static'});
 				}
 			});
 	}

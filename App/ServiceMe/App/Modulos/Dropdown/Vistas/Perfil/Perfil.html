@@ -2,13 +2,46 @@
 	
 	{% block Contenido %}
 		
-		<div class="row">
-			<div class="col-lg-12">
-         
-                <h3 class="page-header">Editar Perfil </h3>
-    
-                <!--  -->
-                <div class="main-content">
+		
+		<div class="profile-env">
+			
+			<header class="row">
+		{% include 'Base/Dropdown/Perfil_Header.html' %}
+			</header>
+			
+			<section class="profile-info-tabs">
+				
+				<div class="row">
+					
+					<div class="col-sm-offset-2 col-sm-10">
+						
+						<ul class="user-details">
+							
+							<li>
+								<a href="#">
+									<i class="entypo-suitcase"></i>
+									Works as <span>Laborator</span>
+								</a>
+							</li>
+
+						</ul>
+						
+						
+						<!-- tabs for the profile links -->
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil">Perfil</a></li>
+							<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Editar">Editar Perfil </a></li>
+							<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Contrasena">Cambiar Contraseña</a></li>
+						</ul>
+						
+					</div>
+					
+					
+				</div>
+				
+			</section>
+			
+			   <div class="main-content">
             		<div class="page-error-404">
             			
             			
@@ -26,14 +59,9 @@
             			
             		</div>
             	</div>
-                <!--  -->
-    
-                
+			
 
-            </div>
-		    <div align="right">
-             <b>&#169;</b>
-            </div>  
-        </div>
+		</div>
+
 		
 	{% endblock %}

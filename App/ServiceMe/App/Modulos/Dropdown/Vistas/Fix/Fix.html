@@ -1,0 +1,59 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+		
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="panel-title">Modals Examples</div>
+					</div>
+					
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th width="30%">Modal Type</th>
+								<th>Example</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							
+							<tr>
+								<td class="middle-align">Confirm to Close</td>
+								<td>
+									<a href="javascript:;" onclick="jQuery('#Guion-1').modal('show', {backdrop: 'static'});" class="btn btn-default">Crear Guión</a>
+								</td>
+							</tr>
+							
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal 4 (Confirm)-->
+		<div class="modal fade" id="Guion-1" data-backdrop="static">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<h4 class="modal-title">Guión Creado con Éxito</h4>
+					</div>
+					
+					<div class="modal-body">
+					...
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info" data-dismiss="modal">Copiar Guión</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	  	
+	{% endblock %}
+    

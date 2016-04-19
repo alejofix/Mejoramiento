@@ -15,7 +15,7 @@
 		
 		/**
 		 * Index::Index()
-		 * 
+		 * Perfil():Contrasena():Editar()
 		 * genera la plantilla inicial
 		 * @return void
 		 */
@@ -24,6 +24,20 @@
 			$Plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
             $Plantilla->Parametro('Titulo', 'Perfil');
           	echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Perfil', 'Perfil.html')));
+		}
+		
+		public function Contrasena() {
+			$Plantilla = new NeuralPlantillasTwig(APP);
+			$Plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
+            $Plantilla->Parametro('Titulo', 'Perfil');
+          	echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Perfil', 'Contrasena.html')));
+		}
+		
+		public function Editar() {
+			$Plantilla = new NeuralPlantillasTwig(APP);
+			$Plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
+            $Plantilla->Parametro('Titulo', 'Perfil');
+          	echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Perfil', 'Editar.html')));
 		}
 
 	}

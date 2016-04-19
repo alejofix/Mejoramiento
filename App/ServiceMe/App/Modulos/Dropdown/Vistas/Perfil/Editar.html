@@ -1,0 +1,67 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+		
+		
+		<div class="profile-env">
+			
+			<header class="row">
+		{% include 'Base/Dropdown/Perfil_Header.html' %}
+			</header>
+			
+			<section class="profile-info-tabs">
+				
+				<div class="row">
+					
+					<div class="col-sm-offset-2 col-sm-10">
+						
+						<ul class="user-details">
+							
+							<li>
+								<a href="#">
+									<i class="entypo-suitcase"></i>
+									Works as <span>Laborator</span>
+								</a>
+							</li>
+
+						</ul>
+						
+						
+						<!-- tabs for the profile links -->
+						<ul class="nav nav-tabs">
+							<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil">Perfil</a></li>
+							<li class="active"><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Editar">Editar Perfil </a></li>
+							<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Contrasena">Cambiar Contraseña</a></li>
+						</ul>
+						
+					</div>
+					
+					
+				</div>
+				
+			</section>
+			
+			<div class="main-content">
+				<div class="page-error-404">
+					
+					
+					<div class="error-symbol">
+						<i class="entypo-attention"></i>
+					</div>
+					
+					<div class="error-text">
+						<h2>404</h2>
+						<p>Page not found!</p>
+					</div>
+					
+					<hr />
+					
+					
+				</div>
+			</div>
+			
+
+		</div>
+
+		
+	{% endblock %}

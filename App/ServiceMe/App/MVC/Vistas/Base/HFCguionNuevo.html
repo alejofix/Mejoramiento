@@ -1,0 +1,23 @@
+	<div class="panel panel-default" data-collapsed="0">
+
+<div class="panel-body">
+<fieldset disabled="disabled" id="G1">
+{% block Contenido %}{% endblock %}
+</fieldset>
+</div>
+			<p class="bs-example bs-baseline-top">
+				<button onclick="copiarGuion('G1')" data-dismiss="modal" type="button" class="btn btn-primary btn-block" href="#copy" id="copy-guion" autofocus="autofocus">COPIAR GUIÓN & CERRAR</button>
+	  	  	</p>
+	</div>		
+
+<script>
+	function copiarGuion(id_elemento) {
+		  var aux = document.createElement("input");
+		  aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+		  document.body.appendChild(aux);
+		  aux.select();
+		  document.execCommand("copy");
+		  document.body.removeChild(aux);
+			}
+ </script>
+
