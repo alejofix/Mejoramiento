@@ -7,7 +7,7 @@
 		private static $Sesion = 'SESIONEXPERTOS';
 		private static $Llave = '49e3a66a4d675fb397a04cc406071458';
 		private static $Contenedor = false;
-		private static $Limite = 32000;
+		private static $Limite = 32001;
 		
 		public static function registrar($Informacion = false, $Permisos = false, $chat = false) {
 			NeuralSesiones::AsignarSession(self::$Sesion, array(
@@ -37,13 +37,52 @@
 						if(array_key_exists($Modulo, self::$Contenedor['Permisos']) == true):
 							if(array_key_exists($Permiso, self::$Contenedor['Permisos'][$Modulo]) == true):
 								if(self::$Contenedor['Permisos'][$Modulo][$Permiso] == false):
-									exit('NO TIENE PERMISO PARA VER ESTE MODULO');
+									exit("
+										<div>
+											<h1>No tiene permisos para ver esta Página</h1>
+										
+											<p>
+												Si cree que hay un error consulte con el Administrador.
+											</p>
+										
+											<p>
+												<br />
+												<a href='javascript:history.back(-1);' title='Página Anterior'>Volver</a>
+											</p>
+										</div>
+										");
 								endif;
 							else:
-								exit('NO TIENE PERMISO PARA VER ESTE MODULO ESTA INGRESANDO DE FORMA ILEGAL');
+								exit("
+									<div class='jumbotron'>
+											<h1>No tiene autorización para visualizar este módulo. Es un acceso Ilegal</h1>
+										
+											<p>
+												Si cree que hay un error consulte con el Administrador.
+											</p>
+										
+											<p>
+												<br />
+												<a href='javascript:history.back(-1);' title='Ir la página anterior'>Volver</a>
+											</p>
+										</div>
+										");
 							endif;
 						else:
-							exit('NO TIENE PERMISO PARA VER ESTE MODULO');
+							exit("
+								<div>
+									<h1>No tiene permisos para ver esta Página</h1>
+								
+									<p>
+										Si cree que hay un error consulte con el Administrador.
+									</p>
+								
+									<p>
+										<br />
+										<a href='javascript:history.back(-1);' title='Página Anterior'>Volver</a>
+									</p>
+								</div>
+								");
 						endif;
 						
 					else:
