@@ -9,37 +9,150 @@
               	}
 		</style>
 	
+	<!-- row project -->	
+	<div class="panel panel-default" data-collapsed="0">
+	
+		<div class="panel-heading">
+			<div class="panel-title">
+				<strong>Proyectos Mejoramiento</strong>
+			</div>
+		</div>
 		
-				<div class="panel panel-default" data-collapsed="0">
+		<!-- sub-menú Proyectos  -->
+		<ul class="nav nav-tabs">
+		  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos">Nuevo  Proyecto </a></li>
+		  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Seguimientos">Seguimientos </a></li>
+		</ul>
+		
+						
+		<div class="col-md-12">
+		<!-- Lista Proyectos -->
+		<h3><span class="label label-warning">Seguimientos  y Gestor </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista Proyectos </h3>
+		<br />
+		<table class="table table-bordered datatable" id="tabla-Proyectos">
+	
+			<thead>
+				<tr class="replace-inputs">
+					<th>nombre Analista</th>
+					<th>nombre Proyecto</th>
+					<th>AAAA-MM-DD</th>
+					<th>AAAA-MM-DD</th>
+					<th>Estado</th>
+				</tr>
+				<tr>
+					<th>Analista</th>
+					<th>Proyecto</th>
+					<th>Fecha Inicio</th>
+					<th>Fecha Fin</th>
+					<th>Gestor</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+
+				<tr class="odd gradeX">
+					<td>Costeñita</td>
+					<td>Operación Reinhard</td>
+					<td>2016-03-14</td>
+					<td>2016-04-26</td>
+					<td class="center">
+						<p>Asignado</p>
+						<button type="button" class="btn btn-success">
+							<i class="entypo-pencil"></i>
+						</button>
+						<button type="button" class="btn btn-info">
+								<i class="entypo-info"></i>
+						</button>
+					</td>
+				</tr>
+				<tr class="even gradeC">
+					<td>Sandrita</td>
+					<td>Operación Plunder‎</td>
+					<td>2016-03-14</td>
+					<td>2016-04-25</td>
+					<td class="center">
+						<p>Asignado</p>
+						<button type="button" class="btn btn-success">
+							<i class="entypo-pencil"></i>
+						</button>
+						<button type="button" class="btn btn-info">
+								<i class="entypo-info"></i>
+						</button>
+					</td>
+				</tr>
+
+				<tr class="gradeA">
+					<td>Flash</td>
+					<td>Operación Valquiria</td>
+					<td>2016-03-14</td>
+					<td>2016-04-27</td>
+					<td class="center">
+						<p>Asignado</p>
+						<button type="button" class="btn btn-success">
+							<i class="entypo-pencil"></i>
+						</button>
+						<button type="button" class="btn btn-info">
+								<i class="entypo-info"></i>
+						</button>
+					</td>
+				</tr>
+
+			</tbody>
+			
+			<tfoot>
+				<tr>
+					<th>Analista</th>
+					<th>Proyecto</th>
+					<th>Fecha Inicio</th>
+					<th>Fecha Fin</th>
+					<th>Gestor</th>
+				</tr>
+			</tfoot>
+			
+		</table>
+		<!-- script tabla  Proyectos -->
+		<script type="text/javascript">
+			jQuery(document).ready(function($)
+			{
+				var table = $("#tabla-Proyectos").dataTable({
+					"sPaginationType": "bootstrap",
+					"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+					"bStateSave": true
+				});
 				
-					<div class="panel-heading">
-						<div class="panel-title">
-							<strong>Proyectos Mejoramiento</strong>
-						</div>
-					</div>
-					
-							<!-- sub-menú alto impacto  -->
-							<ul class="nav nav-tabs">
-							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Index">Nuevo  Proyecto </a></li>
-							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Proyectos/Seguimientos">Seguimientos </a></li>
-							</ul>
-							<!-- menú alto impacto  -->
-					
-					<div class="panel-body">
-					
-					</div>
-				</div>
-
-
+				table.columnFilter({
+					"sPlaceHolder" : "head:after"
+				});
+			});
+		</script>
 		
+		<br />			
 	
 
 
-
-
-
-
-
-	
+		<!-- Lista Proyectos -->
 		
+		</div>
+	</div>
+	<!-- row project -->
+	
+		{% block Script %}
+
+		<!-- Imported styles on this page -->
+		<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/datatables/responsive/css/datatables.responsive.css">
+		<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/select2/select2-bootstrap.css">
+		<link rel="stylesheet" href="{{NeuralRutaWebPublico}}/assets/js/select2/select2.css">
+		<!-- Bottom scripts (common) -->
+		<script src="{{NeuralRutaWebPublico}}/assets/js/jquery.dataTables.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/datatables/TableTools.min.js"></script>
+		<!-- Imported scripts on this page -->
+		<script src="{{NeuralRutaWebPublico}}/assets/js/dataTables.bootstrap.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/datatables/lodash.min.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+		<script src="{{NeuralRutaWebPublico}}/assets/js/select2/select2.min.js"></script>
+		{% endblock %}	
+	
 	{% endblock %}
+	
+	

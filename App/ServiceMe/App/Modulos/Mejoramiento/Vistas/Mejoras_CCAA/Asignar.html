@@ -1,63 +1,66 @@
 	{% extends 'Base/Html.html' %}
 	
 	{% block Contenido %}
-		
-<div class="panel panel-default" data-collapsed="0">
-					
+	
+		{% include 'Menus/menu_mejoramiento.html' %}
+		<style type="text/css">
+				.active {
+					font-weight: bold;
+              	}
+		</style>
+	
+	<!-- row project -->	
+	<div class="panel panel-default" data-collapsed="0">
+	
 		<div class="panel-heading">
 			<div class="panel-title">
-				<strong>Asignación | Mejoras CCAA</strong>
+				<strong>Gestión Mejoramiento </strong>
 			</div>
 		</div>
 		
-		<div class="panel-body">
-
-<!--  -->
-
+		<!-- sub-menú Causa Mejoramiento  -->
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA/Asignar">Asignar </a></li>
+		  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA/Seguimientos">Seguimientos </a></li>
+		  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA/Index">Registrar </a></li>
+		</ul>
 		
-				<div class="panel minimal minimal-gray">
-					
-					<div class="panel-heading">
-						<div class="panel-title">
-							
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li>
-								<li><a href="#profile-2" data-toggle="tab">Second Tab</a></li>
-							</ul>
-						</div>
-					</div>
-					
-					<div class="panel-body">
 						
-						<div class="tab-content">
-							<div class="tab-pane active" id="profile-1">
-								<strong>Rank tall boy man them over post now</strong>
-							</div>
-							
-							<div class="tab-pane" id="profile-2">
-								<strong>Entire any had depend and figure winter</strong>
-							</div>
-						</div>
-						
-					</div>
-					
-				</div>
-	
-
-
-
-
-
-
-<!-- -->
+		<div class="col-md-12">
+		
+                <!-- Page not found! -->
+                <div class="main-content">
+            		<div class="page-error-404">
+            			
+            			
+            			<div class="error-symbol">
+            				<i class="entypo-attention"></i>
+            			</div>
+            			
+            			<div class="error-text">
+            				<h2>404</h2>
+            				<p>Page not found!</p>
+            			</div>
+            			
+            			<hr />
+            			
+            			
+            		</div>
+            	</div>
+                <!--Page not found!  -->			
 
 		</div>
+	</div>
+	<!-- row project -->
+	
+				
 
+	
+	{% endblock %}
+	
+	
+	{% block Script %}
+	
 
-			<form class="form-horizontal form-groups-bordered" id="#" name="#" action='javascript:;' method='post' role="form">
-
-			
-			</form>		
-</div>
-		
+	
 	{% endblock %}

@@ -1,13 +1,34 @@
 	{% extends 'Base/Html.html' %}
 	
 	{% block Contenido %}
+	
+		{% include 'Menus/menu_mejoramiento.html' %}
+		<style type="text/css">
+				.active {
+					font-weight: bold;
+              	}
+		</style>
+	
+	<!-- row project -->	
+	<div class="panel panel-default" data-collapsed="0">
+	
+		<div class="panel-heading">
+			<div class="panel-title">
+				<strong>Gestión Mejoramiento </strong>
+			</div>
+		</div>
 		
-		<div class="row">
-			<div class="col-lg-12">
-         
-                <h3 class="page-header">Seguimientos </h3>
-    
-                <!--  -->
+		<!-- sub-menú Causa Mejoramiento  -->
+		<ul class="nav nav-tabs">
+		  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA/Asignar">Asignar </a></li>
+		  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA/Seguimientos">Seguimientos </a></li>
+		  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Mejoramiento/Mejoras_CCAA/Index">Registrar </a></li>
+		</ul>
+		
+						
+		<div class="col-md-12">
+		
+                <!-- Page not found! -->
                 <div class="main-content">
             		<div class="page-error-404">
             			
@@ -26,14 +47,20 @@
             			
             		</div>
             	</div>
-                <!--  -->
-    
-                
+                <!--Page not found!  -->			
 
-            </div>
-		    <div align="right">
-             <b>&#169;</b>
-            </div>  
-        </div>
-		
+		</div>
+	</div>
+	<!-- row project -->
+	
+				
+
+	
+	{% endblock %}
+	
+	
+	{% block Script %}
+	
+
+	
 	{% endblock %}
