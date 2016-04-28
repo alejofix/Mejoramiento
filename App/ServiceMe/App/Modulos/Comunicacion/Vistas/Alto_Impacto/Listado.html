@@ -3,16 +3,8 @@
 	{% block Contenido %}
 	
 		{% include 'Menus/menu_comunicacion.html' %} 
-		
 		<style type="text/css">
-			th {
-				text-align: center;
-			}
-			
-			.center {
-				text-align: center;
-			}
-			
+			li 
 			.justificado {
 				text-align: justify;
 			}
@@ -20,25 +12,11 @@
 					font-weight: bold;
               	}
 		</style>
-		
-		
-		
-
-				<div class="panel panel-default" data-collapsed="0">
-				
-					<div class="panel-heading">
-						<div class="panel-title">
-							<strong>Comunicación  | Alto Impacto </button> </strong>
-                       	</div>
-						<div class="panel-options">
-                      		<a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado"><i class="entypo-arrows-ccw"></i></a>
-						</div>
-					</div>
-	
+			<div>
 							<!-- sub-menú alto impacto  -->
 							<ul class="nav nav-tabs">
-							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Index">Ingresar Aviso</a></li>
-							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
+							  <li><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Index">Ingresar Aviso</a></li>
+							  <li class="active"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
 							</ul>
 							<!-- menú alto impacto  -->
 							<br />

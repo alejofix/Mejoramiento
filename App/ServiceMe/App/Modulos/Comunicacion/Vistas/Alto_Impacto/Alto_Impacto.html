@@ -4,31 +4,24 @@
 
 <!-- inicio -->
 		{% include 'Menus/menu_comunicacion.html' %} 
-		
 		<style type="text/css">
-				.active {
+			li 
+			.justificado {
+				text-align: justify;
+			}
+			.active {
 					font-weight: bold;
               	}
 		</style>
-
-
-				<div class="panel panel-default" data-collapsed="0">
-				
-					<div class="panel-heading">
-						<div class="panel-title">
-							<strong>Comunicación  | Alto Impacto  </button> </strong>
-			           	</div>
-						<div class="panel-options">
-                        	<a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto"><i class="entypo-arrows-ccw"></i></a>
-						</div>
-					</div>
+			<div>
 							<!-- sub-menú alto impacto  -->
 							<ul class="nav nav-tabs">
-							  <li role="presentation" class="active"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto">Ingresar Aviso</a></li>
-							  <li role="presentation"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
+							  	<li class="active"><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Index">Ingresar Aviso</a></li>
+							  	<li><a href="{{ NeuralRutaApp|e }}/Comunicacion/Alto_Impacto/Listado">Lista Reportados</a></li>
 							</ul>
 							<!-- menú alto impacto  -->
-						
+							<br />
+							
 					<div class="panel-body" id="mostrarPeticion">
 						
 						<form class="form-horizontal form-groups-bordered" id="FormularioAltoImpacto" name="Formulario_Alto_Impacto" action='#' method='post' role="form">

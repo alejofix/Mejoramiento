@@ -1,13 +1,25 @@
-			<style type="text/css">
-				.seleccionado {
-					font-weight: bold;
-				}
-			</style>
-			<div class="col-lg-12">
-                    <ul class="nav nav-pills">
+	<div class="profile-env">
+		<section class="profile-info-tabs">
+			<div class="row">
+				
+				<div class="col-sm-offset-2 col-sm-10">
+					
+					<ul class="user-details">
+						<li>
+							<a>
+								Creación de Guión <span><strong> Matriz</strong></span>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-tabs">
                       <li role="presentation" class="{{ activo == 'Play3' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Matriz/Play3">Triple Play</a></li>
                       <li role="presentation" class="{{ activo == 'TvBi' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Matriz/TvBi">Televisión</a></li>
                       <li role="presentation" class="{{ activo == 'Int_Tel' ? 'active seleccionado' : '' }}"><a href="{{ NeuralRutaApp|e }}/Matriz/Int_Tel">Internet y Telefonia</a></li>
-                    </ul>
+		            </ul>			
+					
+				</div>
+		
 			</div>
-            <br />
+		</section>
+	</div>
+	
