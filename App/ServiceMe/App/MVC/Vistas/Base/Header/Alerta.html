@@ -1,0 +1,77 @@
+<script type="text/javascript">
+		jQuery(document).ready(function($)
+		{
+			setTimeout(function()
+			{
+				var opts = {
+					"closeButton": false,
+					"debug": false,
+					"positionClass": "toast-top-full-width",
+					"onclick": null,
+					"showDuration": "300",
+					"hideDuration": "990000000",
+					"timeOut": "19999",
+					"extendedTimeOut": "990000000",
+					"showEasing": "swing",
+					"hideEasing": "linear",
+					"showMethod": "fadeIn",
+					"hideMethod": "fadeOut"
+				};
+		
+				toastr.error("Por favor ingresa con el Usuario asignado para almacenar y generar reportes de Tú Gestión.</br><a href='mailto:jorge.montenegro.t@claro.com.co'><i class='entypo-mail'>Cualquier inquietud consulta con el Administrador.</i></a> ", " <strong><b>¡Recomendación!</b></strong> ", opts);
+			}, 10);
+		
+			var seriesData = [ [], [] ];
+		
+			var random = new Rickshaw.Fixtures.RandomData(50);
+		
+			for (var i = 0; i < 50; i++)
+			{
+				random.addData(seriesData);
+			}
+		
+			var graph = new Rickshaw.Graph( {
+				element: document.getElementById("rickshaw-chart-demo"),
+				height: 193,
+				renderer: 'area',
+				stroke: false,
+				preserve: true,
+				series: [{
+						color: '#73c8ff',
+						data: seriesData[0],
+						name: 'Upload'
+					}, {
+						color: '#e0f2ff',
+						data: seriesData[1],
+						name: 'Download'
+					}
+				]
+			} );
+		
+			graph.render();
+		
+			var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+				graph: graph,
+				xFormatter: function(x) {
+					return new Date(x * 100000).toString();
+				}
+			} );
+		
+			var legend = new Rickshaw.Graph.Legend( {
+				graph: graph,
+				element: document.getElementById('rickshaw-legend')
+			} );
+		
+			var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
+				graph: graph,
+				legend: legend
+			} );
+		
+			setInterval( function() {
+				random.removeData(seriesData);
+				random.addData(seriesData);
+				graph.update();
+		
+			}, 5000 );
+		});
+</script>

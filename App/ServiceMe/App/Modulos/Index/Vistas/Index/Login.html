@@ -126,14 +126,15 @@
 	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-api.js"></script>
 	<script src="{{NeuralRutaWebPublico}}/assets/js/jquery.validate.min.js"></script>
 	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-login.js"></script>
-
 	<!-- JavaScripts initializations and stuff -->
 	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-custom.js"></script>
-
+	
+	
+	{% include 'Base/Header/Alerta.html' %} 
+	<script src="{{ NeuralRutaWebPublico|e }}/assets/js/toastr.js"></script>
 
 	<!-- Demo Settings -->
 	<script src="{{NeuralRutaWebPublico}}/assets/js/neon-demo.js"></script>
-	
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 			if('sessionStorage' in window && window['sessionStorage'] !== null) {
