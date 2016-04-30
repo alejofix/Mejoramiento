@@ -20,7 +20,7 @@
 							<li>
 								<a href="javascript:;">
 									<i class="entypo-suitcase"></i>
-									Works as <span>Laborator</span>
+									{{ Sesion.Informacion.EMPRESA|e }} <span>&nbsp;&nbsp;{{ Sesion.Informacion.CORREO|e }}</span>
 								</a>
 							</li>
 
@@ -30,7 +30,7 @@
 						<!-- tabs for the profile links -->
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil">Perfil</a></li>
-							<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Editar">Editar Perfil </a></li>
+						<!--<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Editar">Editar Perfil </a></li>-->
 							<li><a href="{{ NeuralRutaApp|e }}/Dropdown/Perfil/Contrasena">Cambiar Contraseña</a></li>
 						</ul>
 						
