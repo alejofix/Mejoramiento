@@ -22,11 +22,15 @@
 	 * GNU General Public License for more details.
 	 */
 	
+	use \NeuralPHP\Peticion\Init;
+	
 	class Controlador {
 		
+		protected $peticion;
+		protected $Modelo;
 		
 		function __Construct() {
-			
+			$this->peticion = new \NeuralPHP\Peticion\Init();
 		}
 		
 		/**

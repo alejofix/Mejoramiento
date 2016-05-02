@@ -1,0 +1,10 @@
+{
+	"package" : "Autocargador",
+	"descripcion" : "Autocargador de clases",
+	"version" : "4.0",
+	"requerido" : {
+		"interno" : false,
+		"externo" : false
+	},
+	"cli" : false
+}

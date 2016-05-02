@@ -52,13 +52,15 @@
 		 * @param string $guion
 		 * @return integer
 		 */
-		public function MATRIZ($array = false, $usuario = false, $guion = false) {
+		public function MATRIZ($peticion, $usuario = false, $guion = false) {
+			$info = array('TIPO', 'AFECTACION', 'AVISO', 'UBICACION', 'PRIORIDAD', 'MATRIZ', 'DETALLE', 'REFERENCIA', 'INTERMITENCIA', 'GUION', 'AVERIA', 'RAZON');
+			
 			$SQL = $this->conexion->prepare('CALL GUIONES_REGISTRO_MATRIZ_INSERTAR(
 			:FECHA, :USUARIO, :TIPO, :AFECTACION, :AVISO, :UBICACION, :PRIORIDAD, 
-			:MATRIZ, :DETALLE, :REFERENCIA, :INTERMITENCIA, :GUION, :AVERIA, @OUTPUT)');
+			:MATRIZ, :DETALLE, :REFERENCIA, :INTERMITENCIA, :GUION, :AVERIA, :RAZON, @OUTPUT)');
 			$SQL->bindValue(':FECHA', date("Y-m-d H:i:s"));
 			$SQL->bindValue(':USUARIO', $usuario);
-			$SQL->bindValue(':TIPO', $array['TIPO']);
+			/*$SQL->bindValue(':TIPO', $array['TIPO']);
 			$SQL->bindValue(':AFECTACION', $array['AFECTACION']);
 			$SQL->bindValue(':AVISO', $array['AVISO']);
 			$SQL->bindValue(':UBICACION', $array['UBICACION']);
@@ -70,6 +72,16 @@
 			$SQL->bindValue(':GUION', strip_tags(str_replace(array("\n", "\t", "\r", '--', '.'), '', trim($guion))));
 			$SQL->bindValue(':AVERIA', $array['AVERIA']);
 			$SQL->bindValue(':RAZON', $array['RAZON']);
+			*/
+			
+			foreach ($info AS $parametro):
+				if($parametro == 'GUION'):
+						$SQL->bindValue(':'.$parametro, strip_tags(str_replace(array("\n", "\t", "\r", '--', '.'), '', trim($peticion->obtener($parametro)))));
+				else:
+					$SQL->bindValue(':'.$parametro, mb_strtoupper($peticion->obtener($parametro)));
+				endif;
+			endforeach;
+			
 			$SQL->execute();
 			$consulta = $this->conexion->prepare('SELECT @OUTPUT AS ID');
 			$consulta->execute();

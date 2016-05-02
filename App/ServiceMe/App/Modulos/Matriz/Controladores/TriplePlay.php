@@ -5,6 +5,7 @@
 		function __Construct() {
 			parent::__Construct();
 			AppSesion::validar('LECTURA');
+			$this->peticion->temporal->crear('sesion', AppSesion::obtenerDatos());
 		}
 		
 		/**
@@ -94,130 +95,55 @@
 		/**
 		 * TriplePlay::ajaxGuion()
 		 * 
-		 * Genera el proceso de generar el guion
+		 * valida la peticion ajax si existe
 		 * @return void
 		 */
 		public function ajaxGuion() {
-			AppSesion::validar('ESCRITURA');
-			if(AppValidar::PeticionAjax() == true):
-				$this->ajaxGuionExistencia();
+			if($this->peticion->ajax() == true):
+				$this->existenciaDatos();
 			else:
-				exit('No es posible procesar la petición');
+				//Mostrar error no peticion ajax
 			endif;
 		}
 		
 		/**
-		 * TriplePlay::ajaxGuionExistencia()
-		 *
-		 * Se valida si se envian datos post 
+		 * TriplePlay::existenciaDatos()
+		 * 
+		 * valida si se envian los datos desde el 
+		 * formulario correspondiente
 		 * @return void
 		 */
-		private function ajaxGuionExistencia() {
-			if(isset($_POST) == true):
-				$this->ajaxGuionCampoVacio();
+		private function existenciaDatos() {
+			if($this->peticion->post->existencia('boton') == true):
+				$this->cargarGuion();
 			else:
-				exit('Mensaje de error no hay datos post');
+				//Debe enviar los datos desde el formulario
 			endif;
 		}
 		
 		/**
-		 * TriplePlay::ajaxGuionCampoVacio()
+		 * TriplePlay::cargarGuion()
 		 * 
-		 * Valida si existen datos vacios en el servidor
+		 * Genera la construccion de la plantilla del guion
 		 * @return void
 		 */
-		private function ajaxGuionCampoVacio() {
-			if(AppValidar::Vacio(array('AVISO', 'PRIORIDAD', 'MATRIZ'))->MatrizDatos($_POST) == true):
-				$this->ajaxGuionFormato();
-			else:
-				exit('El formulario tiene campos vacios');
-			endif;
-		}
-		
-		/**
-		 * TriplePlay::ajaxGuionFormato()
-		 * 
-		 * Genera el formato de los datos
-		 * @return void
-		 */
-		private function ajaxGuionFormato() {
-		    $DatosPost = AppFormato::Espacio(array('TIPO', 'AFECTACION', 'AVISO', 'UBICACION', 'DETALLE', 'INTERMITENCIA', 'AFECTACION', 'GUION', 'PRIORIDAD', 'AVERIA', 'RAZON'))->MatrizDatos($_POST);
-			$DatosPost['INTERMITENCIA'] = (array_key_exists('INTERMITENCIA', $DatosPost) == true) ? $DatosPost['INTERMITENCIA'] : 'NO';
-			$this->ajaxGuionProcesar($DatosPost);
-		}
-		
-		/**
-		 * TriplePlay::ajaxGuionProcesar()
-		 * 
-		 * Se genera guion correspondiente
-		 * @param array $array
-		 * @return string
-		 */
-		private function ajaxGuionProcesar($array = false) {
-			$sesion = AppSesion::obtenerDatos();
-			switch($array['UBICACION']):
-				case 1: $this->ajaxProcesoNodo($array, $sesion['Informacion']['USUARIO_RR']);
-					break;
-				case 2: $this->ajaxProcesoNodo($array, $sesion['Informacion']['USUARIO_RR']);
-			endswitch;
+		private function cargarGuion() {
+			$pl = $this->Modelo->consultaPlantilla('MATRIZ', 'TRIPLEPLAY', 'PRIORIDAD '.$this->peticion->post->obtener('PRIORIDAD'));
 			
-		}
-		
-		/**
-		 * TriplePlay::ajaxProcesoNodo()
-		 * 
-		 * Genera el proceso de guardar la informacion y mostrar
-		 * la plantilla correspondiente
-		 * 
-		 * @param array $array
-		 * @param string $usuario
-		 * @return void
-		 */
-		private function ajaxProcesoNodo($array = false, $usuario = false) {
-				$nodos = ($array['NODO']);
-				$guion = $this->ajaxProcesoPlantilla($array);
-				unset($array['boton'], $array['NODO']);
-				
-					Ayudas::print_r($array);
-					Ayudas::print_r($usuario);
-					Ayudas::print_r($guion);
-					Ayudas::print_r($nodos);
-				
-				$id = $this->Modelo->MATRIZ($array, $usuario, $guion);
-				$this->Modelo->guardarNodos($nodos, $id['ID']);
-				$this->ajaxPlantillaBase($guion);
-				}
-		
-		/**
-		 * TriplePlay::ajaxProcesoPlantilla()
-		 * 
-		 * Genera el guion correspondiente consultando desde la base de
-		 * datos
-		 * 
-		 * @param array $array
-		 * @return string
-		 */
-		private function ajaxProcesoPlantilla($array = false) {
-			$plantilla = $this->Modelo->consultaPlantilla('MATRIZ', 'TRIPLEPLAY', 'PRIORIDAD '.$array['PRIORIDAD']);
-			$guion = new NeuralPlantillasTwig(APP);
-			$guion->Parametro('Datos', $array);
-			$guion->Parametro('plantilla', stripcslashes(html_entity_decode($plantilla['PLANTILLA'])));
-			$guion->Parametro('ubicacion', $this->Modelo->consultaUbicacion($array['UBICACION']));
-			return $guion->MostrarPlantilla('TriplePlay', 'ajaxProcesoPlantilla.html');
-		}
-		
-		/**
-		 * TriplePlay::ajaxPlantillaBase()
-		 * 
-		 * Plantilla base que se muestra el guion y la opcion
-		 * de copiar el guion 
-		 * 
-		 * @param string $guion
-		 * @return string
-		 */
-		private function ajaxPlantillaBase($guion = false, $ubicacion = false) {
 			$plantilla = new NeuralPlantillasTwig(APP);
-			$plantilla->Parametro('guion', $guion);
-			echo $plantilla->MostrarPlantilla('TriplePlay', 'ajaxPlantillaBase.html');
+			$plantilla->Parametro('Datos', $this->peticion->post->obtener());
+			$plantilla->Parametro('plantilla', $pl['PLANTILLA']);
+			
+			$this->peticion->post->crear('GUION', $plantilla->MostrarPlantilla('TriplePlay', 'ajaxProcesoPlantilla.html'));
+			$fecha = explode('/', $this->peticion->post->obtener('HORAFIN'));
+			$this->peticion->post->reemplazar('HORAFIN', trim($fecha[0]));
+			
+			$this->procesar();
+		}
+		
+		private function procesar() {
+			$resultado = $this->Modelo->MATRIZ($this->peticion->post, $this->peticion->temporal->obtener('sesion')->obtener('Informacion')->obtener('USUARIO_RR'));
+			//Ayudas::print_r($resultado);
+			//Ayudas::print_r($this->peticion->temporal->obtener());
 		}
 	}
