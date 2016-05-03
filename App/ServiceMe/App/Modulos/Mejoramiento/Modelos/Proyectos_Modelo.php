@@ -10,36 +10,12 @@
 		}
 		
 		public function NuevoProyecto ($array = false, $usuario = false) {
-			$SQL = new NeuralBDGab($this->conexion, 'PROYECTOS_LISTA_BASE');
+			$SQL = new NeuralBDGab($this->conexion, 'PROYECTOS');
 			foreach ($array AS $columna => $valor):
 			$SQL->Sentencia($columna, $valor);
 			$SQL->Sentencia('Fecha', date("Y-m-d H:i:s"));
 			endforeach;
 			return $SQL->Insertar();
-		}
-		
-		/**  
-		 * tabla PROYECTOS_LISTA_BASE
-		 * @return array
-		 * @author alejo_fix
-		 */
-		
-		
-		public function listadoProyectosBase () {
-			$consulta = $this->conexion->prepare('
-				SELECT 
-					ID, NOMBRE, FECHA 
-				FROM 
-					PROYECTOS_LISTA_BASE 
-				WHERE 
-					ESTADO = ? 
-				ORDER BY 
-					FECHA 
-				ASC
-			');
-			$consulta->bindValue(1, 5, PDO::PARAM_INT);
-			$consulta->execute();
-			return $consulta->fetchAll(PDO::FETCH_ASSOC);
 		}
 		
 		

@@ -20,7 +20,7 @@
 			$plantilla->Parametro('activo', __CLASS__);
 			$plantilla->Parametro('URL', \Neural\WorkSpace\Miscelaneos::LeerModReWrite());
 			$plantilla->Parametro('listaAveria', $this->Modelo->listaAveria());
- 			$plantilla->Parametro('validacion', $this->IndexValidacionFormulario());
+			$plantilla->Parametro('validacion', $this->IndexValidacionFormulario());
  			$plantilla->Parametro('razonAveria', $this->Modelo->listadoRazonAveria());
  			echo $plantilla->MostrarPlantilla('TriplePlay', 'Index.html');
 		}
@@ -102,7 +102,7 @@
 			if($this->peticion->ajax() == true):
 				$this->existenciaDatos();
 			else:
-				//Mostrar error no peticion ajax
+				exit('Guión no fue creado por Error en petición Ajax');
 			endif;
 		}
 		
@@ -117,7 +117,7 @@
 			if($this->peticion->post->existencia('boton') == true):
 				$this->cargarGuion();
 			else:
-				//Debe enviar los datos desde el formulario
+				exit('El Formulario no proceso los Datos');
 			endif;
 		}
 		
@@ -143,7 +143,7 @@
 		
 		private function procesar() {
 			$resultado = $this->Modelo->MATRIZ($this->peticion->post, $this->peticion->temporal->obtener('sesion')->obtener('Informacion')->obtener('USUARIO_RR'));
-			//Ayudas::print_r($resultado);
-			//Ayudas::print_r($this->peticion->temporal->obtener());
+			Ayudas::print_r($resultado);
+			Ayudas::print_r($this->peticion->temporal->obtener());
 		}
 	}
