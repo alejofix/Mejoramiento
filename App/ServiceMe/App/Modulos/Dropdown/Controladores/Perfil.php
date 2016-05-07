@@ -27,9 +27,15 @@
 		}
 		
 		public function Contrasena() {
+			$Val = new NeuralJQueryFormularioValidacion(true, true, false);  
+            $Val->Requerido('password0', 'Ingrese su Contraseña Actual');	
+			$Val->Requerido('password1', 'Ingrese su Nueva Contraseña');
+			$Val->Requerido('password2', 'Confirme su Nueva Contraseña');
+				
 			$Plantilla = new NeuralPlantillasTwig(APP);
 			$Plantilla->Parametro('Sesion', AppSesion::obtenerDatos());
-            $Plantilla->Parametro('Titulo', 'Perfil');
+		    $Plantilla->Parametro('Titulo', 'Perfil');
+            $Plantilla->Parametro('validacion', $Val->Constructor('formularioContrasena'));
           	echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Perfil', 'Contrasena.html')));
 		}
 		
@@ -39,5 +45,5 @@
             $Plantilla->Parametro('Titulo', 'Perfil');
           	echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Perfil', 'Editar.html')));
 		}
-
+		
 	}

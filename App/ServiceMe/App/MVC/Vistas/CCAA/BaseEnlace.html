@@ -1,42 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        {% include 'Base/Header/Head.html' %}
+        {% include 'CCAA/Head.html' %}
 </head>
 
-<body class="page-body" data-url="#">
+<body class="page-body">
 
 <div class="page-container">
     	<!-- CONTENIDO INICIO -->
     	<div class="main-content">
-    				
-    		<div class="row">
-    		    
-    		</div><hr />
-    	
-    	
-        	<div class="row">
-            
-    			<div class="col-md-12">
-                
         {% block Contenido %}{% endblock %}   		
-    			
-                </div>
-    		
-            </div>
-            
     	</div>
         <!-- CONTENIDO FIN -->
-        
 </div>
 
-            <!-- Core Scripts - Include with every page -->
 			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/jquery-1.10.2.js"></script>
 			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/bootstrap.min.js"></script>
 			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-			<!-- Page-Level Plugin Scripts - Blank -->
-            <!-- SB Admin Scripts - Include with every page -->
-            
 			<script src="{{ NeuralRutaWebPublico|e }}/assets/js/sb-admin.js"></script>
 			
 			{% block Script %}{% endblock %}

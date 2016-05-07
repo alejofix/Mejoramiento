@@ -20,8 +20,58 @@
 						
 		<div class="col-md-12">
 					<!-- Proyecto Asiganción Principal -->
+			<div class="panel-body">
+			<br />
+				<form name="PROYECTOS" id="proyectos" role="form" action="javascript:;" method="POST" class="form-horizontal form-groups-bordered">
+								
+					<div class="form-group">
+						<label for="nombre" class="col-sm-3 control-label"><b>Proyecto</b></label>
+						
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="NOMBRE" id="nombre" placeholder="Nombre del Proyecto " />
+						</div>
+					</div>
 					
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><b>Tipo</b></label>
+						<div class="col-sm-5">
+							<select class="form-control" name="TIPO" id="tipo">
+									<option value="">Seleccione una Opción</option>
+								<optgroup>
+									<option value="0">AISLADO </option>
+									<option value="1">PERIÓDICO </option>
+								</optgroup>
+							</select>
+						</div>
+					</div>
 					
+					<div class="form-group">
+							<label class="col-sm-3 control-label"><b>Fechas</b></label>
+							<div class="col-sm-2">
+								<label class="control-label" for="zip">Inicio Proyecto</label>
+								<input name="FECHA_FIN" id="fecha_fin" type="text" class="form-control datepicker" />
+							</div>
+							<div class="col-sm-2">
+								<label class="control-label" for="zip">Fin Proyecto</label>
+								<input name="FECHA_FIN" id="fecha_fin" type="text" class="form-control datepicker" />
+							</div>
+							<div class="col-sm-1">
+								<label class="control-label" for="zip">Horas</label>
+								<input name="HORAS" id="horas" type="text" class="form-control" />
+							</div>
+					</div>
+
+					
+					<div class="form-group">
+						<label for="field-ta" class="col-sm-3 control-label"><b>Descripción</b></label>
+						<div class="col-sm-5">
+							<textarea class="form-control autogrow" id="field-ta" placeholder="Descripción del Proyecto..."></textarea>
+						</div>
+					</div>
+				
+				</form>
+
+			</div>	
 					<!-- Proyecto Asiganción Principal -->
 		</div>
 	</div>
