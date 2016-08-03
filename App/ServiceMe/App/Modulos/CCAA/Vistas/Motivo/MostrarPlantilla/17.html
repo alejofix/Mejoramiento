@@ -1,0 +1,98 @@
+	{% extends 'CCAA/BaseMotivo.html' %}
+	
+	{% block Contenido %}
+		<form class="form-horizontal form-groups-bordered" id="Formularios" name="Formularios" action="javascript:;" method="POST" role="form">
+	
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Cuenta de Suscriptor:</strong></label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="CUENTA" id="cuenta" placeholder="Cuenta de Suscriptor" maxlength="8" autofocus="autofocus" />
+						</div>
+	                </div>
+	            
+	            </div>
+	            <!-- line -->
+	            <div class="form-group">
+	           
+	                <div class="col-md-12">
+	        			<label class="col-sm-3 control-label"><strong>Infografía Clientes</strong></label>
+						<div class="col-sm-5">
+	                        <select name="RAZON" id="razon" class="form-control" >
+								<option value="">Seleccione una Opción</option>
+								<optgroup>
+									{% for info in listado %}
+										<option value="{{ info.ID|e }}">{{ info.RAZON|e }}</option>
+									{% endfor %}
+								</optgroup>
+							</select>	
+						</div>
+			        </div>
+	            
+	            </div>
+	            <!-- line -->
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Correo electrónico Cliente</strong></label>
+						<div class="col-sm-5">
+							<input name="REFERENCIA" id="referencia" type="email" class="form-control" placeholder="correo electrónico" maxlength="75" required="required" />
+						</div>
+	                </div>
+	            
+	            </div>
+
+				<!-- line -->
+
+             	<!-- line --> 
+				<div class="form-group">
+              		<div class="col-sm-offset-3 col-sm-5">	
+	           			{# Manejar div para mostrar el resultado de la petición ajax #}
+						<div class="alert alert-info" id="respuestaDiv" style='display:none; width: 444px; height: 50px;'>
+							Complete Correctamente y Guarde.
+						</div>
+	           		</div>
+				</div>
+				<!-- line -->        
+				<div class="form-group">
+				    <div class="col-sm-offset-3 col-sm-5">
+							<button type="submit" class="btn btn-green btn-icon icon-left" onclick="mostrar()">
+				                Guardar 
+				                <i class="entypo-check"></i>
+				             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}"/>
+				         	 </button>
+					</div>
+				</div>
+	            
+	
+			</form>
+			
+			
+<script type="text/javascript">
+    function mostrar(){
+    document.getElementById('respuestaDiv').style.display = 'block';}
+</script>			
+			
+<style type="text/css">
+	.error {
+		font-family: verdana;
+		font-size: 10px;
+		font-weight: bold;
+		color: red;
+	}
+	
+	#respuestaDiv {
+		font-family: verdana;
+		font-size: 15px;
+		color: red;
+		text-align: center;
+	}
+</style>
+			
+			
+	{% endblock %}
+	
+	{% block Script %}
+		{{ validacionForm|raw }}
+	{% endblock %}	
