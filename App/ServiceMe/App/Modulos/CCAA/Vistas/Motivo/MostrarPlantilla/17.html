@@ -17,7 +17,7 @@
 	            <div class="form-group">
 	           
 	                <div class="col-md-12">
-	        			<label class="col-sm-3 control-label"><strong>Infografía Clientes</strong></label>
+	        			<label class="col-sm-3 control-label"><strong>Infografía que desea enviar</strong></label>
 						<div class="col-sm-5">
 	                        <select name="RAZON" id="razon" class="form-control" >
 								<option value="">Seleccione una Opción</option>
@@ -45,8 +45,18 @@
 
 				<!-- line -->
 
-             	<!-- line --> 
 				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Nombres y Apellidos Cliente</strong></label>
+						<div class="col-sm-5">
+							<input type="number" class="form-control" name="INFORMACION" id="informacion" placeholder="Nombre Completo" maxlength="55" />
+						</div>
+	                </div>
+	            
+	            </div>
+             	<!-- line --> 
+             	<div class="form-group">
               		<div class="col-sm-offset-3 col-sm-5">	
 	           			{# Manejar div para mostrar el resultado de la petición ajax #}
 						<div class="alert alert-info" id="respuestaDiv" style='display:none; width: 444px; height: 50px;'>
