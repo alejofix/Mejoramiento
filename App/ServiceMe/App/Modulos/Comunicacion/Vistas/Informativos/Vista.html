@@ -12,7 +12,9 @@
 	
 				<!-- cargaInformativos  -->
 				<div  id="cargaInformativos" style="text-align:center" class="panel-options">
-
+						
+						<img src="{{NeuralRutaWebPublico}}/assets/images/Vecino/borrar.jpg" width="500" alt="600" /> 
+						
 				</div>
 				<!--  -->
 				
@@ -21,18 +23,18 @@
 	{% block JS %}
 	
 		<script type="text/javascript">
-			jQuery(document).ready(function() {
-    			var tiempo = setInterval(function() {
-    				jQuery.ajax({
-    					type : "POST",
-						dataType : "html",
-						url : "{{ NeuralRutaApp|e }}/Comunicacion/Informativos/AjaxVista",
-						success : function(resultado) {
-							jQuery("#cargaInformativos").html(resultado);
-						}
-    				});	
-    			}, 2400000);
-			});
+	//		jQuery(document).ready(function() {
+    //			var tiempo = setInterval(function() {
+    //				jQuery.ajax({
+    	//				type : "POST",
+			//			dataType : "html",
+				//		url : "{{ NeuralRutaApp|e }}/Comunicacion/Informativos/AjaxVista",
+					//	success : function(resultado) {
+						//	jQuery("#cargaInformativos").html(resultado);
+			//			}
+    			//	});	
+   // 			}, 2400000);
+	//		});
 		</script>
 	
 	{% endblock %}
