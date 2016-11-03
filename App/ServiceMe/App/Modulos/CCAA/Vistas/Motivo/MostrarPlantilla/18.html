@@ -1,0 +1,124 @@
+	{% extends 'CCAA/BaseMotivo.html' %}
+	
+	{% block Contenido %}
+		<form class="form-horizontal form-groups-bordered" id="Formularios" name="Formularios" action="javascript:;" method="POST" role="form">
+	
+				<div class="form-group">
+	           
+	                <div class="col-md-12">
+	            		<label class="col-sm-3 control-label"><strong>Cuenta de Suscriptor:</strong></label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" name="CUENTA" id="cuenta" placeholder="Cuenta de Suscriptor" maxlength="8" autofocus="autofocus" />
+						</div>
+	                </div>
+	            
+	            </div>
+				<!-- line --> 
+	            <div class="form-group">
+		            <div class="col-md-12">
+		        			<label class="col-sm-3 control-label"><strong>Servicio Afectado </strong></label>
+							<div class="col-sm-5">
+								<select name="REFERENCIA" id="referencia" class="form-control" >
+									<option>Seleccione una Opción</option>
+									<optgroup>
+										<option value="TELEVISION">TELEVISIÓN </option>
+										<option value="INTERNET">INTERNET</option>
+										<option value="TELEFONIA">TELEFONÍA</option>
+										<option value="3 PLAY">3 PLAY</option>
+										<option value="2 PLAY">2 PLAY</option>
+										<option value="PORTAL">PORTAL</option>
+									</optgroup>
+								</select>
+							</div>		
+					</div>
+				</div>
+             	<!-- line --> 
+	            <div class="form-group">
+	           
+	                <div class="col-md-12">
+	        			<label class="col-sm-3 control-label"><strong>Razón</strong></label>
+						<div class="col-sm-5">
+	                        <select name="RAZON" id="razon" class="form-control" >
+								<option value="">Según opción seleccione  razón</option>
+								<option value="" disabled="disabled">
+								<option value="" disabled="disabled">1. CLIENTE NO ESTA EN CASA</option>								
+								<optgroup>
+									{% for info in listado  %}
+										{% if info.ID >= 67 and info.ID <= 69  %}
+											<option value="{{ info.ID|e  }}">{{ info.RAZON|e }}</option>
+										{% endif %}
+									{% endfor %}
+									<option value="" disabled="disabled">								
+								</optgroup>
+								<option value="" disabled="disabled">2. CLIENTE NO DESEA O NO PUEDE REALIZAR SOPORTE</option>								
+								<optgroup>
+									{% for info in listado  %}
+										{% if info.ID >= 70 and info.ID <= 74 %}
+											<option value="{{ info.ID|e  }}">{{ info.RAZON|e }}</option>
+										{% endif %}
+									{% endfor %}
+								</optgroup>
+								<option value="" disabled="disabled"></option>
+								<option value="" disabled="disabled">3. SIN SOPORTE SE SOLUCIONA</option>
+								<optgroup>
+									{% for info in listado  %}
+										{% if info.ID >= 75 and info.ID <= 76 %}
+											<option value="{{ info.ID|e  }}">{{ info.RAZON|e }}</option>
+										{% endif %}
+									{% endfor %}
+								</optgroup>																
+							</select>	
+						</div>
+		            </div>
+		            
+	            </div>
+	            <!-- line --> 
+				<div class="form-group">
+              		<div class="col-sm-offset-3 col-sm-5">	
+	           			{# Manejar div para mostrar el resultado de la petición ajax #}
+						<div class="alert alert-info" id="respuestaDiv" style='display:none; width: 444px; height: 50px;'>
+							Complete Correctamente y Guarde.
+						</div>
+	           		</div>
+				</div>
+				<!-- line -->        
+				<div class="form-group">
+				    <div class="col-sm-offset-3 col-sm-5">
+							<button type="submit" class="btn btn-green btn-icon icon-left" onclick="mostrar()">
+				                Guardar 
+				                <i class="entypo-check"></i>
+				             	<input type="hidden" name="TIPO" id="tipo" value="{{ tipo|e }}"/>
+							 </button>
+					</div>
+				</div>
+	
+			</form>
+			
+
+<script type="text/javascript">
+    function mostrar(){
+    document.getElementById('respuestaDiv').style.display = 'block';}
+</script>
+			
+<style type="text/css">
+	.error {
+		font-family: verdana;
+		font-size: 10px;
+		font-weight: bold;
+		color: red;
+	}
+	
+	#respuestaDiv {
+		font-family: verdana;
+		font-size: 15px;
+		color: red;
+		text-align: center;
+	}
+</style>
+			
+			
+	{% endblock %}
+	
+	{% block Script %}
+		{{ validacionForm|raw }}
+	{% endblock %}
