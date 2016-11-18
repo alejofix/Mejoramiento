@@ -60,7 +60,7 @@
                             ->TipoEnvio('POST')
                             ->Datos('#Formularios')
                             ->URL(NeuralRutasApp::RutaUrlAppModulo('CCAA', 'Motivo', 'ProcesarIndex'))
-                      		->FinalizadoEnvio('$("#respuestaDiv").html(Respuesta);')
+                      		->FinalizadoEnvio('$("#respuestaDiv").css({"display":"block"});$("#Formularios")[0].reset(); $("#respuestaDiv").html(Respuesta);')
 			);
 			return $Val->Constructor('Formularios');
 		}
@@ -92,7 +92,7 @@
 			$this->Modelo->GuardarInfo($datos);
 			$this->plantilla();
 			echo '
-			Información almacenada con éxito ... 
+			Información almacenada con éxito
 			';
 		}
 		
