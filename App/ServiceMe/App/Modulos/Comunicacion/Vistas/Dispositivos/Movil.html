@@ -1,0 +1,107 @@
+	{% extends 'Vista/VistaMovil.html' %}
+	
+	{% block Contenido %}
+		
+		<div id="cargaDatos" class="row">
+			{% if avisos|length >= 1 %}
+				
+				{% for datos in avisos %}
+				
+					{% if datos.PRIORIDAD == 1 %}
+						<div class="col-sm-3 col-xs-12">
+							<div class="tile-stats tile-plum">
+								<div class="icon"><i class="entypo-alert"></i></div>
+								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
+								<h3>{{ datos.REGIONAL|e|title }}</h3>
+								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
+								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
+							</div>
+						</div>
+						
+					{% elseif datos.PRIORIDAD == 2 %}	
+						<div class="col-sm-3 col-xs-12">
+							<div class="tile-stats tile-orange">
+								<div class="icon"><i class="entypo-attention"></i></div>
+								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
+								<h3>{{ datos.REGIONAL|e|title }}</h3>
+								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
+								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
+							</div>
+						</div>
+					
+					{% elseif datos.PRIORIDAD == 3 %}	
+						<div class="col-sm-3 col-xs-12">
+							<div class="tile-stats tile-green">
+								<div class="icon"><i class="entypo-location"></i></div>
+								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
+								<h3>{{ datos.REGIONAL|e|title }}</h3>
+								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
+								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
+							</div>
+						</div>
+							
+					{% elseif datos.PRIORIDAD == 4 %}	
+						<div class="col-sm-3 col-xs-12">
+							<div class="tile-stats tile-brown">
+								<div class="icon"><i class="entypo-traffic"></i></div>
+								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
+								<h3>{{ datos.REGIONAL|e|title }}</h3>
+								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
+								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
+							</div>
+						</div>
+					
+					{% elseif datos.PRIORIDAD == 5 %}	
+						<div class="col-sm-3 col-xs-12">
+							<div class="tile-stats tile-gray">
+								<div class="icon"><i class="entypo-tag"></i></div>
+								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
+								<h3>{{ datos.REGIONAL|e|title }}</h3>
+								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
+								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
+							</div>
+						</div>		
+						
+						
+					{% else %}
+	
+						<div class="col-sm-3 col-xs-12">
+						</div>
+	
+					{% endif %}
+		
+				{% endfor %}
+				
+			{% else %}
+			
+					<div class="jumbotron">
+					  <h2>
+					  <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+					  Sin Avisos de Alto Impacto ! 
+					  </h2>
+					  <h4>Actualmente no existen avisos de alto impacto, por favor ingrese a página de Gerencia o Visor Único. </h4>
+					</div>
+					
+			{% endif %}
+		</div>
+		
+	{% endblock %}
+	
+	{% block JS %}
+	
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+    			var tiempo = setInterval(function() {
+    				jQuery.ajax({
+    					type : "POST",
+						dataType : "html",
+						url : "{{ NeuralRutaApp|e }}/Comunicacion/Dispositivos/AjaxMovil",
+						success : function(resultado) {
+							jQuery("#cargaDatos").html(resultado);
+						}
+    				});	
+    			}, 5000);
+			});
+		</script>
+	
+	{% endblock %}

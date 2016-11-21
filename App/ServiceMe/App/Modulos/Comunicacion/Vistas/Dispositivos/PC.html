@@ -1,0 +1,32 @@
+	{% extends 'Vista/Vista.html' %}
+	
+	{% block Contenido %}
+		
+		<style>
+			.iframe {
+				width: 100%;
+				border: 0px;
+				overflow: hidden;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+		</style>
+		<iframe scrolling="no" class="iframe" src="{{ NeuralRutaApp|e }}/Comunicacion/Dispositivos/AjaxPC" id="Iframe" ></iframe>
+
+	{% endblock %}
+		
+	{% block JS %}
+		
+		<script type="text/javascript">
+			
+			jQuery(document).ready(function() {
+				var altura = Number(jQuery(window).height = 400);
+				jQuery("Iframe").css({ "height" : altura + 'px' });
+				setInterval(function() {
+					jQuery('#Iframe').attr("src", "{{ NeuralRutaApp|e }}/Comunicacion/Dispositivos/AjaxPC");
+				}, 120000);
+			});
+			
+		</script>
+		
+	{% endblock %}

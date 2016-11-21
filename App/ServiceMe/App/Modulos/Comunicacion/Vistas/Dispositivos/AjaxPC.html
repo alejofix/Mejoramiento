@@ -1,0 +1,83 @@
+	{% import 'Base/Macros/ComunicacionTv.html' as cuadro %}
+
+
+<head>
+	{% include 'Base/Comunicacion/Head.html' %}
+	
+</head>
+<body class="page-body" >
+	<div class="row" id="cargarInfo" data-intervalo="{{ paginas>1 ? 2 : 1 }}" data-cantidad="{{ cantidad|e }}" data-paginas="{{ paginas|e }}">
+			{% if cantidad >= 1 %}
+				
+				{% for pag in listado %}
+					<div class="col-lg-12" id="pag_{{ loop.index|e }}" style="display: {{ loop.index == 1 ? 'block' : 'none' }};">
+					
+						{% for info in pag %}
+						
+							{% if info.PRIORIDAD == 1 %}
+								{{ cuadro.semaforo(info, 'plum', 'entypo-alert') }}
+							{% elseif info.PRIORIDAD == 2 %}
+								{{ cuadro.semaforo(info, 'orange', 'entypo-attention') }}
+							{% elseif info.PRIORIDAD == 3 %}
+								{{ cuadro.semaforo(info, 'green', 'entypo-location') }}
+							{% elseif info.PRIORIDAD == 4 %}
+								{{ cuadro.semaforo(info, 'brown', 'entypo-traffic') }}
+							{% else %}
+								{{ cuadro.semaforo(info, 'gray', 'entypo-tag') }}
+							{% endif %}
+						
+						{% endfor %}
+						
+					</div>
+				{% endfor %}
+				
+			{% else %}
+				<div class="jumbotron">
+				  <h2>
+				  <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+				  Sin Avisos de Alto Impacto ! 
+				  </h2>
+				  <h4>Actualmente no existen avisos de alto impacto, por favor ingrese a página de Gerencia o Visor Único. </h4>
+				</div>
+			{% endif %}
+		</div>
+	{% include 'Base/Comunicacion/Script.html' %}
+	<script type="text/javascript">
+			
+			function peticionAjax() {
+				jQuery.ajax({
+					type: 'POST',
+					dataType : "html",
+					cache : false,
+					async: false,
+					url : "{{ NeuralRutaApp|e }}/Comunicacion/Dispositivos/AjaxPC",
+					success : function(resultado) {
+						jQuery("#cargaDatos").html(resultado);
+					}
+				});
+			}
+			
+			function transicion() {
+				var paginas = jQuery("#cargarInfo").attr("data-paginas");
+				if(paginas > 1) {
+					setInterval(function() {
+						var paginas = Number(jQuery("#cargarInfo").attr("data-paginas"));
+						var intervalo = Number(jQuery("#cargarInfo").attr("data-intervalo"));
+						var ocultar = (intervalo == 1) ? Number(paginas) : Number(intervalo-1);
+						jQuery("#pag_" + ocultar).css({ "display" : "none" });
+						jQuery("#pag_" + intervalo).css({ "display" : "block" });
+						var guardarIntervalo = (intervalo>=paginas) ? 1 : Number(intervalo+1);
+						jQuery("#cargarInfo").attr("data-intervalo", guardarIntervalo);
+						//alert('Cantidad de paginas: ' + paginas + ', Intervalo: ' + intervalo + ', Ocultar: ' + ocultar + ', Guardar: ' + guardarIntervalo);
+					}, 20000);
+				}
+			}
+			
+			jQuery(document).ready(function() {
+				transicion();
+			});
+		</script>
+		
+
+<!--
+
