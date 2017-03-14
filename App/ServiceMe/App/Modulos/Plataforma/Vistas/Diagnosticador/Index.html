@@ -1,0 +1,101 @@
+{% extends 'Base/Html.html' %}
+
+{% block Contenido %}
+	
+    {% include 'Menus/menu_plataforma.html' %}	
+    <div class="panel-body">
+        
+        <form class="form-horizontal form-groups-bordered" id="FormularioPDiagnosticador" name="guionpDiagnosticador" action='#' method='post' role="form">
+        
+            <div class="form-group">
+                <div class="col-md-12">
+            		<label class="col-sm-3 control-label"><strong>Síntoma</strong></label>
+					<div class="col-sm-6">
+						<textarea class="form-control" name="sintoma" id="sintoma" placeholder="Campo obligatorio* Descripción de la falla" autofocus="autofocus" required/></textarea>
+		            </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+            		<label class="col-sm-3 control-label"><strong>Proceso de Soporte</strong></label>
+					<div class="col-sm-6">
+						<textarea class="form-control" name="soporte" id="soporte" placeholder="Campo obligatorio* Proceso de Soporte" required/></textarea>
+		            </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+            		<label class="col-sm-3 control-label"><strong>Marcación</strong></label>
+					<div class="col-sm-6">
+                       <input type="text" style="text-transform:uppercase; width:111px;height:39px" class="form-control" name="marcacion" id="marcacion" placeholder="Marcación" maxlength="7" />
+                        <br />
+                        <b>Primera Marcación</b> 
+                    
+		            </div>
+                </div>
+            </div>
+            
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                <div class="form-group">
+        		    <div class="col-sm-offset-3 col-sm-5">
+    					<button type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="DIAGNOSTICADOR" data-original-title="Generador Guión">
+    		                Crear Guión 
+    		                <i class="entypo-check"></i>
+    	                 </button>
+                        	<input type="hidden" name="data" value="Decodificadores"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+    						Borrar Formulario 
+    						<i class="entypo-trash"></i>
+    					</button>
+        			</div>
+               </div>
+            {% endif %}
+        
+        </form>
+            
+    </div>
+    
+                <!-- request -->
+                <div class="row" id="Respuesta" style="margin-top: 35px;"></div>
+                    
+
+
+{% endblock %}
+
+
+{% block Script %}
+
+    <style type="text/css">
+    	.error {
+    		font-family: verdana;
+    		font-size: 10px;
+    		font-weight: bold;
+    		color: red;
+    	}
+    </style>
+    
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("#borrar").click(function() {
+				 $("#FormularioPDiagnosticador")[0].reset();
+			});
+		 });
+      </script>
+    
+    {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+    	
+    	<script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/numerico.js"></script>
+        <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/ajax.js"></script>
+	
+    	
+    	{{ Validacion|raw }}
+    	
+    {% endif %}
+
+
+{% endblock %}
+
+    
+    
