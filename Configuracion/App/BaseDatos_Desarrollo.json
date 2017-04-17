@@ -1,7 +1,7 @@
 {
 	"Predeterminado": {
 		"Doctrine" : { 
-			"dbname" : "mejoramientosql",
+			"dbname" : "serviceme_2017",
 			"user" : "root",
 			"password" : "secret",
 			"host" : "localhost",
@@ -17,7 +17,7 @@
 	},
 	"ServiceMe": {
 		"Doctrine" : { 
-			"dbname" : "mejoramientosql",
+			"dbname" : "serviceme_2017",
 			"user" : "root",
 			"password" : "secret",
 			"host" : "localhost",
