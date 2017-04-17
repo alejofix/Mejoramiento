@@ -20,8 +20,8 @@
             $Val->Requerido('sintoma', 'Debe Ingresar Síntoma del Aviso');
             $Val->Requerido('soporte', 'Debe ingresar Proceso de Soporte');
             $Val->Requerido('marcacion', 'Debe Ingresar la primera Marcación');
-            $Val->CantMaxCaracteres('sintoma', 210, '210 caracteres permitidos ');
-            $Val->CantMaxCaracteres('soporte', 510, '500 caracteres permitidos ');
+            $Val->CantMaxCaracteres('sintoma', 510, '500 caracteres permitidos ');
+            $Val->CantMaxCaracteres('soporte', 910, '900 caracteres permitidos ');
             $Val->CantMaxCaracteres('marcacion', 7, 'Marcación Errada');
             
             $Val->ControlEnvio('peticionAjax("FormularioPDiagnosticador", "Respuesta", "'.NeuralRutasApp::RutaUrlAppModulo('Plataforma', 'Diagnosticador', 'ajaxGuion').'");');
