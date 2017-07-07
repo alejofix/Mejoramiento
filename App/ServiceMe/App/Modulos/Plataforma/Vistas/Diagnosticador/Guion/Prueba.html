@@ -1,0 +1,31 @@
+<P ALIGN=left>
+    <b>SINTOMA:</b>&nbsp;&nbsp;&nbsp;&nbsp;{{Datos.sintoma|e}}<br/>
+    <b>PROCESO DE SOPORTE:</b>&nbsp;&nbsp; {{Datos.soporte|e}}<br/>
+    <b>MARCACION:</b><br/>
+    &nbsp;1. Primera Comunicación del Cliente use marcación {{Datos.marcacion|e}}<br/>
+    &nbsp;2. Cliente ya había llamado por Aviso use marcación DIS-AVF.
+</P>
+
+
+
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg .tg-yw4l{vertical-align:top}
+    .tg .tg-9hbo{font-weight:bold;vertical-align:top}
+</style>
+<table class="tg">
+    <tr>
+        <th class="tg-yw4l">SINTOMA:</th>
+        <th class="tg-yw4l">{{Datos.sintoma|e}}</th>
+    </tr>
+    <tr>
+        <td class="tg-yw4l">PROCESO DE SOPORTE:</td>
+        <td class="tg-yw4l">{{Datos.soporte|e}}</td>
+    </tr>
+    <tr>
+        <td class="tg-yw4l">MARCACION:</td>
+        <td class="tg-yw4l">Primera Comunicación del Cliente use marcación <font style="text-transform: uppercase;">{{Datos.marcacion|e}}</font></td>
+    </tr>
+</table>
