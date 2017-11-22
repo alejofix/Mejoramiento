@@ -1,0 +1,56 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+	{% include 'Menus/menu_matriz.html' %}	
+    
+    <div class="panel-body">
+    
+        {% include 'Menus/menu_matriz_diagnosticador.html' %}	
+    
+        <form class="form-horizontal form-groups-bordered" id="FormularioMDiagnosticador" name="guionmDiagnosticador" action='#' method='post' role="form">
+				
+   
+            hola Internet
+    
+        </form>
+    </div>
+    
+    
+                <!-- request -->
+                <div class="row" id="Respuesta" style="margin-top: 35px;"></div>
+    
+    
+    {% endblock %}
+    
+    
+    {% block Script %}
+    
+        <style type="text/css">
+        	.error {
+        		font-family: verdana;
+        		font-size: 10px;
+        		font-weight: bold;
+        		color: red;
+        	}
+        </style>
+        
+        <script type="text/javascript">
+    		$(document).ready(function() {
+    			$("#borrar").click(function() {
+    				 $("#FormularioMDiagnosticador")[0].reset();
+    			});
+    		 });
+        </script>
+        
+        {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+	    <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/numerico.js"></script>
+        <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/ajax.js"></script>
+
+	
+	       {{ Validacion|raw }}
+        {% endif %}
+
+    
+    {% endblock %}

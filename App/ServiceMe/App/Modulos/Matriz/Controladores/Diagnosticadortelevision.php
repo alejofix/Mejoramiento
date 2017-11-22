@@ -1,6 +1,6 @@
 <?php
 	
-    class Diagnosticador extends Controlador  
+    class Diagnosticadortelevision extends Controlador  
     {
 		
 		function __Construct() {
@@ -9,7 +9,7 @@
 		}
 		
 		/**
-		 * Diagnosticador::Index()
+		 * Diagnosticadortelevision::Television()
 		 * 
 		 * genera la plantilla inicial
 		 * @return void
@@ -18,7 +18,6 @@
         {
             $Val = new NeuralJQueryFormularioValidacion(true, true, false);
             $Val->Requerido('aviso', 'Debe Ingresar # Aviso');
-            $Val->Requerido('falla', 'Debe Seleccionar una Opción');
             
             $Val->ControlEnvio('peticionAjax("FormularioMDiagnosticador", "Respuesta", "'.NeuralRutasApp::RutaUrlAppModulo('Matriz', 'Diagnosticador', 'ajaxGuion').'");');
             
@@ -30,7 +29,7 @@
             $Plantilla->Parametro('Titulo', 'Bienvenido');
             $Plantilla->Parametro('activo', __CLASS__);
             $Plantilla->Parametro('URL', \Neural\WorkSpace\Miscelaneos::LeerModReWrite());
-			echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Diagnosticador', 'Index.html')));
+			echo $Plantilla->MostrarPlantilla(implode(DIRECTORY_SEPARATOR, array('Diagnosticador', 'Television.html')));
 		}
         
         

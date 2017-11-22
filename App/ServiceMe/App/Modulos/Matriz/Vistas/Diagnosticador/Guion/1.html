@@ -1,13 +1,34 @@
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-.tg .tg-e3zv{font-weight:bold}
-.tg .tg-k6pi{font-size:12px}
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+.tg .tg-j2zy{background-color:#FCFBE3;vertical-align:top}
+.tg .tg-yw4l{vertical-align:top}
 </style>
 <table class="tg">
-  <tr>
-    <th class="tg-e3zv">AVISO:</th>
-    <th class="tg-k6pi">{{Datos.aviso|e}}</th>
-  </tr>
+    <tr>
+        <th class="tg-yw4l">AVISO: </th>
+        <th class="tg-yw4l">{{Datos.aviso|e}}</th>
+        <td class="tg-j2zy">MATRIZ: </td>
+        <td class="tg-yw4l">{{Datos.matriz|e}}</td>
+    </tr>
+    <tr>
+        <td class="tg-j2zy">AFECTACIÓN: </td>
+        {% if Datos.data == true %}<td class="tg-yw4l" colspan="3">{{Datos.afectacion|e}}</td>
+        {% else %}<td class="tg-yw4l" colspan="3">TRIPLEPLAY</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="tg-j2zy">FALLA: </td>
+        <td class="tg-yw4l">{{Datos.falla|e}}</td>
+        {% if Datos.intermitencia == true %}<td class="tg-yw4l" colspan="2">{{Datos.intermitencia|e}}</td>
+        {% else %}{% endif %}
+    </tr>
+    {% if Datos.detalle == true and Datos.referencia == true %}
+    <tr>
+        <td class="tg-j2zy">DETALLE: </td>
+        <td class="tg-yw4l">{{Datos.detalle|e}}</td>
+        <td class="tg-yw4l" colspan="2">{{Datos.referencia|e}}</td>
+    </tr>
+    {% endif %}
 </table>
