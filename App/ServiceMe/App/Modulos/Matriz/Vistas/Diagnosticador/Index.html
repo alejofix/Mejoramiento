@@ -1,0 +1,78 @@
+	{% extends 'Base/Html.html' %}
+	
+	{% block Contenido %}
+
+<!-- inicio -->
+	{% include 'Menus/menu_matriz.html' %}	
+    
+    <div class="panel-body">
+        <form class="form-horizontal form-groups-bordered" id="FormularioMDiagnosticador" name="guionmDiagnosticador" action='#' method='post' role="form">
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="col-sm-3 control-label"><strong>Aviso:</strong></label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" autofocus="autofocus" name="aviso" id="aviso" placeholder="Ref. Aviso" maxlength="40" required/>
+					</div>
+                </div>
+            </div>
+            
+            
+            {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+                <div class="form-group">
+        		    <div class="col-sm-offset-3 col-sm-5">
+    					<button type="submit" class="btn btn-green btn-icon icon-left" name="boton" value="boton" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="DIAGNOSTICADOR" data-original-title="Generador Guión">
+    		                Crear Guión 
+    		                <i class="entypo-check"></i>
+    	                 </button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-default btn-icon icon-left" id="borrar" value="Borrar Formulario"/>
+    						Borrar Formulario 
+    						<i class="entypo-trash"></i>
+    					</button>
+        			</div>
+               </div>
+               
+            {% endif %}
+
+    
+        </form>
+    </div>
+    
+    
+                <!-- request -->
+                <div class="row" id="Respuesta" style="margin-top: 35px;"></div>
+    
+    
+    {% endblock %}
+    
+    
+    {% block Script %}
+    
+        <style type="text/css">
+        	.error {
+        		font-family: verdana;
+        		font-size: 10px;
+        		font-weight: bold;
+        		color: red;
+        	}
+        </style>
+        
+        <script type="text/javascript">
+    		$(document).ready(function() {
+    			$("#borrar").click(function() {
+    				 $("#FormularioMDiagnosticador")[0].reset();
+    			});
+    		 });
+        </script>
+        
+        {% if Sesion.Permisos.HFC.ESCRITURA == true %}
+	    <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/numerico.js"></script>
+        <script type="text/javascript" src="{{ NeuralRutaWebPublico|e }}/assets/js/HFC/ajax.js"></script>
+
+	
+	       {{ Validacion|raw }}
+        {% endif %}
+
+    
+    {% endblock %}
