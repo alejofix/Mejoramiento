@@ -17,9 +17,11 @@
 		public function Index() 
         {
             $Val = new NeuralJQueryFormularioValidacion(true, true, false);
+            $Val->Requerido('aviso', 'Debe Ingresar # Aviso');
             $Val->Requerido('sintoma', 'Debe Ingresar Síntoma del Aviso');
             $Val->Requerido('soporte', 'Debe ingresar Proceso de Soporte');
             $Val->Requerido('marcacion', 'Debe Ingresar la primera Marcación');
+            $Val->CantMaxCaracteres('aviso', 20, '20 caracteres permitidos ');
             $Val->CantMaxCaracteres('sintoma', 510, '500 caracteres permitidos ');
             $Val->CantMaxCaracteres('soporte', 910, '900 caracteres permitidos ');
             $Val->CantMaxCaracteres('marcacion', 7, 'Marcación Errada');
