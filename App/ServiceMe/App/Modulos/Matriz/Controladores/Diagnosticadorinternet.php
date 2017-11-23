@@ -9,7 +9,7 @@
 		}
 		
 		/**
-		 * Diagnosticadorinternet::Internet()
+		 * Diagnosticadorinternet::Television()
 		 * 
 		 * genera la plantilla inicial
 		 * @return void
@@ -18,6 +18,15 @@
         {
             $Val = new NeuralJQueryFormularioValidacion(true, true, false);
             $Val->Requerido('aviso', 'Debe Ingresar # Aviso');
+            $Val->Requerido('aviso', 'Debe Ingresar el Número del Aviso');
+            $Val->Requerido('falla', 'Debe Seleccionar una Opción');
+            $Val->Requerido('matriz', 'Indique Número de Matriz');
+            $Val->Requerido('afectacion', 'Debe Seleccionar una Opción');
+            
+            $Val->Numero('aviso', 'El Aviso debe Ser Numérico');
+            $Val->CantMaxCaracteres('aviso', 10, 'Debe ingresar aviso con 10 Números');
+            $Val->Numero('matriz', 'El dato es Numérico');
+            $Val->CantMaxCaracteres('matriz', 6, 'Máximo 6 caracteres numéricos');
             
             $Val->ControlEnvio('peticionAjax("FormularioMDiagnosticador", "Respuesta", "'.NeuralRutasApp::RutaUrlAppModulo('Matriz', 'Diagnosticador', 'ajaxGuion').'");');
             
