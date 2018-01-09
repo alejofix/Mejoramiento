@@ -1,3 +1,6 @@
 Expertos@63P0D0 d:\xampp\htdocs
 # mysql -u root -p serviceme_2017 < serviceme_2017.sql
 Enter password: ******
+
+
+# mysql -u root -p mejoramiento_pruebas < mejoramiento_pruebas.sql
