@@ -25,17 +25,17 @@
 	<script>
         jQuery(document).ready(function() {
             function changeColor(){
-                if (jQuery('y').hasClass('uno')) {
-                    jQuery('y').removeClass('uno');
-                    jQuery('y').addClass('dos');
-                    jQuery('x').removeClass('dos');
-                    jQuery('x').addClass('uno');
+                if (jQuery('by').hasClass('uno')) {
+                    jQuery('by').removeClass('uno');
+                    jQuery('by').addClass('dos');
+                    jQuery('bx').removeClass('dos');
+                    jQuery('bx').addClass('uno');
                 }
                 else {
-                    jQuery('y').removeClass('dos');
-                    jQuery('y').addClass('uno');
-                    jQuery('x').removeClass('uno');
-                    jQuery('x').addClass('dos');
+                    jQuery('by').removeClass('dos');
+                    jQuery('by').addClass('uno');
+                    jQuery('bx').removeClass('uno');
+                    jQuery('bx').addClass('dos');
                 }
             }
             setInterval(changeColor, 3000);
@@ -43,6 +43,7 @@
 	</script>
 
 	<style>
+		x   {   font-size: 19px }
 		.uno {
 			background-color:#FFFFFF;
 			color:#000000;

@@ -1,6 +1,5 @@
 	{% import 'Base/Macros/ComunicacionTv.html' as cuadro %}
 
-
 <head>
 	{% include 'Base/Comunicacion/Head.html' %}
 	
@@ -15,26 +14,22 @@
 						{% for info in pag %}
 						
 							{% if info.PRIORIDAD == 1 %}
-								{{ cuadro.semaforo(info, 'plum', 'entypo-alert') }}
+								{{ cuadro.semaforo(info, 'plum', 'entypo-traffic-cone') }}
 							{% elseif info.PRIORIDAD == 2 %}
-								{{ cuadro.semaforo(info, 'orange', 'entypo-attention') }}
+								{{ cuadro.semaforo(info, 'aqua', 'entypo-monitor') }}
 							{% elseif info.PRIORIDAD == 3 %}
-								{{ cuadro.semaforo(info, 'green', 'entypo-location') }}
+								{{ cuadro.semaforo(info, 'red', 'entypo-phone') }}
 							{% elseif info.PRIORIDAD == 4 %}
-								{{ cuadro.semaforo(info, 'brown', 'entypo-traffic') }}
+								{{ cuadro.semaforo(info, 'blue', 'entypo-network') }}
 							{% else %}
-								{{ cuadro.semaforo(info, 'gray', 'entypo-tag') }}
+								{{ cuadro.semaforo(info, 'cyan', 'entypo-tag') }}
 							{% endif %}
 						
 						{% endfor %}
 
-						<div class="col-sm-3 col-xs-6">
-							<div class="tile-stats tile-{{ color|e }}">
-								<y class="uno">
-									<x class="dos">Cada 3 segundos </x>
-								</y>
-							</div>
-						</div>
+								<by class="uno">
+									<bx class="dos">Cada 3 segundos </bx>
+								</by>
 
 					</div>
 				{% endfor %}
@@ -85,7 +80,4 @@
 				transicion();
 			});
 		</script>
-		
-
-<!--
-
+		<!--
