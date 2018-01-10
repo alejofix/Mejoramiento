@@ -22,3 +22,37 @@
 	
 	<script>$.noConflict();</script>
 
+	<script>
+        jQuery(document).ready(function() {
+            function changeColor(){
+                if (jQuery('y').hasClass('uno')) {
+                    jQuery('y').removeClass('uno');
+                    jQuery('y').addClass('dos');
+                    jQuery('x').removeClass('dos');
+                    jQuery('x').addClass('uno');
+                }
+                else {
+                    jQuery('y').removeClass('dos');
+                    jQuery('y').addClass('uno');
+                    jQuery('x').removeClass('uno');
+                    jQuery('x').addClass('dos');
+                }
+            }
+            setInterval(changeColor, 3000);
+        });
+	</script>
+
+	<style>
+		.uno {
+			background-color:#FFFFFF;
+			color:#000000;
+		}
+
+		.dos {
+			background-color:#000000;
+			color:#FFFFFF;
+		}
+	</style>
+
+
+
