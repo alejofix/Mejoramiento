@@ -13,18 +13,18 @@
 					<div class="col-lg-12" id="pag_{{ loop.index|e }}" style="display: {{ loop.index == 1 ? 'block' : 'none' }};">
 					
 						{% for info in pag %}
-						
-							{% if info.PRIORIDAD == 1 %}
-								{{ cuadro.semaforo(info, 'plum', 'entypo-alert') }}
-							{% elseif info.PRIORIDAD == 2 %}
-								{{ cuadro.semaforo(info, 'orange', 'entypo-attention') }}
-							{% elseif info.PRIORIDAD == 3 %}
-								{{ cuadro.semaforo(info, 'green', 'entypo-location') }}
-							{% elseif info.PRIORIDAD == 4 %}
-								{{ cuadro.semaforo(info, 'brown', 'entypo-traffic') }}
-							{% else %}
-								{{ cuadro.semaforo(info, 'gray', 'entypo-tag') }}
-							{% endif %}
+
+						{% if info.PRIORIDAD == 1 %}
+							{{ cuadro.semaforo(info, 'plum', 'entypo-traffic-cone') }}
+						{% elseif info.PRIORIDAD == 2 %}
+							{{ cuadro.semaforo(info, 'aqua', 'entypo-monitor') }}
+						{% elseif info.PRIORIDAD == 3 %}
+							{{ cuadro.semaforo(info, 'red', 'entypo-phone') }}
+						{% elseif info.PRIORIDAD == 4 %}
+							{{ cuadro.semaforo(info, 'blue', 'entypo-network') }}
+						{% else %}
+							{{ cuadro.semaforo(info, 'cyan', 'entypo-tag') }}
+						{% endif %}
 						
 						{% endfor %}
 						

@@ -4,73 +4,73 @@
 		
 		<div id="cargaDatos" class="row">
 			{% if avisos|length >= 1 %}
-				
-				{% for datos in avisos %}
-				
-					{% if datos.PRIORIDAD == 1 %}
-						<div class="col-sm-3 col-xs-6">
-							<div class="tile-stats tile-plum">
-								<div class="icon"><i class="entypo-alert"></i></div>
-								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
-								<h3>{{ datos.REGIONAL|e|title }}</h3>
-								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
-								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
-							</div>
-						</div>
-						
-					{% elseif datos.PRIORIDAD == 2 %}	
-						<div class="col-sm-3 col-xs-6">
-							<div class="tile-stats tile-orange">
-								<div class="icon"><i class="entypo-attention"></i></div>
-								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
-								<h3>{{ datos.REGIONAL|e|title }}</h3>
-								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
-								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
-							</div>
-						</div>
-					
-					{% elseif datos.PRIORIDAD == 3 %}	
-						<div class="col-sm-3 col-xs-6">
-							<div class="tile-stats tile-green">
-								<div class="icon"><i class="entypo-location"></i></div>
-								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
-								<h3>{{ datos.REGIONAL|e|title }}</h3>
-								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
-								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
-							</div>
-						</div>
-							
-					{% elseif datos.PRIORIDAD == 4 %}	
-						<div class="col-sm-3 col-xs-6">
-							<div class="tile-stats tile-brown">
-								<div class="icon"><i class="entypo-traffic"></i></div>
-								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
-								<h3>{{ datos.REGIONAL|e|title }}</h3>
-								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
-								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
-							</div>
-						</div>
-					
-					{% elseif datos.PRIORIDAD == 5 %}	
-						<div class="col-sm-3 col-xs-6">
-							<div class="tile-stats tile-gray">
-								<div class="icon"><i class="entypo-tag"></i></div>
-								<div class="num" data-start="90" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="999" data-delay="0">0</div>
-								<h3>{{ datos.REGIONAL|e|title }}</h3>
-								<h3><strong>{{ datos.FALLA|e|title }}</strong></h3>
-								<p>{{ datos.DETALLEFALLA|e|lower }}</p>
-							</div>
-						</div>		
-						
-						
-					{% else %}
-	
-						<div class="col-sm-3 col-xs-6">
-						</div>
-	
-					{% endif %}
-		
-				{% endfor %}
+
+			{% for datos in avisos %}
+
+			{% if datos.PRIORIDAD == 1 %}
+			<div class="col-sm-3 col-xs-12">
+				<div class="tile-stats tile-plum">
+					<div class="num" data-start="007" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="400" data-delay="500">{{ datos.AVISO|e }}</div>
+					<h3><strong><font size="6">{{ datos.FALLA|e|title }}</font></strong></h3>
+					<h3><strong>{{ datos.REGIONAL|e|title }}</strong></h3>
+					<p style="font: oblique 120% cursive">{{ datos.DETALLEFALLA|e|lower }}</p>
+					<div class="icon"><i style="color: white;  opacity: 0.5;"  class="entypo-traffic-cone"></i>.<br /></div>
+				</div>
+			</div>
+
+			{% elseif datos.PRIORIDAD == 2 %}
+			<div class="col-sm-3 col-xs-12">
+				<div class="tile-stats tile-aqua">
+					<div class="num" data-start="007" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="400" data-delay="500">{{ datos.AVISO|e }}</div>
+					<h3><strong><font size="6">{{ datos.FALLA|e|title }}</font></strong></h3>
+					<h3><strong>{{ datos.REGIONAL|e|title }}</strong></h3>
+					<p style="font: oblique 120% cursive">{{ datos.DETALLEFALLA|e|lower }}</p>
+					<div class="icon"><i style="color: white;  opacity: 0.5;"  class="entypo-monitor"></i>.<br /></div>
+				</div>
+			</div>
+
+			{% elseif datos.PRIORIDAD == 3 %}
+			<div class="col-sm-3 col-xs-12">
+				<div class="tile-stats tile-red">
+					<div class="num" data-start="007" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="400" data-delay="500">{{ datos.AVISO|e }}</div>
+					<h3><strong><font size="6">{{ datos.FALLA|e|title }}</font></strong></h3>
+					<h3><strong>{{ datos.REGIONAL|e|title }}</strong></h3>
+					<p style="font: oblique 120% cursive">{{ datos.DETALLEFALLA|e|lower }}</p>
+					<div class="icon"><i style="color: white;  opacity: 0.5;"  class="entypo-phone"></i>.<br /></div>
+				</div>
+			</div>
+
+			{% elseif datos.PRIORIDAD == 4 %}
+			<div class="col-sm-3 col-xs-12">
+				<div class="tile-stats tile-blue">
+					<div class="num" data-start="007" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="400" data-delay="500">{{ datos.AVISO|e }}</div>
+					<h3><strong><font size="6">{{ datos.FALLA|e|title }}</font></strong></h3>
+					<h3><strong>{{ datos.REGIONAL|e|title }}</strong></h3>
+					<p style="font: oblique 120% cursive">{{ datos.DETALLEFALLA|e|lower }}</p>
+					<div class="icon"><i style="color: white;  opacity: 0.5;"  class="entypo-network"></i>.<br /></div>
+				</div>
+			</div>
+
+			{% elseif datos.PRIORIDAD == 5 %}
+			<div class="col-sm-3 col-xs-12">
+				<div class="tile-stats tile-cyan">
+					<div class="num" data-start="007" data-end="{{ datos.AVISO|e }}" data-postfix="" data-duration="400" data-delay="500">{{ datos.AVISO|e }}</div>
+					<h3><strong><font size="6">{{ datos.FALLA|e|title }}</font></strong></h3>
+					<h3><strong>{{ datos.REGIONAL|e|title }}</strong></h3>
+					<p style="font: oblique 120% cursive">{{ datos.DETALLEFALLA|e|lower }}</p>
+					<div class="icon"><i style="color: white;  opacity: 0.5;"  class="entypo-tag"></i>.<br /></div>
+				</div>
+			</div>
+
+
+			{% else %}
+
+			<div class="col-sm-3 col-xs-12">
+			</div>
+
+			{% endif %}
+
+			{% endfor %}
 				
 			{% else %}
 			
